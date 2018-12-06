@@ -191,7 +191,7 @@ $classEvent = new eventClass($conn);
                         <?php
                         if ($obj->confirmed == 0) {
                             echo '<div class="notConfirmed">
-                            <p class="nextText">Следующее занятие: <span class="bold">' . $obj->date . '</span> в <span class="bold">' . $obj->time . '</span></p>
+                            <p class="nextText">Следующее занятие: <span class="bold privateNextDate">' . $obj->date . '</span> в <span class="bold">' . date("h:i", $obj->time) . '</span></p>
                             <p>Занятие еще не подтверждено.</p>
                                 <p>Пожалуйста, дождитесь подтверждения</p>
                             <button onclick="location.href =\'changePrivateEvent.php?user='.$user.'&page=events&id='.$obj->event.'\'" class="change" >Изменить запись</button>
@@ -199,7 +199,7 @@ $classEvent = new eventClass($conn);
                         </div>';
                         } else{
                             echo '<div class="confirmed">
-                            <p class="nextText">Следующее занятие: <span class="bold">' . $obj->date . '</span> в <span class="bold">' . $obj->time . '</span>
+                            <p class="nextText">Следующее занятие: <span class="bold privateNextDate"></span> в <span class="bold">' . date("h:i", $obj->time) . '</span>
                             </p>
                             <button onclick="location.href =\'changePrivateEvent.php?user='.$user.'&page=events&id='.$obj->event.'\'" class="change" >Изменить запись</button>
                             <p class="or">- или -</p>
@@ -229,6 +229,24 @@ $classEvent = new eventClass($conn);
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 			  crossorigin="anonymous"></script>
     <script src='../js/app.js'></script>
+    <script src="../../assets/js/moment.min.js"></script>
+
+    <script>
+        //Format birthdate date output
+        //grab birthday date
+        var privateNext = "<?php echo $obj->date; ?>";
+        if (privateNext) {
+            //format rules
+            var momentPrivateNext = moment(privateNext);
+            //output the result on page
+            momentPrivateNext.locale('ru');
+            var momentPrivateNextRU = momentPrivateNext.format("DD MMM");
+
+
+            //output the result on page
+            $('.privateNextDate').text(momentPrivateNextRU);
+        }
+    </script>
 </body>
 
 </html>

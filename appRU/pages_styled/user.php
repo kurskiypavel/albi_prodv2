@@ -195,11 +195,11 @@ $obj = $result->fetch_object();
 
 <script src="../js/app.js"></script>
 <script src="../../assets/js/moment.min.js"></script>
-<script src="../js/moment-timezone.min.js"></script>
+
 <script>
     //Format birthdate date output
     //grab birthday date
-    var birthday = "<?php echo $obj->bdate; ?>";
+    var birthday = "<?php echo $obj->birthdate; ?>";
     if (birthday) {
         //format rules
         var momentBirth = moment(birthday);
@@ -216,10 +216,6 @@ $obj = $result->fetch_object();
     var joinDate = '<?php echo $obj->created_at; ?>';
 
     //format rule
-//    var jun = moment("2018-12-06T18:00:00Z");
-//    var joinDateTz = jun.tz('Europe/Russia');
-
-
 
     let momentjoinDate = moment(joinDate, "YYYY-MM-DD HH:mm").locale('ru').fromNow();
     //output the result on page
