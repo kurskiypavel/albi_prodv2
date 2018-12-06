@@ -19,13 +19,13 @@ $classProgram = new programClass($conn);
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Программы</title>
+    <title>Albi | Программы</title>
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styleApp.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">
@@ -121,7 +121,7 @@ $objUser = $result->fetch_object();
             <div class="program">
                 <div class="headerProgram" style="background-image: url(../../assets/images/App/programs-images/' . $obj->image . ');">
                     <ul>
-                        <li><i class="fas fa-share"></i></li>
+                        <li style="opacity: 0;"><i class="fas fa-share"></i></li>
                 ';
                 //        select favorite programs BEGINS
                 $queryFavoriteProgram = "SELECT * FROM `favorite-programs` WHERE user='$user' AND program='$obj->id'";
@@ -204,7 +204,7 @@ $objUser = $result->fetch_object();
             <div class="program">
                 <div class="headerProgram" style="background-image: url(../../assets/images/App/programs-images/' . $obj->image . ');">
                     <ul>
-                        <li><i class="fas fa-share"></i></li>
+                        <li style="opacity: 0;"><i class="fas fa-share"></i></li>
                 ';
                 //        select favorite programs BEGINS
                 $queryFavoriteProgram = "SELECT * FROM `favorite-programs` WHERE user='$user' AND program='$obj->id'";

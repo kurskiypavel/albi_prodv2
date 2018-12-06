@@ -32,7 +32,7 @@ $obj = $result->fetch_object();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Мой профиль</title>
+    <title>Albi | Мой профиль</title>
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styleApp.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">
@@ -175,7 +175,7 @@ $obj = $result->fetch_object();
             ?>
 
         </div>
-    <div style="margin-top: 30px;" class="logout"><a href="../ajax/logout.php">Выйти</a></div>
+        <div style="margin-top: 30px;" class="logout"><a href="../ajax/logout.php">Выйти</a></div>
 
     </div>
 
@@ -195,6 +195,7 @@ $obj = $result->fetch_object();
 
 <script src="../js/app.js"></script>
 <script src="../../assets/js/moment.min.js"></script>
+<script src="../js/moment-timezone.min.js"></script>
 <script>
     //Format birthdate date output
     //grab birthday date
@@ -204,8 +205,8 @@ $obj = $result->fetch_object();
         var momentBirth = moment(birthday);
         //output the result on page
         momentBirth.locale('ru');
-        var momentBirthRU = momentBirth.format("DD MMM YYYY");        
-        
+        var momentBirthRU = momentBirth.format("DD MMM YYYY");
+
         //output the result on page
         $('#bdateRU').text(momentBirthRU);
     }
@@ -213,12 +214,17 @@ $obj = $result->fetch_object();
     //Format join date output from now on Page:product.php Field:product join element
     //grab join date
     var joinDate = '<?php echo $obj->created_at; ?>';
-    
-        //format rule
-        let momentjoinDate = moment(joinDate, "YYYYMMDD").locale('ru').fromNow();
-        //output the result on page
-        $('#joinDate').text(momentjoinDate);
-    
+
+    //format rule
+//    var jun = moment("2018-12-06T18:00:00Z");
+//    var joinDateTz = jun.tz('Europe/Russia');
+
+
+
+    let momentjoinDate = moment(joinDate, "YYYY-MM-DD HH:mm").locale('ru').fromNow();
+    //output the result on page
+    $('#joinDate').text(momentjoinDate);
+
 </script>
 
 <script>
@@ -227,12 +233,12 @@ $obj = $result->fetch_object();
     // event on typing
     $('textarea').keypress(function () {
         //show upload button
-        $('.changesNav').css('display','block');
+        $('.changesNav').css('display', 'block');
     });
     // event on changing
     $('textarea').change(function () {
         //show upload button
-        $('.changesNav').css('display','block');
+        $('.changesNav').css('display', 'block');
     });
 
     //Refresh form and rollback all changes on Page:users.php Field:personal information
@@ -242,20 +248,20 @@ $obj = $result->fetch_object();
     });
 
     $('#done').click(function () {
-            var user='<?php echo $user; ?>';
-            var about = $('textarea').val();
-            if (about != ""){
-                $.ajax({
-                    type: "POST",
-                    url: "../ajax/aboutUser.php",
-                    data: {
-                        id: user,
-                        about: about
-                    }
-                });
-            }
+        var user = '<?php echo $user; ?>';
+        var about = $('textarea').val();
+        if (about != "") {
+            $.ajax({
+                type: "POST",
+                url: "../ajax/aboutUser.php",
+                data: {
+                    id: user,
+                    about: about
+                }
+            });
+        }
 
-        $('.changesNav').css('display','none');
+        $('.changesNav').css('display', 'none');
     });
 </script>
 </body>

@@ -19,7 +19,7 @@ $obj = new eventClass($conn);
 
 
 if ($_POST) {
-    if (isset($_POST['createPrivateEvent'])) {
+
 
 
         $date = htmlspecialchars($_POST['date']);
@@ -32,31 +32,32 @@ if ($_POST) {
 
         //createPrivateEvent
         $obj->createPrivateEvent(
-            $student,$instructor,
-            $date,$time,$comment,
-            $confirmed,$canceled,$repeatable);
-            echo "<script>location.href = 'instructor.php?user=".$user."&id=".$instructor."';</script>";
+            $student, $instructor,
+            $date, $time, $comment,
+            $confirmed, $canceled, $repeatable);
+        echo "<script>location.href = 'instructor.php?user=" . $user . "&id=" . $instructor . "';</script>";
 
 
-    }
+
 }
 
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Взять частный урок</title>
+    <title>Albi | Взять частный урок</title>
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styleApp.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
 
 
     <!-- FONTS IMPORT -->
@@ -85,7 +86,8 @@ if ($_POST) {
                 clearTimeout(t);
                 try {
                     Typekit.load(config)
-                } catch (e) {}
+                } catch (e) {
+                }
             };
             s.parentNode.insertBefore(tk, s)
         })(document);
@@ -95,37 +97,65 @@ if ($_POST) {
 </head>
 
 <body style="background: unset;">
-    <div class="bookPrivateEventPage">
-        <div class="header">
-            <a href='instructor.php?user=<?php echo $user;?>&id=1'><i class="fas fa-arrow-left"></i></a>
-            <h3>Взять частный урок</h3>
+<div class="bookPrivateEventPage">
+    <div class="header">
+        <a href='instructor.php?user=<?php echo $user; ?>&id=1'><i class="fas fa-arrow-left"></i></a>
+        <h3>Взять частный урок</h3>
+    </div>
+
+
+    <form class='form' method="post">
+        <p class="label ">Дата</p><input name='date' class="gray date" type="date">
+        <span class="error date"></span>
+        <p class="label ">Время</p><input name='time' class="gray time" type="time">
+        <span class="error time"></span>
+        <p class="label">Комментарий</p><textarea class="" name='comment' type="text"></textarea>
+
+        <div class="repeatableDiv">
+            <p class="repeatableLabel">Повторные занятия</p>
+            <div class="repeatableCheckbox">
+
+                <input type='checkbox' class='ios8-switch' name="repeatable" id='checkbox-1'>
+                <!-- get to DB by checked property -->
+                <label for='checkbox-1'></label>
+            </div>
         </div>
 
+        <input class="button" name="createPrivateEvent" type="submit" value="Готово">
 
-        <form class='form' method="post">
-            <p class="label">Дата</p><input name='date' class="gray" type="date">
-            <p class="label">Время</p><input name='time' class="gray" type="time">
-            <p class="label">Комментарий</p><textarea class="" name='comment' type="text"></textarea>
+    </form>
+    <?php include_once '../parts/footer.php' ?>
+</div>
+<script
+        src="//code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 
-            <div class="repeatableDiv">
-                <p class="repeatableLabel">Повторные занятия</p>
-                <div class="repeatableCheckbox">
+<script>
+    $('input.button').click(function (e) {
 
-                    <input type='checkbox' class='ios8-switch' name="repeatable" id='checkbox-1'>
-                    <!-- get to DB by checked property -->
-                    <label for='checkbox-1'></label>
-                </div>
-            </div>
+        var dateVal = $('.date').val();
+        var timeVal = $('.time').val();
 
-            <input class="button" name="createPrivateEvent" type="submit" value="Готово">
+        if (dateVal  == "" && timeVal == "") {
+            e.preventDefault();
+            $('.error.date').text('Пожалуйста выберите дату');
+            $('.error.time').text('Пожалуйста выберите время');
+        } else if (dateVal == "") {
+            e.preventDefault();
+            $('.error.time').text('');
+            $('.error.date').text('Пожалуйста выберите дату');
+        } else if (timeVal == "") {
+            e.preventDefault();
+            $('.error.date').text('');
+            $('.error.time').text('Пожалуйста выберите время');
+        } else {
 
-        </form>
-        <?php include_once '../parts/footer.php'?>
-    </div>
-    <script
-			  src="//code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
+        }
+
+
+    })
+</script>
 </body>
 
 </html>

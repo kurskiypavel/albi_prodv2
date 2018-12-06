@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST['password']))) {
         $password_err = "Пожалуйста введите пароль";
     } elseif (strlen(trim($_POST['password'])) < 6) {
-        $password_err = "Пароль должен быть больше 6 символов.";
+        $password_err = "Пароль должен содержать минимум 6 символов";
     } else {
         $password = trim($_POST['password']);
     }
@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -176,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <p class='dont'>Новый участник?</p>
     <button class='buttonRegister' href="register.php">Зарегистрироваться</button>
-    
+
 </div>
 
 <script
@@ -193,13 +193,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     });
 
 
-
     $('.buttonNext').click(function (e) {
         e.preventDefault();
 
-        var phone=$('#yourphone2').val();
+        var phone = $('#yourphone2').val();
 
-        if(phone == ""){
+        if (phone == "") {
             $('.error.phone').text('Пожалуйста введите номер телефона');
         } else {
             $('.slide1').css('display', 'none');

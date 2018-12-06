@@ -29,7 +29,7 @@ echo '
             <li class="'.($thisPage == 'bookPrivateEvent' ? 'active' : '').'">
                 <a href="bookPrivateEvent.php?user='.$user.'&student='.$user.'&page='.$page.'">
                     <i class="far fa-clock"></i>
-                    <p>Book private</p>
+                    <p>Урок с Albi</p>
                 </a>
             </li>
             <li class="'.($thisPage == 'events' ? 'active' : '').'">

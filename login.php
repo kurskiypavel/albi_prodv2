@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if password is empty
     if (empty(trim($_POST['password']))) {
-        $password_err = 'Please enter your password';
+        $password_err = 'Пожалуйста введите пароль';
     } else {
         $password = trim($_POST['password']);
     }
@@ -55,12 +55,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             header("location: appRU/pages_styled/events.php?user=" . $user_id);
                         } else {
                             // display an error message if password is not valid
-                            $password_err = 'The password you entered was not valid';
+                            $password_err = 'Пароль не подходит';
                         }
                     }
                 } else {
                     // display an error message if phone doesn't exist
-                    $phone_err = 'No account found with that phone';
+                    $phone_err = 'Телефон не найден';
                 }
             }
         }
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="loginPage">
     <div class="header">
         <a id='backHome' href='http://albi.yoga/index.html'><i class="fas fa-arrow-left"></i></a>
-        <h3>Login</h3>
+        <h3>Войти</h3>
     </div>
 
 
@@ -100,29 +100,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="slide1">
 
-            <p class='label'>Enter your mobile phone</p>
+            <p class='label'>Введите ваш номер телефона</p>
             <input id='yourphone2' type="tel" class='gray' name="phone" value="<?php echo $phone; ?>">
             <span class="error phone"><?php echo $phone_err; ?></span>
-            <button type="button" class='buttonNext'>Next <i class="fas fa-angle-right"></i></button>
+            <button type="button" class='buttonNext'>Дальше <i class="fas fa-angle-right"></i></button>
 
         </div>
         <div style='display:none;' class="slide2">
 
-            <p class='label'>Enter password</p>
+            <p class='label'>Введите пароль</p>
             <input class='password' type="password" name="password">
             <span class="error">
                             <?php echo $password_err; ?>
                         </span>
 
 
-            <input class='buttonLogin' type="submit" value="Login">
-            <button class='buttonForgot' href="forgot.php">Forgot your password?</button>
+            <input class='buttonLogin' type="submit" value="Войти">
+            <button class='buttonForgot' href="forgot.php">Забыли пароль?</button>
 
         </div>
     </form>
 
-    <p class='dont'>Don't have an account?</p>
-    <button class='buttonRegister' href="register.php">Register</button>
+    <p class='dont'>Новый участник?</p>
+    <button class='buttonRegister' href="register.php">Зарегистрироваться</button>
 
 </div>
 
@@ -146,22 +146,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $('.buttonNext').click(function (e) {
         e.preventDefault();
-        var phone=$('#yourphone2').val();
+        var phone = $('#yourphone2').val();
 
-        if(phone == ""){
+        if (phone == "") {
             $('.error.phone').text('Пожалуйста введите номер телефона');
         } else {
             $('.slide1').css('display', 'none');
             $('.slide2').css('display', 'block');
         }
-
-
-
-
-
-
     });
-
 
 
 </script>

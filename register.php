@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->store_result();
 
                 if ($stmt->num_rows == 1) {
-                    $phone_err = "This phone is already taken.";
+                    $phone_err = "Этот номер уже используется";
                 } else {
                     $phone = trim($_POST["phone"]);
                 }
@@ -39,27 +39,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // validate password
     if (empty(trim($_POST['first_name']))) {
-        $name_err = "Please enter name";
+        $name_err = "Пожалуйста введите имя";
     } else {
         $first_name = htmlspecialchars(trim($_POST["first_name"]));
     }
 
     // validate password
     if (empty(trim($_POST['password']))) {
-        $password_err = "Please enter a password";
+        $password_err = "Пожалуйста введите пароль";
     } elseif (strlen(trim($_POST['password'])) < 6) {
-        $password_err = "Password must have at least 6 characters.";
+        $password_err = "Пароль должен содержать минимум 6 символов";
     } else {
         $password = trim($_POST['password']);
     }
 
     // validate confirm password
     if (empty(trim($_POST["confirm_password"]))) {
-        $confirm_password_err = 'Please confirm password';
+        $confirm_password_err = 'Пожалуйста подтвердите пароль';
     } else {
         $confirm_password = trim($_POST['confirm_password']);
         if ($password != $confirm_password) {
-            $confirm_password_err = 'Password did not match.';
+            $confirm_password_err = 'Пароли не совпали';
         }
     }
 
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -155,33 +155,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form class='form' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
         <div class="slide1">
-            <p class='label'>Enter your mobile phone</p>
+            <p class='label'>Введите ваш номер телефона</p>
             <input id='yourphone2' type="tel" class='gray' name="phone" value="<?php echo $phone; ?>">
             <span class="error phone"><?php echo $phone_err; ?></span>
 
-            <p class='label'>Enter your name</p>
+            <p class='label'>Введите имя</p>
             <input class='gray first_name' type="text" name="first_name" value="<?php echo $first_name; ?>">
             <span class="error name"><?php echo $name_err; ?></span>
 
-            <button class='buttonNext'>Next <i class="fas fa-angle-right"></i></button>
+            <button class='buttonNext'>Дальше <i class="fas fa-angle-right"></i></button>
         </div>
 
         <div style='display:none;' class="slide2">
-            <p class='label'>Enter password</p>
+            <p class='label'>Введите пароль</p>
             <input class='password' type="password" name="password" value="<?php echo $password; ?>">
             <span class="error"><?php echo $password_err; ?></span>
 
-            <p class='label'>Confirm password</p>
+            <p class='label'>Подтвердите пароль</p>
             <input class='password' type="password" name="confirm_password"
                    value="<?php echo $confirm_password; ?>">
 
             <span class="error"><?php echo $confirm_password_err; ?></span>
-            <button class='buttonRegister' type="submit">Register</button>
+            <button class='buttonRegister' type="submit">Зарегистрироваться</button>
         </div>
 
 
     </form>
-    <button class='buttonLogin'>Login</button>
+    <button class='buttonLogin'>Войти в аккаунт</button>
 </div>
 
 
@@ -204,12 +204,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var phone = $('#yourphone2').val();
 
         if (name == "" && phone == "") {
-            $('.error.name').text('Please enter name');
-            $('.error.phone').text('Please enter phone');
+            $('.error.name').text('Пожалуйста введите имя');
+            $('.error.phone').text('Пожалуйста введите номер телефона');
         } else if (name == "") {
-            $('.error.name').text('Please enter name');
+            $('.error.name').text('Пожалуйста введите имя');
         } else if (phone == "") {
-            $('.error.phone').text('Please enter phone');
+            $('.error.phone').text('Пожалуйста введите номер телефона');
         } else {
             $('.slide1').css('display', 'none');
             $('.slide2').css('display', 'block');
