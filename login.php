@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if phone is empty
     if (empty(trim($_POST["phone"]))) {
-        $phone_err = 'Please enter phone';
+        $phone_err = 'Пожалуйста введите номер телефона';
     } else {
         $phone = trim($_POST["phone"]);
     }
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Войти</title>
+    <title>Albi | Войти</title>
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styleApp.css">
     <link rel="stylesheet" href="/assets/css/reset.css">
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="loginPage">
     <div class="header">
-        <a id='backHome' href='http://178.128.238.166/index.html'><i class="fas fa-arrow-left"></i></a>
+        <a id='backHome' href='http://albi.yoga/index.html'><i class="fas fa-arrow-left"></i></a>
         <h3>Login</h3>
     </div>
 
@@ -149,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var phone=$('#yourphone2').val();
 
         if(phone == ""){
-            $('.error.phone').text('Please enter phone');
+            $('.error.phone').text('Пожалуйста введите номер телефона');
         } else {
             $('.slide1').css('display', 'none');
             $('.slide2').css('display', 'block');

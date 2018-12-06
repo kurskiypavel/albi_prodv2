@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="playground@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="playground">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="axon"/>
+    <schema id="4" parent="1" name="host2"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="verify"/>
+    <schema id="9" parent="1" name="wwwaxon"/>
+    <table id="10" parent="2" name="events"/>
+    <table id="11" parent="2" name="facebook"/>
+    <table id="12" parent="2" name="favorite-programs"/>
+    <table id="13" parent="2" name="phones"/>
+    <table id="14" parent="2" name="programs"/>
+    <table id="15" parent="2" name="users"/>
+    <column id="16" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="10" name="group_event_id">
+      <Position>2</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="18" parent="10" name="program">
+      <Position>3</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="19" parent="10" name="student">
+      <Position>4</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="20" parent="10" name="instructor">
+      <Position>5</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="21" parent="10" name="date">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="22" parent="10" name="time">
+      <Position>7</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="23" parent="10" name="comment">
+      <Position>8</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="24" parent="10" name="private">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="25" parent="10" name="confirmed">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="26" parent="10" name="canceled">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="27" parent="10" name="repeatble">
+      <Position>12</Position>
+      <DataType>int(2)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="28" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="11" name="email">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="31" parent="11" name="name">
+      <Position>3</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="32" parent="11" name="fb_id">
+      <Position>4</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="33" parent="11" name="registered_at">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="34" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="12" name="user">
+      <Position>2</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="37" parent="12" name="program">
+      <Position>3</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <key id="38" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="40" parent="13" name="phone">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="41" parent="13" name="registered_at">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="42" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="43" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="44" parent="14" name="title">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="45" parent="14" name="schedule">
+      <Position>3</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="46" parent="14" name="description">
+      <Position>4</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="47" parent="14" name="created_at">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="48" parent="14" name="focus">
+      <Position>6</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="49" parent="14" name="level">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="50" parent="14" name="duration">
+      <Position>8</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="51" parent="14" name="instructor_id">
+      <Position>9</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="52" parent="14" name="new">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="53" parent="14" name="group_size">
+      <Position>11</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="54" parent="14" name="image">
+      <Position>12</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="55" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="15" name="avatar">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <DefaultExpression>&apos;default.png&apos;</DefaultExpression>
+    </column>
+    <column id="58" parent="15" name="first_name">
+      <Position>3</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="59" parent="15" name="last_name">
+      <Position>4</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="60" parent="15" name="gender">
+      <Position>5</Position>
+      <DataType>varchar(11)|0</DataType>
+    </column>
+    <column id="61" parent="15" name="birthdate">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="62" parent="15" name="level">
+      <Position>7</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="63" parent="15" name="location">
+      <Position>8</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="64" parent="15" name="email">
+      <Position>9</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="65" parent="15" name="phone">
+      <Position>10</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="66" parent="15" name="about">
+      <Position>11</Position>
+      <DataType>varchar(400)|0</DataType>
+    </column>
+    <column id="67" parent="15" name="password">
+      <Position>12</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="68" parent="15" name="created_at">
+      <Position>13</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="69" parent="15" name="available">
+      <Position>14</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="70" parent="15" name="facebook">
+      <Position>15</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="71" parent="15" name="instagram">
+      <Position>16</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <key id="72" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

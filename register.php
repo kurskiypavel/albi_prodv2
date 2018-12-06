@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // validate phone
     if (empty(trim($_POST["phone"]))) {
-        $phone_err = "Please enter a phone";
+        $phone_err = "Пожалуйста введите номер телефона";
     } else {
         // prepare a select statement
         $sql = "SELECT id FROM users WHERE phone = ?";
@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Регистрация</title>
+    <title>Albi | Регистрация</title>
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styleApp.css">
     <link rel="stylesheet" href="/assets/css/reset.css">
@@ -147,8 +147,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="registerPage">
     <div class="header">
-        <a id='backHome' href='http://178.128.238.166/index.html'><i class="fas fa-arrow-left"></i></a>
-        <h3>Register</h3>
+        <a id='backHome' href='http://albi.yoga/index.html'><i class="fas fa-arrow-left"></i></a>
+        <h3>Регистрация</h3>
     </div>
 
 

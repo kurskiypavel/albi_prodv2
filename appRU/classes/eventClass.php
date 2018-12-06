@@ -22,9 +22,9 @@ class eventClass
                                      $confirmed, $canceled)
     {
         $sql_new_group_event = "INSERT INTO events VALUES" . "(null,'$group_event_id',
-                                                        '$program','$student','$instructor',
+                                                        '$program','$student','$instructor',null,null,
                                                         '$comment','0',
-                                                        '$confirmed','$canceled',null)";
+                                                        '$confirmed','$canceled',1)";
         $this->conn->query($sql_new_group_event);
 
     }

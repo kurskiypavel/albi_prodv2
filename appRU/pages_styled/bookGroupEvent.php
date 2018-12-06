@@ -33,6 +33,7 @@ if ($_POST) {
         $obj->createGroupEvent($group_event_id, $program,
             $student, $instructor, $comment,
             $confirmed, $canceled);
+
         if ($page == 'programs') {
             echo "<script>location.href = 'programs.php?user=" . $user . "';</script>";
         } elseif ($page == 'program') {
