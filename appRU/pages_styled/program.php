@@ -151,7 +151,7 @@ $obj = $result->fetch_object();
             </div>
 
             <div class="instructor">
-                <h3>Инструктор</h3>
+                <h3>Учитель</h3>
                 <a href="instructor.php?user=<?php echo $user; ?>&id=<?php echo $obj->instructor_id; ?>">
                     <div class="subInstructor">
                         <div class="headerInstructor"

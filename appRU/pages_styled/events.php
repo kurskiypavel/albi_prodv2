@@ -135,7 +135,7 @@ $classEvent = new eventClass($conn);
 
                         </div>
                         <div class="contactInstructor">
-                            <?php echo '<a href="contact-instructor.php?user='.$user.'&page=events&instructor=' . $obj->instructor . '&student=' . $obj->student . '"><p>Связаться с инструктором</p></a>';?>
+                            <?php echo '<a href="contact-instructor.php?user='.$user.'&page=events&instructor=' . $obj->instructor . '&student=' . $obj->student . '"><p>Связаться с учителем</p></a>';?>
                             <i class="far fa-comment"></i>
                         </div>
 
@@ -156,7 +156,7 @@ $classEvent = new eventClass($conn);
     <div class="events private" style="display: none">
         <?php
 
-        $query = "SELECT *,events.id event
+        $query = "SELECT *,events.id event,TIME_FORMAT(events.time, '%k:%i') AS time
         FROM events
         JOIN users ON users.id = events.instructor WHERE events.student='$user' AND events.private ='1'";
 
@@ -181,7 +181,7 @@ $classEvent = new eventClass($conn);
                 </div>
                 <div class="body">
 
-                    <p class="lessonWith">Практика с <span class="bold">
+                    <p class="lessonWith">Учитель <span class="bold">
                         <?php echo '<a href="instructor.php?user='.$user.'&id=' . $obj->instructor . '&student=' . $obj->student . '&event=' . $obj->event . '">' . $obj->first_name . ' ' . $obj->last_name . '</a>';?>
                     </span></p>
 
@@ -191,7 +191,7 @@ $classEvent = new eventClass($conn);
                         <?php
                         if ($obj->confirmed == 0) {
                             echo '<div class="notConfirmed">
-                            <p class="nextText">Следующее занятие: <span class="bold privateNextDate">' . $obj->date . '</span> в <span class="bold">' . date("h:i", $obj->time) . '</span></p>
+                            <p class="nextText">Следующее занятие: <span class="bold privateNextDate">' . $obj->date. '</span> в <span class="bold">' . $obj->time. '</span></p>
                             <p>Занятие еще не подтверждено.</p>
                                 <p>Пожалуйста, дождитесь подтверждения</p>
                             <button onclick="location.href =\'changePrivateEvent.php?user='.$user.'&page=events&id='.$obj->event.'\'" class="change" >Изменить запись</button>
@@ -199,7 +199,7 @@ $classEvent = new eventClass($conn);
                         </div>';
                         } else{
                             echo '<div class="confirmed">
-                            <p class="nextText">Следующее занятие: <span class="bold privateNextDate"></span> в <span class="bold">' . date("h:i", $obj->time) . '</span>
+                            <p class="nextText">Следующее занятие: <span class="bold privateNextDate">' . $obj->date. '</span> в <span class="bold">' . $obj->time . '</span>
                             </p>
                             <button onclick="location.href =\'changePrivateEvent.php?user='.$user.'&page=events&id='.$obj->event.'\'" class="change" >Изменить запись</button>
                             <p class="or">- или -</p>
@@ -210,7 +210,7 @@ $classEvent = new eventClass($conn);
 
                     </div>
                     <div class="contactInstructor">
-                        <?php echo '<a href="contact-instructor.php?user='.$user.'&page=events&instructor=' . $obj->instructor . '&student=' . $user . '"><p>Связаться с инструктором</p></a>';?>
+                        <?php echo '<a href="contact-instructor.php?user='.$user.'&page=events&instructor=' . $obj->instructor . '&student=' . $user . '"><p>Связаться с учителем</p></a>';?>
                         <i class="far fa-comment"></i>
                     </div>
 
@@ -232,20 +232,50 @@ $classEvent = new eventClass($conn);
     <script src="../../assets/js/moment.min.js"></script>
 
     <script>
+
+        function formatDate(i,privateNext){
+            //Format eventDate
+
+            if (privateNext) {
+                //format rules
+                var momentPrivateNext = moment(privateNext);
+                //output the result on page
+                momentPrivateNext.locale('ru');
+                var momentPrivateNextRU = momentPrivateNext.format("DD MMM");
+
+
+                //insert each into
+                listOfClasses[i].innerText=momentPrivateNextRU;
+            }
+
+
+        }
+
+        //create array of listed dates
+        var listOfClasses = document.getElementsByClassName('privateNextDate');
+        for (var i = 0; i < listOfClasses.length; i++) {
+            //pass each into function
+            formatDate(i, listOfClasses[i].innerText);
+        }
+
+
+
+
+
         //Format birthdate date output
         //grab birthday date
-        var privateNext = "<?php echo $obj->date; ?>";
-        if (privateNext) {
-            //format rules
-            var momentPrivateNext = moment(privateNext);
-            //output the result on page
-            momentPrivateNext.locale('ru');
-            var momentPrivateNextRU = momentPrivateNext.format("DD MMM");
-
-
-            //output the result on page
-            $('.privateNextDate').text(momentPrivateNextRU);
-        }
+//        var privateNext = "<?php //echo $obj->date; ?>//";
+//        if (privateNext) {
+//            //format rules
+//            var momentPrivateNext = moment(privateNext);
+//            //output the result on page
+//            momentPrivateNext.locale('ru');
+//            var momentPrivateNextRU = momentPrivateNext.format("DD MMM");
+//
+//
+//            //output the result on page
+//            $('.privateNextDate').text(momentPrivateNextRU);
+//        }
     </script>
 </body>
 

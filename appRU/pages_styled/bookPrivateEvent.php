@@ -17,11 +17,8 @@ require_once '../parts/header.php';
 
 $obj = new eventClass($conn);
 
-
 if ($_POST) {
-
-
-
+    if (isset($_POST['createPrivateEvent'])) {
         $date = htmlspecialchars($_POST['date']);
         $time = htmlspecialchars($_POST['time']);
         $comment = htmlspecialchars($_POST['comment']);
@@ -35,12 +32,11 @@ if ($_POST) {
             $student, $instructor,
             $date, $time, $comment,
             $confirmed, $canceled, $repeatable);
+
+        include_once '../ajax/send-email_private.php';
         echo "<script>location.href = 'instructor.php?user=" . $user . "&id=" . $instructor . "';</script>";
-
-
-
+    }
 }
-
 
 ?>
 
@@ -105,11 +101,12 @@ if ($_POST) {
 
 
     <form class='form' method="post">
-        <p class="label ">Дата</p><input name='date' class="gray date" type="date">
+        <p class="label ">Дата</p><input name='date' class="gray date" type="date" value="<?php echo $date; ?>">
         <span class="error date"></span>
-        <p class="label ">Время</p><input name='time' class="gray time" type="time">
+        <p class="label ">Время</p><input name='time' class="gray time" type="time" value="<?php echo $time; ?>">
         <span class="error time"></span>
-        <p class="label">Комментарий</p><textarea class="" name='comment' type="text"></textarea>
+        <p class="label">Комментарий</p><textarea class="" name='comment' type="text"
+                                                  value="<?php echo $comment; ?>"></textarea>
 
         <div class="repeatableDiv">
             <p class="repeatableLabel">Повторные занятия</p>
@@ -130,14 +127,15 @@ if ($_POST) {
         src="//code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-
 <script>
+
+
     $('input.button').click(function (e) {
 
         var dateVal = $('.date').val();
         var timeVal = $('.time').val();
 
-        if (dateVal  == "" && timeVal == "") {
+        if (dateVal == "" && timeVal == "") {
             e.preventDefault();
             $('.error.date').text('Пожалуйста выберите дату');
             $('.error.time').text('Пожалуйста выберите время');
@@ -149,13 +147,13 @@ if ($_POST) {
             e.preventDefault();
             $('.error.date').text('');
             $('.error.time').text('Пожалуйста выберите время');
-        } else {
-
         }
 
 
     })
 </script>
+
+
 </body>
 
 </html>

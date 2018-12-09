@@ -22,8 +22,6 @@ $obj = new eventClass($conn);
 if ($_POST) {
     if (isset($_POST['createGroupEvent'])) {
 
-
-
         $comment = htmlspecialchars($_POST['comment']);
         $confirmed = '0';
         $canceled = '0';
@@ -33,6 +31,8 @@ if ($_POST) {
         $obj->createGroupEvent($group_event_id, $program,
             $student, $instructor, $comment,
             $confirmed, $canceled);
+
+        include_once '../ajax/send-email_group.php';
 
         if ($page == 'programs') {
             echo "<script>location.href = 'programs.php?user=" . $user . "';</script>";
@@ -46,13 +46,14 @@ if ($_POST) {
 }
 
 //Get available schedule for this program
-$query = "SELECT schedule FROM programs WHERE id='$program'";
+$query = "SELECT schedule,title FROM programs WHERE id='$program'";
 $result = $conn->query($query);
 $rows = $result->num_rows;
 $obj = $result->fetch_all();
 
-//$schedule= '<p class="gray">По ' . $obj[0][0]. '</p>';
+
 $schedule= $obj[0][0];
+$title= $obj[0][1];
 
 
 

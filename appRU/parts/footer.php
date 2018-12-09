@@ -39,6 +39,9 @@ echo '
                 </a>
             </li>
             <li class="'.($thisPage == 'user' ? 'active' : '').'">
+            <!--If notification show below-->
+            <!--<div class="notification" style="display: none; height: 8px;position: absolute;background: #fea400;width: 8px;border-radius: 50%;right: 25px;top: 4px;"></div>-->
+            <!--If notification show above-->
                 <a href="user.php?user='.$user.'">
                     <i class="fas fa-user"></i>
                     <p>Профиль</p>

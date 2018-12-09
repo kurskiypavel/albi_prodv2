@@ -36,7 +36,7 @@ $obj = $result->fetch_object();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Albi | Инструктор</title>
+    <title>Albi | Учитель</title>
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styleApp.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">
@@ -81,7 +81,7 @@ $obj = $result->fetch_object();
 
 <body class="instructorPage">
     <div class="header">
-        <h3>Инструктор</h3>
+        <h3>Учитель</h3>
 
     </div>
     <div class="body">
@@ -108,7 +108,7 @@ $obj = $result->fetch_object();
             </div>
 
             <div class="about">
-                <h3>Об инструкторе</h3>
+                <h3>Об учителе</h3>
                 <p><?php echo $obj->about; ?></p>
             </div>
 
@@ -116,7 +116,7 @@ $obj = $result->fetch_object();
 
             <div class="contactInstructor">
                 <a href='contact-instructor.php?user=<?php echo $user; ?>&page=instructor&instructor=<?php echo $id; ?>&student=<?php echo $user; ?>'>
-                    <p>Связаться с инструктором</p></a>
+                    <p>Связаться с учителем</p></a>
                 <i class="far fa-comment"></i>
             </div>
         </div>
