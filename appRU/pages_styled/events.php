@@ -259,23 +259,6 @@ $classEvent = new eventClass($conn);
         }
 
 
-
-
-
-        //Format birthdate date output
-        //grab birthday date
-//        var privateNext = "<?php //echo $obj->date; ?>//";
-//        if (privateNext) {
-//            //format rules
-//            var momentPrivateNext = moment(privateNext);
-//            //output the result on page
-//            momentPrivateNext.locale('ru');
-//            var momentPrivateNextRU = momentPrivateNext.format("DD MMM");
-//
-//
-//            //output the result on page
-//            $('.privateNextDate').text(momentPrivateNextRU);
-//        }
     </script>
 </body>
 

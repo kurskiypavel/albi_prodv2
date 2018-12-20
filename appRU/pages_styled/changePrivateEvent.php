@@ -32,10 +32,10 @@ if ($_POST) {
         $date = htmlspecialchars($_POST['date']);
         $time = htmlspecialchars($_POST['time']);
         $comment = htmlspecialchars($_POST['comment']);
-
+        $repeatable = isset($_POST['repeatable']);
 
         //changePrivateEvent
-        $obj->updatePrivate($date, $time, $id, $comment);
+        $obj->updatePrivate($date, $time, $id, $comment,$repeatable);
 
 
         if ($page == 'instructor') {
@@ -127,7 +127,7 @@ if ($_POST) {
             <div class="repeatableDiv">
                 <p class="repeatableLabel">Повторные занятия</p>
                 <div class="repeatableCheckbox">
-                    <input type='checkbox' class='ios8-switch' name="repeatable" id='checkbox-1'>
+                    <input type='checkbox' class='ios8-switch' <?php echo $objEvent->repeatble ? 'checked' : '' ?> name="repeatable" id='checkbox-1'>
                     <!-- get to DB by checked property -->
                     <label for='checkbox-1'></label>
                 </div>

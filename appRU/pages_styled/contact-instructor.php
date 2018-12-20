@@ -108,7 +108,7 @@ $instagram = $obj->instagram;
 
             <a class='btn call' href="tel:+79636861278">
                 <i class="fas fa-phone"></i>
-                <p>Позванить</p>
+                <p>Позвонить</p>
             </a>
 
             <p class="or">- или -</p>

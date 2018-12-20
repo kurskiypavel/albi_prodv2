@@ -33,7 +33,7 @@ if ($_POST) {
             $date, $time, $comment,
             $confirmed, $canceled, $repeatable);
 
-        include_once '../ajax/send-email_private.php';
+//        include_once '../ajax/send-email_private.php';
         echo "<script>location.href = 'instructor.php?user=" . $user . "&id=" . $instructor . "';</script>";
     }
 }

@@ -32,7 +32,7 @@ if ($_POST) {
             $student, $instructor, $comment,
             $confirmed, $canceled);
 
-        include_once '../ajax/send-email_group.php';
+//        include_once '../ajax/send-email_group.php';
 
         if ($page == 'programs') {
             echo "<script>location.href = 'programs.php?user=" . $user . "';</script>";
