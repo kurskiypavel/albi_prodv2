@@ -46,7 +46,7 @@ if (!$user) {
                 <img class=\'logo\' src="/assets/images/logo.svg" alt="">
             </div>
             <div class="main">
-                <h3>Пожалуйста войдите или зарегистрируйтесь чтобы увидеть контент</h3>
+                <h3 class="unlogged">Пожалуйста войдите или зарегистрируйтесь чтобы увидеть контент</h3>
                 
                 <div class="form">
                     <button onclick="location.href = \'/register.php\'" class="register">Зарегистрироваться</button>

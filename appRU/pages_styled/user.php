@@ -22,6 +22,21 @@ $rows = $result->num_rows;
 $obj = $result->fetch_object();
 
 
+if ($user == '1') {
+    $notificationLink= '<a class="ring" href="notifications_admin.php"><i class="far fa-bell"></i></a>';
+} else {
+    $query = "SELECT id FROM `notifications-booking` WHERE owner='$user' and readed is null";
+    $result = $conn->query($query);
+    //if (!$result) die($conn->connect_error);
+    $rows = $result->num_rows;
+    if (!$rows) {
+        $notificationLink= '<a class="ring" href="notifications.php"><i class="far fa-bell"></i></a>';
+    } else {
+        $notificationLink= '<a class="ring" href="notifications.php"><i class="fas active  fa-bell"></i></a>';
+    }
+}
+
+
 ?>
 
 
@@ -79,6 +94,8 @@ $obj = $result->fetch_object();
 
 <body class="userPage">
 <div class="header">
+    <?php echo $notificationLink; ?>
+
     <h3>Мой профиль</h3>
     <a href="adminUser.php?user=<?php echo $user; ?>"><i class="fas fa-cog"></i></a>
 </div>
@@ -94,32 +111,26 @@ $obj = $result->fetch_object();
         </div>
     </div>
     <div class="infoContainer">
-        <div class="stats">
-            <ul>
-                <!-- <li>
-                            <p>17 Lessons Competed</p>
-                        </li> -->
-                <li>
-                    <!-- <p><span class="bold">6</span> Favorites</p> -->
-                </li>
-                <li>
-                    <!--                        <p>Member Since <span class="bold">8 Months Ago</span></p>-->
-                    <p>Вы присоединились <span id='joinDate'></span></p>
-                </li>
-            </ul>
-        </div>
+<!--        <div class="stats">-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    -->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <p>Вы присоединились <span id='joinDate'></span></p>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
         <div class="info">
             <h3>Личная информация</h3>
             <ul>
 
                 <li>
-                    <!--                        <p><span class="bold">Birthdate: </span>2011-11-11</p>-->
                     <p><span class="bold">Дата рождения: </span><span id="bdateRU"></span></p>
                     <p class="hide" style="display: none;"><span class="bold">Дата рождения: </span>—/—/— —</p>
                 </li>
 
                 <li>
-                    <!--                        <p><span class="bold">Location: </span>Madrid, Spain</p>-->
                     <p><span class="bold">Адрес: </span><?php echo $obj->location; ?></p>
                     <p class="hide" style="display: none;"><span class="bold">Адрес: </span>—</p>
                 </li>
@@ -128,8 +139,7 @@ $obj = $result->fetch_object();
                     <p class="hide" style="display: none;"><span class="bold">Email: </span>—</p>
                 </li>
                 <li>
-                    <!--                        <p><span class="bold">Phone: </span>+1 (289) 830-1724</p>-->
-                    <p><span class="bold">Телефон: </span><?php echo $obj->phone; ?></p>
+                    <p class="tel"><span class="bold">Телефон: </span><?php echo $obj->phone; ?></p>
                     <p class="hide" style="display: none;"><span class="bold">Телефон: </span>—</p>
                 </li>
             </ul>
@@ -175,7 +185,7 @@ $obj = $result->fetch_object();
             ?>
 
         </div>
-        <div style="margin-top: 30px;" class="logout"><a href="../ajax/logout.php">Выйти</a></div>
+        <div style="margin-top: 30px; height: 100px;" class="logout"><a href="../ajax/logout.php">Выйти</a></div>
 
     </div>
 
@@ -217,7 +227,7 @@ $obj = $result->fetch_object();
 
     //format rule
 
-    let momentjoinDate = moment(joinDate, "YYYY-MM-DD HH:mm").locale('ru').fromNow();
+    let momentjoinDate = moment(joinDate + "-03:00", "YYYY-MM-DD HH:mm:ssZ").locale('ru').fromNow();
     //output the result on page
     $('#joinDate').text(momentjoinDate);
 

@@ -13,7 +13,7 @@ session_start();
 $user = $_SESSION['user_id'];
 
 
-require_once '../parts/header.php';
+
 
 $obj = new userClass($conn);
 
@@ -26,12 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $location = htmlspecialchars($_POST['location']);
     $email = htmlspecialchars($_POST['email']);
     $phone = htmlspecialchars($_POST['phone']);
-    $about = htmlspecialchars($_POST['about']);
+
 
 
     //update user account
-    $obj->update($user, $first_name, $last_name, $birthdate, $location, $email, $phone, $about);
-    echo "<script>location.href = 'user.php?user=" . $user . "';</script>";
+    $obj->update($user, $first_name, $last_name, $birthdate, $location, $email, $phone);
+//    $obj->update($user, $first_name);
+//    echo "<script>location.href = 'user.php?user=" . $user . "';</script>";
 }
 
 
@@ -57,7 +58,7 @@ $obj = $result->fetch_object();
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
-
+    <?php require_once '../parts/header.php';?>
 
     <!-- FONTS IMPORT -->
     <script>
@@ -142,7 +143,7 @@ $obj = $result->fetch_object();
             <li>
                 <div class="subContent">
                     <span class="bold">Телефон</span>
-                    <input id='yourphone2' type="tel" name='phone' value="<?php echo $obj->phone; ?>" type="text" placeholder="—">
+                    <input id='yourphone2'  type="tel" name='phone' value="<?php echo $obj->phone; ?>"  placeholder="—">
                     
                 </div>
             </li>

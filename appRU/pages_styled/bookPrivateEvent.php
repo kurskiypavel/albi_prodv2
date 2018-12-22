@@ -22,8 +22,6 @@ if ($_POST) {
         $date = htmlspecialchars($_POST['date']);
         $time = htmlspecialchars($_POST['time']);
         $comment = htmlspecialchars($_POST['comment']);
-        $confirmed = '0';
-        $canceled = '0';
         $repeatable = isset($_POST['repeatable']);
 
 
@@ -31,7 +29,7 @@ if ($_POST) {
         $obj->createPrivateEvent(
             $student, $instructor,
             $date, $time, $comment,
-            $confirmed, $canceled, $repeatable);
+            $repeatable);
 
 //        include_once '../ajax/send-email_private.php';
         echo "<script>location.href = 'instructor.php?user=" . $user . "&id=" . $instructor . "';</script>";

@@ -23,14 +23,11 @@ if ($_POST) {
     if (isset($_POST['createGroupEvent'])) {
 
         $comment = htmlspecialchars($_POST['comment']);
-        $confirmed = '0';
-        $canceled = '0';
         $group_event_id = $program;
 
         //createGroupEvent
         $obj->createGroupEvent($group_event_id, $program,
-            $student, $instructor, $comment,
-            $confirmed, $canceled);
+            $student, $instructor, $comment);
 
 //        include_once '../ajax/send-email_group.php';
 
