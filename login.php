@@ -33,12 +33,12 @@
     <!--Add buttons to initiate auth sequence and sign out-->
     <a class='loginWith' id="authorize_button" style="display: none;"><img src="assets/images/google_icon.png" alt=""> <p>Продолжить с Google</p></a>
     <button id="signout_button" style="display: none;">Sign Out</button>
-    <button class='loginWith' onclick="location.href = 'phone_login.php'" class=''>По номеру телефона</button>
+    <button class='loginWith' onclick="location.href = 'phone_login.php'">По номеру телефона</button>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
-    <p class='dont'>Новый участник?</p>
-    <button onclick="location.href = 'register.php'" class='buttonRegister'>Зарегистрироваться</button>
+    <!-- <p class='dont'>Новый участник?</p>
+    <button onclick="location.href = 'register.php'" class='buttonRegister'>Зарегистрироваться</button> -->
 
 </div>
 
@@ -123,12 +123,12 @@
                 // console.log('Given Name: ' + profile.getGivenName());
                 // console.log('Family Name: ' + profile.getFamilyName());
                 // console.log('Image URL: ' + profile.getImageUrl());
-                // console.log('Email: ' + profile.getEmail());
+                console.log('Email: ' + profile.getEmail());
 
 
 
                 // only for new users
-                location.href = 'appRU/pages_styled/looksGood.php?email='+profile.getEmail();
+                // location.href = 'appRU/pages_styled/looksGood.php?email='+profile.getEmail();
                 // only for logged in users
                 
             }
