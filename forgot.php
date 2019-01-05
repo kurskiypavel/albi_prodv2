@@ -176,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
     <p class='dont'>Новый участник?</p>
-    <button class='buttonRegister' href="register.php">Зарегистрироваться</button>
+    <button class='buttonRegister' >Зарегистрироваться</button>
 
 </div>
 
@@ -190,7 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script>
     $('.buttonRegister').click(function (e) {
         e.preventDefault();
-        location.href = 'register.php';
+        location.href = 'phone_register.php';
     });
 
 

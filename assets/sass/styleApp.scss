@@ -2695,7 +2695,7 @@ a {
         }
     }
 
-    .registerPage {
+    .phoneRegisterPage {
         text-align: center;
 
         .header {
@@ -2851,7 +2851,7 @@ a {
 
     }
 
-    .loginPage {
+    .phoneLoginPage {
         text-align: center;
 
         .header {
@@ -3248,6 +3248,114 @@ a {
 
             }
         }
+
+    }
+
+    .loginPage {
+        background: #fff;
+
+        .header {
+            background: #fff;
+            height: 60px;
+            border: unset;
+            padding-top: 20px;
+            margin-bottom: 10px;
+            width: 286px;
+            background: #fff;
+            margin: 0 auto;
+
+
+            h3 {
+                font-size: 18px;
+                font-family: 'museoSans300', sans-serif;
+                left: -7px;
+                width: 244px;
+                display: inline-block;
+                text-align: center;
+                position: relative;
+                top: -2px;
+            }
+
+            a {
+                color: unset;
+            }
+
+            i {
+                display: inline-block;
+                font-size: 24px;
+            }
+        }
+
+        h3,
+        h4 {
+            font-family: 'museoSans500', sans-serif !important;
+            //font-weight: 700;
+        }
+
+        .or {
+
+            color: $gray;
+            font-size: 13px;
+            font-family: 'museoSans300', sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            margin-top: 28px;
+            margin-bottom: 28px;
+        }
+
+        text-align: center;
+
+        .dont {
+            color: $gray;
+            margin-top: 190px;
+            font-family: 'museoSans300', sans-serif;
+            font-weight: 300;
+        }
+
+        .buttonRegister {
+            width: 272px;
+            height: 41px;
+            border: 1px $gray solid;
+            color: $gray;
+            background: #fff;
+            font-size: 15px;
+            font-family: 'museoSans500', sans-serif;
+            font-weight: 500;
+            border-radius: 8px;
+            text-align: center;
+            margin: 25px auto 0 auto;
+        }
+
+        .loginWith{
+            width: 272px;
+            height: 41px;
+            border: 1px $gray solid;
+            color: #000;
+            background: #fff;
+            font-size: 15px;
+            font-family: 'museoSans500', sans-serif;
+            font-weight: 500;
+            border-radius: 8px;
+            text-align: center;
+            margin: 0 auto;
+
+            &:first-of-type{
+                margin: 40px auto;
+                
+                img{
+                    width: 25px;
+                    position: absolute;
+                    padding-top: 6px;
+                    margin-left: 15px;
+                }
+                p{
+                    padding-top: 12px;
+                    
+                }
+            }
+           
+        }
+
 
     }
 
@@ -5890,7 +5998,7 @@ a {
         }
     }
 
-    .registerPage {
+    .phoneRegisterPage {
         text-align: center;
 
         .header {
@@ -6046,7 +6154,7 @@ a {
 
     }
 
-    .loginPage {
+    .phoneLoginPage {
         text-align: center;
 
         .header {
@@ -6445,5 +6553,7 @@ a {
         }
 
     }
+
+
 
 }

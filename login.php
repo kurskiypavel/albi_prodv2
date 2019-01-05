@@ -1,76 +1,10 @@
 <?php
-// Connection with DB
-require_once 'appRU/config.php';
 
-// Define variables and initialize with empty values
-$phone = $password = "";
-$phone_err = $password_err = "";
 
-// Processing form data when form is submitted
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Check if phone is empty
-    if (empty(trim($_POST["phone"]))) {
-        $phone_err = 'Пожалуйста введите номер телефона';
-    } else {
-        $phone = trim($_POST["phone"]);
-    }
-
-    // Check if password is empty
-    if (empty(trim($_POST['password']))) {
-        $password_err = 'Пожалуйста введите пароль';
-    } else {
-        $password = trim($_POST['password']);
-    }
-
-    // Validate credentials
-    if (empty($phone_err) && empty($password_err)) {
-        // prepare a select statement
-        $sql = "SELECT id, phone, password FROM users WHERE phone = ?";
-
-        if ($stmt = $conn->prepare($sql)) {
-            // bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_phone);
-            // set parameters
-            $param_phone = $phone;
-
-            // Attempt to execute the prepared statement
-            if ($stmt->execute()) {
-                // store result
-                $stmt->store_result();
-
-                // Check if phone exists, if yes then verify password
-                if ($stmt->num_rows == 1) {
-                    // bind result variables
-                    $stmt->bind_result($user_id, $phone, $hashed_password);
-
-                    if ($stmt->fetch()) {
-                        if (password_verify($password, $hashed_password)) {
-                            /* password is correct, so start a new session and
-                            save the phone to the session */
-                            session_start();
-                            $_SESSION['phone'] = $phone;
-                            $_SESSION['user_id'] = $user_id;
-                            header("location: appRU/pages_styled/events.php?user=" . $user_id);
-                        } else {
-                            // display an error message if password is not valid
-                            $password_err = 'Пароль не подходит';
-                        }
-                    }
-                } else {
-                    // display an error message if phone doesn't exist
-                    $phone_err = 'Телефон не найден';
-                }
-            }
-        }
-        // close statement
-        $stmt->close();
-    }
-    // close connection
-    $conn->close();
-}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -96,34 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h3>Войти</h3>
     </div>
 
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <a class='loginWith' id="authorize_button" style="display: none;"><img src="assets/images/google_icon.png" alt=""> <p>Продолжить с Google</p></a>
+    <button id="signout_button" style="display: none;">Sign Out</button>
+    <button class='loginWith' onclick="location.href = 'phone_login.php'" class=''>По номеру телефона</button>
 
-    <form class='form' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-
-        <div class="slide1">
-
-            <p class='label'>Введите ваш номер телефона</p>
-            <input id='yourphone2' type="tel" class='gray' name="phone" value="<?php echo $phone; ?>">
-            <span class="error phone"><?php echo $phone_err; ?></span>
-            <button type="button" class='buttonNext'>Дальше <i class="fas fa-angle-right"></i></button>
-
-        </div>
-        <div style='display:none;' class="slide2">
-
-            <p class='label'>Введите пароль</p>
-            <input class='password' type="password" name="password">
-            <span class="error">
-                            <?php echo $password_err; ?>
-                        </span>
-
-
-            <input class='buttonLogin' type="submit" value="Войти">
-            <button class='buttonForgot' href="forgot.php">Забыли пароль?</button>
-
-        </div>
-    </form>
+    <pre id="content" style="white-space: pre-wrap;"></pre>
 
     <p class='dont'>Новый участник?</p>
-    <button class='buttonRegister' href="register.php">Зарегистрироваться</button>
+    <button onclick="location.href = 'register.php'" class='buttonRegister'>Зарегистрироваться</button>
 
 </div>
 
@@ -134,30 +49,201 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script src='//s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js'></script>
 <script src="assets/js/phoneMask.js"></script>
 
-<script>
-    $('.buttonRegister').click(function (e) {
-        e.preventDefault();
-        location.href = 'register.php';
-    });
+<script type="text/javascript">
+    // Client ID and API key from the Developer Console
+    var CLIENT_ID = '412446253370-6k4h35sg8n0353i9qicd2674vbn2lrrm.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyDNJyonJn7LxALbqihYt8oo9y0nHodPMLs';
+    // Array of API discovery doc URLs for APIs used by the quickstart
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+    // Authorization scopes required by the API; multiple scopes can be
+    // included, separated by spaces.
+    var SCOPES = "https://www.googleapis.com/auth/calendar";
+    var authorizeButton = document.getElementById('authorize_button');
+    // hide
+    var signoutButton = document.getElementById('signout_button');
 
-    $('.buttonForgot').click(function (e) {
-        e.preventDefault();
-        location.href = 'forgot.php';
-    });
 
-    $('.buttonNext').click(function (e) {
-        e.preventDefault();
-        var phone = $('#yourphone2').val();
+    /**
+     *  On load, called to load the auth2 library and API client library.
+     */
+    function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+    }
+    /**
+     *  Initializes the API client library and sets up sign-in state
+     *  listeners.
+     */
+    function initClient() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            // Listen for sign-in state changes.
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            // Handle the initial sign-in state.
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            authorizeButton.onclick = handleAuthClick;
+            // hide
+            signoutButton.onclick = handleSignoutClick;
 
-        if (phone == "") {
-            $('.error.phone').text('Пожалуйста введите номер телефона');
+
+            //            newEvent();
+            var insta = gapi.auth2.getAuthInstance();
+            if (insta.isSignedIn.get()) {
+                var profile = insta.currentUser.get().getBasicProfile();
+                // console.log('ID: ' + profile.getId());
+                // console.log('Full Name: ' + profile.getName());
+                // console.log('Given Name: ' + profile.getGivenName());
+                // console.log('Family Name: ' + profile.getFamilyName());
+                // console.log('Image URL: ' + profile.getImageUrl());
+                // console.log('Email: ' + profile.getEmail());
+            }
+
+        }, function (error) {
+            appendPre(JSON.stringify(error, null, 2));
+        });
+    }
+    /**
+     *  Called when the signed in status changes, to update the UI
+     *  appropriately. After a sign-in, the API is called.
+     */
+    function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+            
+            // authorizeButton.style.display = 'none';
+            // signoutButton.style.display = 'block';
+            //            listUpcomingEvents();
+            var insta = gapi.auth2.getAuthInstance();
+            if (insta.isSignedIn.get()) {
+                var profile = insta.currentUser.get().getBasicProfile();
+                // console.log('ID: ' + profile.getId());
+                // console.log('Full Name: ' + profile.getName());
+                // console.log('Given Name: ' + profile.getGivenName());
+                // console.log('Family Name: ' + profile.getFamilyName());
+                // console.log('Image URL: ' + profile.getImageUrl());
+                // console.log('Email: ' + profile.getEmail());
+
+
+
+                // only for new users
+                location.href = 'appRU/pages_styled/looksGood.php?email='+profile.getEmail();
+                // only for logged in users
+                
+            }
         } else {
-            $('.slide1').css('display', 'none');
-            $('.slide2').css('display', 'block');
+            authorizeButton.style.display = 'block';
+            signoutButton.style.display = 'none';
         }
-    });
+    }
+    /**
+     *  Sign in the user upon button click.
+     */
+    function handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+    }
+    /**
+     *  Sign out the user upon button click.
+     */
+    function handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
+    }
+    /**
+     * Append a pre element to the body containing the given message
+     * as its text node. Used to display the results of the API call.
+     *
+     * @param {string} message Text to be placed in pre element.
+     */
+    function appendPre(message) {
+        var pre = document.getElementById('content');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+    }
+    /**
+     * Print the summary and start datetime/date of the next ten events in
+     * the authorized user's calendar. If no events are found an
+     * appropriate message is printed.
+     */
+    // function listUpcomingEvents() {
+    //     gapi.client.calendar.events.list({
+    //         'calendarId': 'primary',
+    //         'timeMin': (new Date()).toISOString(),
+    //         'showDeleted': false,
+    //         'singleEvents': true,
+    //         'maxResults': 10,
+    //         'orderBy': 'startTime'
+    //     }).then(function (response) {
+    //         var events = response.result.items;
+    //         appendPre('Upcoming events:');
+    //         if (events.length > 0) {
+    //             for (i = 0; i < events.length; i++) {
+    //                 var event = events[i];
+    //                 var when = event.start.dateTime;
+    //                 if (!when) {
+    //                     when = event.start.date;
+    //                 }
+    //                 appendPre(event.summary + ' (' + when + ')')
+    //             }
+    //         } else {
+    //             appendPre('No upcoming events found.');
+    //         }
+    //     });
+
+    // }
 
 
+    // call as ajax
+    function newEvent() {
+
+        // Refer to the JavaScript quickstart on how to setup the environment:
+        // https://developers.google.com/calendar/quickstart/js
+        // Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
+        // stored credentials.
+
+        var event = {
+            'summary': 'title',
+            'location': 'location',
+            'description': 'description',
+            'start': {
+                'dateTime': '2019-01-02T09:00:00-07:00',
+                'timeZone': 'America/Los_Angeles'
+            },
+            'end': {
+                'dateTime': '2019-01-02T17:00:00-07:00',
+                'timeZone': 'America/Los_Angeles'
+            },
+            'recurrence': [
+                'RRULE:FREQ=DAILY;COUNT=2'
+            ],
+            'reminders': {
+                'useDefault': false,
+                'overrides': [{
+                    'method': 'email',
+                    'minutes': 24 * 60
+                },
+                    {
+                        'method': 'popup',
+                        'minutes': 10
+                    }
+                ]
+            }
+        };
+
+        var request = gapi.client.calendar.events.insert({
+            'calendarId': 'primary',
+            'resource': event
+        });
+
+        request.execute(function (event) {
+            appendPre('Event created: ' + event.htmlLink);
+        });
+
+    }
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
 
 

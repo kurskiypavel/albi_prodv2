@@ -1,132 +1,17 @@
 <?php
-// Connection with DB
-require_once 'appRU/config.php';
-// define variables and initialize with empty values
-$phone = $first_name = $password = $confirm_password = "";
-$phone_err = $password_err = $confirm_password_err = $param_password = "";
 
-// processing form data when form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // validate phone
-    if (empty(trim($_POST["phone"]))) {
-        $phone_err = "Пожалуйста введите номер телефона";
-    } else {
-        // prepare a select statement
-        $sql = "SELECT id FROM users WHERE phone = ?";
-
-        if ($stmt = $conn->prepare($sql)) {
-            // bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_phone);
-            // set parameters
-            $param_phone = trim($_POST["phone"]);
-
-            // attempt to execute the prepared statement
-            if ($stmt->execute()) {
-                // store result
-                $stmt->store_result();
-
-                if ($stmt->num_rows == 1) {
-                    $phone_err = "Этот номер уже используется";
-                } else {
-                    $phone = trim($_POST["phone"]);
-                }
-            }
-        }
-        // close statement
-        $stmt->close();
-    }
-
-    // validate password
-    if (empty(trim($_POST['first_name']))) {
-        $name_err = "Пожалуйста введите имя";
-    } else {
-        $first_name = htmlspecialchars(trim($_POST["first_name"]));
-    }
-
-    // validate password
-    if (empty(trim($_POST['password']))) {
-        $password_err = "Пожалуйста введите пароль";
-    } elseif (strlen(trim($_POST['password'])) < 6) {
-        $password_err = "Пароль должен содержать минимум 6 символов";
-    } else {
-        $password = trim($_POST['password']);
-    }
-
-    // validate confirm password
-    if (empty(trim($_POST["confirm_password"]))) {
-        $confirm_password_err = 'Пожалуйста подтвердите пароль';
-    } else {
-        $confirm_password = trim($_POST['confirm_password']);
-        if ($password != $confirm_password) {
-            $confirm_password_err = 'Пароли не совпали';
-        }
-    }
-
-    // check input errors before inserting in database
-    if (empty($phone_err) && empty($password_err) && empty($confirm_password_err)) {
+//select new email in DB
+// if new - redirect to looks good page
+// else redirect to programs/events
 
 
-        // prepare an insert statement
-        $sql = "INSERT INTO users (first_name,phone, password) VALUES (?, ?, ?)";
 
-        if ($stmt = $conn->prepare($sql)) {
-            // bind variables to the prepared statement as parameters
-            $stmt->bind_param("sss", $first_name, $param_phone, $param_password);
-            // set parameters
-            $param_phone = $phone;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-
-            // attempt to execute the prepared statement
-            if ($stmt->execute()) {
-                //get new user id
-                // prepare a select statement
-                $sql = "SELECT id FROM users WHERE phone = ?";
-
-                if ($stmt = $conn->prepare($sql)) {
-                    // bind variables to the prepared statement as parameters
-                    $stmt->bind_param("s", $param_phone);
-                    // set parameters
-                    $param_phone = $phone;
-
-                    // attempt to execute the prepared statement
-                    if ($stmt->execute()) {
-                        // store result
-                        $stmt->store_result();
-
-                        // check if phone exists, if yes then verify password
-                        if ($stmt->num_rows == 1) {
-                            // bind result variables
-                            $stmt->bind_result($user_id);
-
-                            if ($stmt->fetch()) {
-                                $_SESSION['user_id'] = $user_id;
-                            }
-                        }
-                    }
-                }
-
-                //check if session
-                if (!$_SESSION['phone']) {
-                    //new session
-                    session_start();
-                    $_SESSION['phone'] = $phone;
-                    $_SESSION['user_id'] = $user_id;
-                }
-                // redirect to home page
-//                header("location: appRU/pages_styled/programs.php?user=" . $user_id);
-                echo "<script>location.href = 'appRU/pages_styled/programs.php?user=" . $user_id . "';</script>";
-            }
-        }
-
-        // close statement
-        $stmt->close();
-    }
-
-// close connection
-    $conn->close();
-}
+        //only new redirect to looks good
+        
+ 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -134,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Albi | Регистрация</title>
+    <title>Albi | Войти</title>
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styleApp.css">
     <link rel="stylesheet" href="/assets/css/reset.css">
@@ -143,49 +28,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           crossorigin="anonymous">
 
 
-
 </head>
 <body style="background: unset;">
 
-<div class="registerPage">
+<div class="loginPage">
     <div class="header">
         <a id='backHome' href='http://albi.yoga/index.html'><i class="fas fa-arrow-left"></i></a>
-        <h3>Регистрация</h3>
+        <h3>Войти</h3>
     </div>
 
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <a class='loginWith' id="authorize_button" style="display: none;"><img src="assets/images/google_icon.png" alt=""> <p>Продолжить с Google</p></a>
+    <button id="signout_button" style="display: none;">Sign Out</button>
+    <button class='loginWith' onclick="location.href = 'phone_login.php'" class=''>По номеру телефона</button>
 
-    <form class='form' action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <pre id="content" style="white-space: pre-wrap;"></pre>
 
-        <div class="slide1">
-            <p class='label'>Введите ваш номер телефона</p>
-            <input id='yourphone2' type="tel" class='gray' name="phone" value="<?php echo $phone; ?>">
-            <span class="error phone"><?php echo $phone_err; ?></span>
-
-            <p class='label'>Введите имя</p>
-            <input class='gray first_name' type="text" name="first_name" value="<?php echo $first_name; ?>">
-            <span class="error name"><?php echo $name_err; ?></span>
-
-            <button class='buttonNext'>Дальше <i class="fas fa-angle-right"></i></button>
-        </div>
-
-        <div style='display:none;' class="slide2">
-            <p class='label'>Введите пароль</p>
-            <input class='password' type="password" name="password" value="<?php echo $password; ?>">
-            <span class="error"><?php echo $password_err; ?></span>
-
-            <p class='label'>Подтвердите пароль</p>
-            <input class='password' type="password" name="confirm_password"
-                   value="<?php echo $confirm_password; ?>">
-
-            <span class="error"><?php echo $confirm_password_err; ?></span>
-            <button class='buttonRegister' type="submit">Зарегистрироваться</button>
-        </div>
-
-
-    </form>
-    <button class='buttonLogin'>Войти в аккаунт</button>
+    <p class='dont'>Новый участник?</p>
+    <button onclick="location.href = 'register.php'" class='buttonRegister'>Зарегистрироваться</button>
+    
 </div>
-
 
 <script
         src="//code.jquery.com/jquery-3.3.1.min.js"
@@ -194,33 +56,84 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script src='//s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js'></script>
 <script src="assets/js/phoneMask.js"></script>
 
-<script>
-    $('.buttonLogin').click(function () {
-        location.href = 'login.php';
-    });
+<script type="text/javascript">
+    // Client ID and API key from the Developer Console
+    var CLIENT_ID = '412446253370-6k4h35sg8n0353i9qicd2674vbn2lrrm.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyDNJyonJn7LxALbqihYt8oo9y0nHodPMLs';
+    // Array of API discovery doc URLs for APIs used by the quickstart
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+    // Authorization scopes required by the API; multiple scopes can be
+    // included, separated by spaces.
+    var SCOPES = "https://www.googleapis.com/auth/calendar";
+    var authorizeButton = document.getElementById('authorize_button');
+    // hide
+    var signoutButton = document.getElementById('signout_button');
 
-    $('.buttonNext').click(function (e) {
-        e.preventDefault();
 
-        var name = $('.first_name').val();
-        var phone = $('#yourphone2').val();
+    function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+    }
 
-        if (name == "" && phone == "") {
-            $('.error.name').text('Пожалуйста введите имя');
-            $('.error.phone').text('Пожалуйста введите номер телефона');
-        } else if (name == "") {
-            $('.error.name').text('Пожалуйста введите имя');
-        } else if (phone == "") {
-            $('.error.phone').text('Пожалуйста введите номер телефона');
+    function initClient() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            // Listen for sign-in state changes.
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            // Handle the initial sign-in state.
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            authorizeButton.onclick = handleAuthClick;
+            // hide
+            signoutButton.onclick = handleSignoutClick;
+
+
+            //            newEvent();
+            var insta = gapi.auth2.getAuthInstance();
+            if (insta.isSignedIn.get()) {
+                var profile = insta.currentUser.get().getBasicProfile();
+                // console.log('ID: ' + profile.getId());
+                // console.log('Email: ' + profile.getEmail());
+            }
+
+        });
+    }
+
+    function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+            
+            var insta = gapi.auth2.getAuthInstance();
+            if (insta.isSignedIn.get()) {
+                var profile = insta.currentUser.get().getBasicProfile();              
+                
+            }
         } else {
-            $('.slide1').css('display', 'none');
-            $('.slide2').css('display', 'block');
+            authorizeButton.style.display = 'block';
+            signoutButton.style.display = 'none';
         }
+    }
+
+    function handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+    }
+
+    function handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
+    }
 
 
-    })
-
+    // ajax to check google user
+    function checkUser(email){
+        
+    }
 </script>
+
+<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+
 
 </body>
 </html>
