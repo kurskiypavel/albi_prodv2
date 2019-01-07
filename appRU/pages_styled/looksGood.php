@@ -97,6 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             if ($stmt->fetch()) {
                                 //check if session
+
                                 if (!$_SESSION['user_id']) {
                                     //new session
                                     session_start();

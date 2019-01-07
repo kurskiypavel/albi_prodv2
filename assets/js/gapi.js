@@ -47,12 +47,34 @@ function initClient() {
             // console.log('Family Name: ' + profile.getFamilyName());
             // console.log('Image URL: ' + profile.getImageUrl());
             // console.log('Email: ' + profile.getEmail());
+            console.log('initClient');
+            
+            
         }
 
     }, function (error) {
         appendPre(JSON.stringify(error, null, 2));
     });
 }
+
+/**
+ *  Called when login to start session
+ */
+
+
+ function startSession(googleID){
+    $.ajax({
+        type: "POST",
+        url: "../appRU/ajax/startSessionGAPI.php",
+        data: {
+            googleID: googleID
+        },success: function (data) {
+            // redirect to programs
+            location.href = '/appRU/pages_styled/programs.php';
+            
+        }
+    });
+ }
 
 /**
  *  Called when signedIN to check user exist
@@ -70,6 +92,14 @@ function checkUser(googleID,getGivenName,getFamilyName,getEmail) {
             if (!data){
                 location.href = '/appRU/pages_styled/looksGood.php?googleID='+googleID+'&getFamilyName='+getFamilyName
                 +'&getGivenName='+getGivenName+'&getEmail='+getEmail;
+                console.log('!data - new user');
+                
+            } else {
+                // login user
+                // session start with google id
+                console.log(googleID);
+                
+                startSession(googleID);
             }
         }
     });
@@ -94,7 +124,8 @@ function updateSigninStatus(isSignedIn) {
             // console.log('Image URL: ' + profile.getImageUrl());
             let getEmail= profile.getEmail();
             
-
+            console.log('updateSigninStatus');
+            
             checkUser(googleID,getGivenName,getFamilyName,getEmail);
 
 
