@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-$query = "SELECT * FROM users WHERE id='$user'";
+$query = "SELECT * FROM users WHERE id='$user' OR googleID='$user'";
 $result = $conn->query($query);
 
 $rows = $result->num_rows;

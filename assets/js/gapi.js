@@ -111,8 +111,8 @@ function checkUser(googleID,getGivenName,getFamilyName,getEmail) {
 function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
 
-        authorizeButton.style.display = 'none';
-        signoutButton.style.display = 'block';
+        // authorizeButton.style.display = 'none';
+        // signoutButton.style.display = 'block';
         //            listUpcomingEvents();
         var insta = gapi.auth2.getAuthInstance();
         if (insta.isSignedIn.get()) {
