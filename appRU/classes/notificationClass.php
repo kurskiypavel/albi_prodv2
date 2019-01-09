@@ -24,5 +24,11 @@ class notificationClass
         $this->conn->query($sql_read_notification);
     }
 
+    public function delete($notification)
+    {
+        $sql_read_notification = "DELETE FROM `notifications-booking` WHERE id='$notification'";
+        $this->conn->query($sql_read_notification);
+    }
+
 
 }

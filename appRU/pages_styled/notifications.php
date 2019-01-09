@@ -83,46 +83,57 @@ require_once '../parts/header.php';
     $len = sizeof($data);
     //    $rows = $result->num_rows;
 
-
-    for ($i = 0; $i < $len; ++$i) {
-        ?>
-
-        <div  id='<?php echo $data[$i]['id'];?>' class="notification <?php echo $data[$i]['readed'] !='1' ? 'active' : '' ?>">
-            <?php
-            if ($data[$i]['program']) {
-
-                if ($data[$i]['change'] != '1' && $data[$i]['canceled'] != '1') {
-//                    echo 'Вы записались в группу ' . $data[$i]['program'] . ' по ' . $data[$i]['schedule'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
-                    echo 'Вы записались в группу ' . $data[$i]['program'] . ' по ' . $data[$i]['schedule'];
-                } elseif ($data[$i]['canceled'] == '1') {
-//                    echo 'Вы отменили занятие в группе ' . $data[$i]['program'] . ' по ' . $data[$i]['schedule'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
-                    echo 'Вы отменили занятие в группе ' . $data[$i]['program'] . ' по ' . $data[$i]['schedule'];
-                }
-            } else {
-                if ($data[$i]['change'] == '1') {
-//                    echo 'Вы изменили занятие с Альбиной. Занятие состоится <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
-                    echo 'Вы изменили занятие с Альбиной. Занятие состоится <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
-                } elseif ($data[$i]['canceled'] == '1') {
-//                    echo 'Вы отменили занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
-                    echo 'Вы отменили занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
-                } elseif ($data[$i]['confirmed'] == '1') {
-//                    echo 'Альбина подтвердила занятие <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
-                    echo 'Альбина подтвердила занятие <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
-                } elseif ($data[$i]['confirmed'] != '1' && $data[$i]['canceled'] != '1' && $data[$i]['change'] != '1') {
-//                    echo 'Вы записались на занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
-                    echo 'Вы записались на занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
-                }
-            }
-
+    if ($len) {
+        for ($i = 0; $i < $len; ++$i) {
             ?>
 
+            <div id='<?php echo $data[$i]['id']; ?>'
+                 class="notification <?php echo $data[$i]['readed'] != '1' ? 'active' : '' ?>">
+                <?php
+                if ($data[$i]['program']) {
 
-        </div>
+                    if ($data[$i]['change'] != '1' && $data[$i]['canceled'] != '1') {
+//                    echo 'Вы записались в группу ' . $data[$i]['program'] . ' по ' . $data[$i]['schedule'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
+
+                        if ($data[$i]['schedule'] == 'записи') {
+                            echo 'Вы записались в группу ' . $data[$i]['program'] . '. Учитель свяжется с вами чтобы назначить дату и время занятия.';
+                        } else {
+                            echo 'Вы записались в группу ' . $data[$i]['program'] . ' по ' . $data[$i]['schedule'];
+                        }
+                    } elseif ($data[$i]['canceled'] == '1') {
+//                    echo 'Вы отменили занятие в группе ' . $data[$i]['program'] . ' по ' . $data[$i]['schedule'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
+                        echo 'Вы отменили занятие в группе ' . $data[$i]['program'] . ' по ' . $data[$i]['schedule'];
+                    }
+                } else {
+                    if ($data[$i]['change'] == '1') {
+//                    echo 'Вы изменили занятие с Альбиной. Занятие состоится <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
+                        echo 'Вы изменили занятие с Альбиной. Занятие состоится <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
+                    } elseif ($data[$i]['canceled'] == '1') {
+//                    echo 'Вы отменили занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
+                        echo 'Вы отменили занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
+                    } elseif ($data[$i]['confirmed'] == '1') {
+//                    echo 'Альбина подтвердила занятие <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
+                        echo 'Альбина подтвердила занятие <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
+                    } elseif ($data[$i]['confirmed'] != '1' && $data[$i]['canceled'] != '1' && $data[$i]['change'] != '1') {
+//                    echo 'Вы записались на занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
+                        echo 'Вы записались на занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
+                    }
+                }
+
+                ?>
 
 
-        <?php
+            </div>
+
+
+            <?php
+
+        }
+    } else {
+        echo 'nothing to show';
 
     }
+
     ?>
 
 
@@ -186,24 +197,30 @@ require_once '../parts/header.php';
 <script>
     /* Read norifications on visiting the page script */
 
-    function read() {
-        $(this).removeClass("active");
+    function notificationItem() {
+        let active = $(this).hasClass('active');
 
+        
+        $(this).removeClass("active");
         // get id of clicked notificaiton
         let notification = $(this).attr('id');
+        if (!active){
+            $(this).remove();
+        }
         //read ajax
         $.ajax({
             type: "POST",
-            url: "../ajax/read.php",
+            url: "../ajax/notificationItem.php",
             data: {
-                notification: notification
+                notification: notification,
+                active: active
             }
         });
+
+
     }
 
-    $(".notification.active").click(read);
-
-
+    $(".notification").click(notificationItem);
 
 
 </script>

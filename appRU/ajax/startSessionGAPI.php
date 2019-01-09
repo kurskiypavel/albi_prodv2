@@ -7,7 +7,7 @@
  */
 
 
-$user_id = $_POST["googleID"];
+$user_id = $_POST["id"];
 
 if (!$_SESSION['user_id']) {
     //new session

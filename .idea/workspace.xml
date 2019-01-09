@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f18da5bb-83f9-4ca8-9f46-b1841a594f30" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/appRU/ajax/read.php" afterPath="$PROJECT_DIR$/appRU/ajax/notificationItem.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appRU/ajax/logout.php" afterPath="$PROJECT_DIR$/appRU/ajax/logout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appRU/pages_styled/adminUser.php" afterPath="$PROJECT_DIR$/appRU/pages_styled/adminUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appRU/pages_styled/looksGood.php" afterPath="$PROJECT_DIR$/appRU/pages_styled/looksGood.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appRU/pages_styled/user.php" afterPath="$PROJECT_DIR$/appRU/pages_styled/user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/styleApp.css" afterPath="$PROJECT_DIR$/assets/css/styleApp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/styleApp.css.map" afterPath="$PROJECT_DIR$/assets/css/styleApp.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appRU/ajax/checkGoogleUser.php" afterPath="$PROJECT_DIR$/appRU/ajax/checkGoogleUser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appRU/ajax/startSessionGAPI.php" afterPath="$PROJECT_DIR$/appRU/ajax/startSessionGAPI.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appRU/classes/notificationClass.php" afterPath="$PROJECT_DIR$/appRU/classes/notificationClass.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appRU/pages_styled/notifications.php" afterPath="$PROJECT_DIR$/appRU/pages_styled/notifications.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/gapi.js" afterPath="$PROJECT_DIR$/assets/js/gapi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/sass/styleApp.scss" afterPath="$PROJECT_DIR$/assets/sass/styleApp.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,35 +74,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/login.php">
+      <file leaf-file-name="notifications.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/appRU/pages_styled/notifications.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            <state relative-caret-position="277">
+              <caret line="75" column="81" lean-forward="true" selection-start-line="75" selection-start-column="81" selection-end-line="75" selection-end-column="81" />
               <folding>
-                <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#2560#5818#0#PHP" expanded="false" />
+                <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <marker date="1546995162132" expanded="true" signature="2228:2385" ph="SELECT *,TIM... notifications-booking" />
+                <marker date="1546995162132" expanded="true" signature="5942:6107" ph="..." />
+                <marker date="1546995162132" expanded="true" signature="6254:6405" ph="{...}" />
+                <marker date="1546995162132" expanded="true" signature="6313:6405" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register.php">
+      <file leaf-file-name="notificationItem.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/appRU/ajax/notificationItem.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="848">
-              <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gapi.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/gapi.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1127">
-              <caret line="85" column="20" lean-forward="true" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+            <state relative-caret-position="184">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -122,9 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$obj-&gt;</find>
-      <find>Вы</find>
-      <find>позва</find>
       <find>send</find>
       <find>logout</find>
       <find>momen</find>
@@ -152,6 +139,9 @@
       <find>set</find>
       <find>loca</find>
       <find>allow</find>
+      <find>err</find>
+      <find>can</find>
+      <find>read.p</find>
     </findStrings>
     <replaceStrings>
       <replace>http://albi.yoga</replace>
@@ -189,16 +179,12 @@
         <option value="$USER_HOME$/AXON_/kovo_articles/assets-ajax/get-list.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/changePrivateEvent.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/contact-instructor.php" />
-        <option value="$PROJECT_DIR$/appRU/config.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/notifications_admin.php" />
         <option value="$PROJECT_DIR$/appRU/parts/header.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/adminUser.php" />
         <option value="$PROJECT_DIR$/appRU/classes/userClass.php" />
         <option value="$PROJECT_DIR$/appRU/ajax/confirm.php" />
         <option value="$PROJECT_DIR$/appRU/js/app.js" />
-        <option value="$PROJECT_DIR$/appRU/classes/notificationClass.php" />
-        <option value="$PROJECT_DIR$/appRU/ajax/read.php" />
-        <option value="$PROJECT_DIR$/appRU/pages_styled/notifications.php" />
         <option value="$PROJECT_DIR$/appRU/classes/eventClass.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/bookPrivateEvent.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php" />
@@ -207,14 +193,18 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/phone_login.php" />
         <option value="$PROJECT_DIR$/phone_register.php" />
-        <option value="$PROJECT_DIR$/appRU/ajax/checkGoogleUser.php" />
-        <option value="$PROJECT_DIR$/appRU/ajax/startSessionGAPI.php" />
         <option value="$PROJECT_DIR$/appRU/ajax/logout.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/user.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/looksGood.php" />
         <option value="$PROJECT_DIR$/register.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/assets/js/gapi.js" />
+        <option value="$PROJECT_DIR$/appRU/config.php" />
+        <option value="$PROJECT_DIR$/appRU/ajax/checkGoogleUser.php" />
+        <option value="$PROJECT_DIR$/appRU/ajax/startSessionGAPI.php" />
+        <option value="$PROJECT_DIR$/appRU/classes/notificationClass.php" />
+        <option value="$PROJECT_DIR$/appRU/ajax/read.php" />
+        <option value="$PROJECT_DIR$/appRU/pages_styled/notifications.php" />
       </list>
     </option>
   </component>
@@ -232,9 +222,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1412" />
+    <option name="x" value="825" />
     <option name="y" value="23" />
-    <option name="width" value="1123" />
+    <option name="width" value="1710" />
     <option name="height" value="1268" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -347,18 +337,54 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="albi_prodv2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="albi_prodv2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appRU" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="albi_prodv2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="albi_prodv2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appRU" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ajax" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.JavaScript" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -482,12 +508,13 @@
       <workItem from="1546470362475" duration="3342000" />
       <workItem from="1546723237083" duration="2026000" />
       <workItem from="1546830380186" duration="2277000" />
-      <workItem from="1546881419538" duration="8051000" />
+      <workItem from="1546881419538" duration="10045000" />
+      <workItem from="1546991845509" duration="2705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92908000" />
+    <option name="totallyTimeSpent" value="97607000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -499,19 +526,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1412" y="23" width="1123" height="1268" extended-state="0" />
-    <editor active="true" />
+    <frame x="825" y="23" width="1710" height="1268" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16028495" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10526316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858416" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -594,14 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changeGroupEvent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1840">
@@ -648,56 +666,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1087">
-          <caret line="227" column="0" lean-forward="true" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changePrivateEvent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="671">
           <caret line="129" column="114" lean-forward="false" selection-start-line="129" selection-start-column="63" selection-end-line="129" selection-end-column="114" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/classes/notificationClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="23" column="51" lean-forward="true" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/notifications.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="873">
-          <caret line="91" column="39" lean-forward="true" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/ajax/read.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/classes/eventClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="25" column="65" lean-forward="true" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -776,7 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,28 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="273" column="0" lean-forward="false" selection-start-line="273" selection-start-column="0" selection-end-line="348" selection-end-column="9" />
-          <folding>
-            <element signature="n#script#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1546884121487" expanded="true" signature="288:344" ph="SELECT * FRO... users" />
-            <marker date="1546884121487" expanded="true" signature="631:708" ph="SELECT id FR... notifications-booking" />
-            <marker date="1546884121487" expanded="true" signature="5387:5607" ph="SELECT DISTI... programs" />
-            <marker date="1546884121487" expanded="true" signature="5913:5950" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/ajax/startSessionGAPI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/appRU/pages_styled/looksGood.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="657">
@@ -840,19 +790,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/ajax/checkGoogleUser.php">
+    <entry file="file://$PROJECT_DIR$/appRU/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="69">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="31" />
+          <folding>
+            <marker date="1546884121487" expanded="true" signature="288:344" ph="SELECT * FRO... users" />
+            <marker date="1546884121487" expanded="true" signature="631:708" ph="SELECT id FR... notifications-booking" />
+            <marker date="1546884121487" expanded="true" signature="5387:5607" ph="SELECT DISTI... programs" />
+            <marker date="1546884121487" expanded="true" signature="5913:5950" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/gapi.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="85" column="20" lean-forward="true" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+        <state relative-caret-position="547">
+          <caret line="192" column="18" lean-forward="false" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -866,12 +839,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
+    <entry file="file://$PROJECT_DIR$/appRU/ajax/startSessionGAPI.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        <state relative-caret-position="276">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/ajax/checkGoogleUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1546966174960" expanded="true" signature="145:192" ph="SELECT id FR... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <marker date="1545516914855" expanded="true" signature="1064:1119" ph="SELECT sched... programs" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/classes/eventClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding>
+            <marker date="1545516909331" expanded="true" signature="386:679" ph="INSERT INTO events... " />
+            <marker date="1545516909331" expanded="true" signature="949:1241" ph="INSERT INTO events... " />
+            <marker date="1545516909331" expanded="true" signature="1395:1557" ph="UPDATE event... " />
+            <marker date="1545516909331" expanded="true" signature="1724:1969" ph="UPDATE event... " />
+            <marker date="1545516909331" expanded="true" signature="2093:2126" ph="DELETE FROM " />
+            <marker date="1545516909331" expanded="true" signature="2251:2321" ph="UPDATE event... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/classes/notificationClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="26" column="41" lean-forward="true" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+          <folding>
+            <marker date="1546994022404" expanded="true" signature="263:385" ph="UPDATE `noti... " />
+            <marker date="1546994022404" expanded="true" signature="529:564" ph="DELETE FROM " />
+            <marker date="1546994022404" expanded="true" signature="529:589" ph="DELETE FROM " />
+            <marker date="1546994022404" expanded="true" signature="540:564" ph="UPDATE `noti... " />
+            <marker date="1546994022404" expanded="true" signature="591:642" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2487">
+          <caret line="227" column="0" lean-forward="true" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/ajax/notificationItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/notifications.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="75" column="81" lean-forward="true" selection-start-line="75" selection-start-column="81" selection-end-line="75" selection-end-column="81" />
+          <folding>
+            <element signature="e#2560#5818#0#PHP" expanded="false" />
+            <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1546995162132" expanded="true" signature="2228:2385" ph="SELECT *,TIM... notifications-booking" />
+            <marker date="1546995162132" expanded="true" signature="5942:6107" ph="..." />
+            <marker date="1546995162132" expanded="true" signature="6254:6405" ph="{...}" />
+            <marker date="1546995162132" expanded="true" signature="6313:6405" ph="{...}" />
           </folding>
         </state>
       </provider>

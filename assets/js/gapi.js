@@ -53,7 +53,9 @@ function initClient() {
         }
 
     }, function (error) {
-        appendPre(JSON.stringify(error, null, 2));
+        // appendPre(JSON.stringify(error, null, 2));
+        console.log(JSON.stringify(error, null, 2));
+        
     });
 }
 
@@ -62,12 +64,12 @@ function initClient() {
  */
 
 
- function startSession(googleID){
+ function startSession(id){
     $.ajax({
         type: "POST",
         url: "../appRU/ajax/startSessionGAPI.php",
         data: {
-            googleID: googleID
+            id: id
         },success: function (data) {
             // redirect to programs
             location.href = '/appRU/pages_styled/programs.php';
@@ -97,9 +99,9 @@ function checkUser(googleID,getGivenName,getFamilyName,getEmail) {
             } else {
                 // login user
                 // session start with google id
-                console.log(googleID);
+                console.log(data);
                 
-                startSession(googleID);
+                startSession(data);
             }
         }
     });
