@@ -1,0 +1,103 @@
+// sass --watch scss/messages.scss:css/messages.css --style compressed
+.messagesPage {
+    width: 300px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    .header {
+        height: 50px;
+        position: absolute;
+        background: #fff;
+        width: 100%;
+        left: 0;
+
+        h3 {
+            text-align: center;
+            padding-top: 20px;
+        }
+    }
+
+
+
+    ul {
+        height: 480px;
+        overflow-x: hidden;
+        padding-top: 50px;
+    }
+
+    li {
+        border-radius: 8px;
+        width: 284px;
+        margin-bottom: 10px;
+        &:last-of-type{
+            margin-bottom: 70px;
+        }
+    }
+
+    .student {
+        background: #41726B;
+
+        .message {
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 10px 0 10px;
+        }
+
+        .info {
+            font-size: 13px;
+            color: #C0D9D6;
+            padding: 0 10px 10px 10px;
+            margin-top: 10px;
+        }
+    }
+
+    .teacher {
+        background: #EFEFF1;
+        margin-left: auto;
+        margin-right: 0;
+
+        .message {
+            color: #000;
+            font-size: 16px;
+            padding: 10px 10px 0 10px;
+        }
+
+        .info {
+            font-size: 13px;
+            color: #5F5F5F;
+            padding: 0 10px 10px 10px;
+            margin-top: 10px;
+        }
+    }
+
+
+    .newMessage{
+        height: 90px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: #fff;
+        width: 100%;
+        border-top: 1px #E6E6E6 solid;
+        border-bottom: 1px #E6E6E6 solid;
+        textarea{
+            resize: none;
+            border: 0;
+            width: 100%;
+            height: 70px;
+            background: transparent;
+            font-size: 14px;
+            padding: 0 10px;
+            margin: 0;
+
+        }
+        button{
+            border: 0;
+            background: transparent;
+            font-size: 16px;
+            color: #41726B;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}

@@ -3417,12 +3417,13 @@ a {
             font-size: 12px;
             line-height: 16px;
 
-            
+
         }
 
         .offerBlock {
             color: $dark-gray;
             margin-top: 20px;
+
             .allowSection {
                 margin-top: 10px;
 
@@ -3551,6 +3552,129 @@ a {
         }
     }
 
+    .messagesPage {
+        // width: 300px;
+        // margin: 0 auto;
+        padding: 0 10px;
+        overflow-x: hidden;
+        background: #fff;
+        .header {
+            height: 50px;
+            position: absolute;
+            background: #fff;
+            width: 100%;
+            left: 0;
+
+            h3 {
+                text-align: center;
+                padding-top: 20px;
+                font-size: 18px;
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+        .messages{
+            ul {
+                height: 410px;
+                overflow-x: hidden;
+                padding-top: 56px;
+                font-family: "museoSans300", sans-serif;
+            }
+            
+    
+            li {
+                border-radius: 8px;
+                width: 284px;
+                margin-bottom: 10px;
+    
+                &:last-of-type {
+                    margin-bottom: 70px;
+                }
+            }
+            .noMessages{
+                margin-top: 50%;
+                text-align: center;
+                color: #8d8989;
+            }
+    
+            .student {
+                background: #41726B;
+    
+                .message {
+                    color: #fff;
+                    font-size: 16px;
+                    padding: 10px 10px 0 10px;
+                }
+    
+                .info {
+                    font-size: 13px;
+                    color: #C0D9D6;
+                    padding: 0 10px 10px 10px;
+                    margin-top: 10px;
+                }
+            }
+    
+            .teacher {
+                background: #EFEFF1;
+                margin-left: auto;
+                margin-right: 0;
+    
+                .message {
+                    color: #000;
+                    font-size: 16px;
+                    padding: 10px 10px 0 10px;
+                }
+    
+                .info {
+                    font-size: 13px;
+                    color: #5F5F5F;
+                    padding: 0 10px 10px 10px;
+                    margin-top: 10px;
+                }
+            }
+    
+    
+            .newMessage {
+                height: 96px;
+                position: absolute;
+                bottom: 61px;
+                left: 0;
+                background: #fff;
+                width: 100%;
+                border-top: 1px #E6E6E6 solid;
+                border-bottom: 1px #E6E6E6 solid;
+    
+                textarea {
+                    font-family: "museoSans300", sans-serif;
+                    resize: none;
+                    border: 0;
+                    width: 296px;
+                    max-width: 320px;
+                    height: 53px;
+                    padding: 10px 10px 0 10px;
+                    background: transparent;
+                    font-size: 14px;
+                    margin: 0;
+    
+                }
+    
+                button {
+                    border: 0;
+                    background: transparent;
+                    font-size: 16px;
+                    color: #41726B;
+                    position: absolute;
+                    right: 0;
+                    bottom: 10px;
+                }
+            }
+        }
+
+
+
+       
+    }
 }
 
 
@@ -6868,7 +6992,10 @@ a {
             background: #fff;
             margin: 0 auto;
 
-
+            h3 {
+                font-size: 18px;
+                font-family: 'museoSans500', sans-serif;
+            }
 
             p {
                 font-family: "museoSans300", sans-serif;
@@ -6881,26 +7008,6 @@ a {
 
                 }
 
-            }
-
-            h3 {
-                font-size: 18px;
-                font-family: 'museoSans300', sans-serif;
-                left: -7px;
-                width: 244px;
-                display: inline-block;
-                text-align: center;
-                position: relative;
-                top: -2px;
-            }
-
-            a {
-                color: unset;
-            }
-
-            i {
-                display: inline-block;
-                font-size: 20px;
             }
         }
 
@@ -6927,12 +7034,13 @@ a {
             font-size: 12px;
             line-height: 16px;
 
-            
+
         }
 
         .offerBlock {
             color: $dark-gray;
             margin-top: 20px;
+
             .allowSection {
                 margin-top: 10px;
 
@@ -7030,7 +7138,7 @@ a {
                     }
 
                     * {
-                        color: #000;
+                        color: $dark-gray;
                     }
 
                     input {
@@ -7061,4 +7169,120 @@ a {
         }
     }
 
+    .messagesPage {
+        width: 300px;
+        margin: 0 auto;
+        overflow-x: hidden;
+
+        .header {
+            height: 50px;
+            position: absolute;
+            background: #fff;
+            width: 100%;
+            left: 0;
+
+            h3 {
+                text-align: center;
+                padding-top: 20px;
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+        .messages{
+            ul {
+                height: 410px;
+                overflow-x: hidden;
+                padding-top: 56px;
+                font-family: "museoSans300", sans-serif;
+            }
+            
+    
+            li {
+                border-radius: 8px;
+                width: 284px;
+                margin-bottom: 10px;
+    
+                &:last-of-type {
+                    margin-bottom: 70px;
+                }
+            }
+    
+            .student {
+                background: #41726B;
+    
+                .message {
+                    color: #fff;
+                    font-size: 16px;
+                    padding: 10px 10px 0 10px;
+                }
+    
+                .info {
+                    font-size: 13px;
+                    color: #C0D9D6;
+                    padding: 0 10px 10px 10px;
+                    margin-top: 10px;
+                }
+            }
+    
+            .teacher {
+                background: #EFEFF1;
+                margin-left: auto;
+                margin-right: 0;
+    
+                .message {
+                    color: #000;
+                    font-size: 16px;
+                    padding: 10px 10px 0 10px;
+                }
+    
+                .info {
+                    font-size: 13px;
+                    color: #5F5F5F;
+                    padding: 0 10px 10px 10px;
+                    margin-top: 10px;
+                }
+            }
+    
+    
+            .newMessage {
+                height: 96px;
+                position: absolute;
+                bottom: 63px;
+                left: 0;
+                background: #fff;
+                width: 100%;
+                border-top: 1px #E6E6E6 solid;
+                border-bottom: 1px #E6E6E6 solid;
+    
+                textarea {
+                    font-family: "museoSans300", sans-serif;
+                    resize: none;
+                    border: 0;
+                    width: 296px;
+                    max-width: 320px;
+                    height: 53px;
+                    padding: 10px 10px 0 10px;
+                    background: transparent;
+                    font-size: 14px;
+                    margin: 0;
+    
+                }
+    
+                button {
+                    border: 0;
+                    background: transparent;
+                    font-size: 16px;
+                    color: #41726B;
+                    position: absolute;
+                    right: 0;
+                    bottom: 10px;
+                }
+            }
+        }
+
+
+
+       
+    }
 }
