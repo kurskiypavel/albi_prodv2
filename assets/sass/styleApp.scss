@@ -106,7 +106,7 @@ a {
                 font-size: 17px;
                 position: absolute;
                 right: 10px;
-                top: 25%;
+                top: 31%;
             }
         }
 
@@ -812,7 +812,7 @@ a {
             // margin-bottom: 93px;
 
             .stats {
-                margin-top: 25px;
+                
                 margin-bottom: 25px;
 
                 li {
@@ -3375,9 +3375,17 @@ a {
             background: #fff;
             margin: 0 auto;
 
+            a{
+                display: inline-block;
+                color: #000;
+            }
+
             h3 {
                 font-size: 18px;
                 font-family: 'museoSans500', sans-serif;
+                display: inline-block;
+                position: relative;
+                left: 82px;
             }
 
             p {

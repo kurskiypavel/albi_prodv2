@@ -6,7 +6,15 @@ require_once '../config.php';
 
 $user_id = $_POST['user_id'];
 $message =  htmlspecialchars(trim($_POST['message']));
-$conversation = $author = $user_id;
+$conversation = $_POST['conversation'];
+if ($conversation==null){
+    $conversation = $author = $user_id;
+} else{
+    $author = $user_id;
+}
+
+
+
 $created_at = date("Y-m-d H:i:s");
 
 $query = "INSERT INTO messages VALUES (null,'$conversation','$author','$message','$created_at') ";
@@ -17,4 +25,9 @@ $query = "SELECT first_name from users where id=$user_id";
 $result = $conn->query($query);
 $obj = $result->fetch_object();
 
-echo '<li class="student"><p class="message">' . $message . '</p><p class="info">' . $obj->first_name . ' Сейчас</p></li>';
+if ($user_id=='1'){
+    echo '<li class="teacher"><p class="message">' . $message . '</p><p class="info">' . $obj->first_name . ' Сейчас</p></li>';
+} else{
+    echo '<li class="student"><p class="message">' . $message . '</p><p class="info">' . $obj->first_name . ' Сейчас</p></li>';
+}
+

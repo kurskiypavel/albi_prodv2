@@ -3,12 +3,11 @@
 // Connection with DB
 require_once '../config.php';
 
-//$user_id = $_GET['user_id'];
-session_start();
-$user = $_SESSION['user_id'];
+$conversation = $_GET['conversation'];
+
 // attempt to find passed user in DB
 $conn->query("SET lc_time_names = 'ru_RU'");
-$query = "SELECT messages.`author`,messages.`message`,DATE_FORMAT(messages.`created_at`, '%e %b') AS date, users.`first_name` name FROM messages JOIN users ON messages.author = users.id WHERE conversation='$user' ORDER BY messages.`created_at` ASC";
+$query = "SELECT messages.`author`,messages.`message`,DATE_FORMAT(messages.`created_at`, '%e %b') AS date, users.`first_name` name FROM messages JOIN users ON messages.author = users.id WHERE conversation='$conversation' ORDER BY messages.`created_at` ASC";
 $result = $conn->query($query);
 //if (!$result) die($conn->connect_error);
 $rows = $result->num_rows;
@@ -94,8 +93,9 @@ $rows = $result->num_rows;
 
     function send(params) {
         
-        var user_id = '<?php echo $user;?>';
+        var user_id = '1';
         var message = $('.messageInput').val();
+        var conversation = "<?php echo $conversation;?>";
         if(!message){
             return false;
         }
@@ -105,7 +105,8 @@ $rows = $result->num_rows;
             url: "../ajax/send.php",
             data: {
                 user_id: user_id,
-                message: message
+                message: message,
+                conversation: conversation
             },
             success: function (data) {
 //                alert('success');

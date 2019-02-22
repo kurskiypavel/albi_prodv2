@@ -111,16 +111,9 @@ if ($user == '1') {
         </div>
     </div>
     <div class="infoContainer">
-<!--        <div class="stats">-->
-<!--            <ul>-->
-<!--                <li>-->
-<!--                    -->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <p>Вы присоединились <span id='joinDate'></span></p>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
+       <div class="stats">
+           <a href='messages.php' style='font-family: museoSans500; color:unset;'>Мои сообщения</a>
+        </div>
         <div class="info">
             <h3>Личная информация</h3>
             <ul>
