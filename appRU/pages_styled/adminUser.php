@@ -29,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
+
+
     //update user account
     $obj->update($user, $first_name, $last_name, $birthdate, $location, $email, $phone);
 //    $obj->update($user, $first_name);
@@ -144,7 +146,6 @@ $obj = $result->fetch_object();
                 <div class="subContent">
                     <span class="bold">Телефон</span>
                     <input id='yourphone2'  type="tel" name='phone' value="<?php echo $obj->phone; ?>"  placeholder="—">
-                    
                 </div>
             </li>
 
@@ -163,7 +164,7 @@ $obj = $result->fetch_object();
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
               crossorigin="anonymous"></script>
               <script src='//s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js'></script>
-<script src="../../assets/js/phoneMask.js"></script>
+<!--<script src="../../assets/js/phoneMask.js"></script>-->
 
 <script>
 

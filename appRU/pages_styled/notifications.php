@@ -130,7 +130,7 @@ require_once '../parts/header.php';
 
         }
     } else {
-        echo 'nothing to show';
+        echo '<div class="noNotifications">Вы в курсе всего</div>';
 
     }
 

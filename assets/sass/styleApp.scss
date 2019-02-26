@@ -1239,7 +1239,7 @@ a {
                 height: 77px;
                 resize: none;
                 background: $light-gray;
-                font-size: 18px;
+                font-size: 15px;
                 font-family: 'museoSans300', sans-serif;
                 font-weight: 300;
                 border-radius: 8px;
@@ -1763,7 +1763,7 @@ a {
                 height: 77px;
                 resize: none;
                 background: $light-gray;
-                font-size: 18px;
+                font-size: 15px;
                 font-family: 'museoSans300', sans-serif;
                 font-weight: 300;
                 border-radius: 8px;
@@ -2344,7 +2344,7 @@ a {
                 height: 77px;
                 resize: none;
                 background: $light-gray;
-                font-size: 18px;
+                font-size: 15px;
                 font-family: 'museoSans300', sans-serif;
                 font-weight: 300;
                 border-radius: 8px;
@@ -2515,7 +2515,7 @@ a {
                 height: 77px;
                 resize: none;
                 background: $light-gray;
-                font-size: 18px;
+                font-size: 15px;
                 font-family: 'museoSans300', sans-serif;
                 font-weight: 300;
                 border-radius: 8px;
@@ -3195,7 +3195,7 @@ a {
         }
 
 
-        .notifications {}
+        
 
 
 
@@ -3203,6 +3203,16 @@ a {
         .notifications {
             width: 280px;
             margin: 0 auto;
+
+            .noNotifications{
+                top: 50%;
+                position: absolute;
+                left: 50%;
+                margin: -16px auto auto -62px;
+                font-family: "museoSans300", sans-serif;
+                color: #8d8989;
+                font-size: 16px;
+            }
 
             .notification {
                 padding: 7px 10px;
@@ -3597,7 +3607,8 @@ a {
                 margin-bottom: 10px;
     
                 &:last-of-type {
-                    margin-bottom: 70px;
+                    // margin-bottom: 70px;
+                    margin-bottom: 90px;
                 }
             }
             .noMessages{
@@ -3611,7 +3622,8 @@ a {
     
                 .message {
                     color: #fff;
-                    font-size: 16px;
+                    font-size: 15px;
+                    line-height: 19px;
                     padding: 10px 10px 0 10px;
                 }
     
@@ -3630,7 +3642,8 @@ a {
     
                 .message {
                     color: #000;
-                    font-size: 16px;
+                    font-size: 15px;
+                    line-height: 19px;
                     padding: 10px 10px 0 10px;
                 }
     
@@ -4864,7 +4877,7 @@ a {
                 height: 77px;
                 resize: none;
                 background: $light-gray;
-                font-size: 18px;
+                font-size: 15px;
                 font-family: 'museoSans300', sans-serif;
                 font-weight: 300;
                 border-radius: 8px;
@@ -5388,7 +5401,7 @@ a {
                 height: 77px;
                 resize: none;
                 background: $light-gray;
-                font-size: 18px;
+                font-size: 15px;
                 font-family: 'museoSans300', sans-serif;
                 font-weight: 300;
                 border-radius: 8px;
@@ -5969,7 +5982,7 @@ a {
                 height: 77px;
                 resize: none;
                 background: $light-gray;
-                font-size: 18px;
+                font-size: 15px;
                 font-family: 'museoSans300', sans-serif;
                 font-weight: 300;
                 border-radius: 8px;
@@ -6140,7 +6153,7 @@ a {
                 height: 77px;
                 resize: none;
                 background: $light-gray;
-                font-size: 18px;
+                font-size: 15px;
                 font-family: 'museoSans300', sans-serif;
                 font-weight: 300;
                 border-radius: 8px;

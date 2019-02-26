@@ -18,11 +18,17 @@ $("#yourphone2").inputmask({
 $("form").submit(function (e) {
     var validationFailed = false;
     var curchr = $('#yourphone2').val().replace(/\D/g, '');
-    var email = $('#yourMail').val();
-    if (curchr.length < 10 && email.length < 1) {
+    // var email = $('#yourMail').val();
+    // if (curchr.length < 10 && email.length < 1) {
+    //     validationFailed = true;
+    // }
+    if (curchr.length < 10 ) {
         validationFailed = true;
     }
-    if (validationFailed) {
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/')+1);
+
+    if (validationFailed && filename!=='looksGood.php') {
         e.preventDefault();
         return false;
     }

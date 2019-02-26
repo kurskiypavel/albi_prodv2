@@ -97,7 +97,7 @@ if ($user == '1') {
     <?php echo $notificationLink; ?>
 
     <h3>Мой профиль</h3>
-    <a href="adminUser.php?user=<?php echo $user; ?>"><i class="fas fa-cog"></i></a>
+    <a style="display: none;" href="adminUser.php?user=<?php echo $user; ?>"><i class="fas fa-cog"></i></a>
 </div>
 <div class="body">
     <div class="card">

@@ -55,7 +55,7 @@ $rows = $result->num_rows;
 
                 }
             } else {
-                echo '<p class="noMessages">У вас пока нет сообщений.</p>';
+                echo '<p class="noMessages">У вас пока нет сообщений</p>';
             }
             ?>
 
