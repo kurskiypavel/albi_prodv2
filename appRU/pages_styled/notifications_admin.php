@@ -133,9 +133,9 @@ require_once '../parts/header.php';
 
                 } elseif ($data[$i]['canceled'] == '1') {
 //                    echo $data[$i]['user_name'] . ' отменил(а) занятие на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
-                    echo $data[$i]['user_name'] . ' отменил(а) занятие на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
+                    echo $data[$i]['user_name'] . ' отменил(а) занятие. <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
                 } elseif ($data[$i]['confirmed'] != '1' && $data[$i]['canceled'] != '1' && $data[$i]['change'] != '1') {
-                    echo $data[$i]['user_name'] . ' забронировал(а) частное занятие на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br>Телефон: <span class="tel">' . $data[$i]['user_phone'].'</span>';
+                    echo $data[$i]['user_name'] . ' забронировал(а) частное занятие. <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br>Телефон: <span class="tel">' . $data[$i]['user_phone'].'</span>';
                     if ($data[$i]['comment']) {
                         echo '<br>Комментарий: ' . $data[$i]['comment'];
                     }
@@ -188,28 +188,6 @@ require_once '../parts/header.php';
     }
 
 
-    function formatEventDate(i, eventNext) {
-        //Format eventDate
-
-        if (eventNext) {
-            //format rules
-            var momentEventNext = moment(eventNext);
-            //output the result on page
-            momentEventNext.locale('ru');
-            var momentEventNextRU = momentEventNext.format("DD MMM");
-            //insert each into
-            listOfClassesEvent[i].innerText = momentEventNextRU;
-        }
-
-
-    }
-
-    //create array of listed dates
-    var listOfClassesEvent = document.getElementsByClassName('eventNextDate');
-    for (var i = 0; i < listOfClassesEvent.length; i++) {
-        //pass each into function
-        formatEventDate(i, listOfClassesEvent[i].innerText);
-    }
 
 
 </script>

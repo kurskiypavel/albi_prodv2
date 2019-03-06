@@ -11,28 +11,39 @@ $instructor = '1';
 session_start();
 $user = $_SESSION['user_id'];
 
+// template id for sendgrid email - new event template
+$template_id = 'd-155a815710dd438e9cbe3fbdfa57e2c3';
+
+// day of week to restrict booking same day as today
+$day_of_week = date('N', strtotime(date("l")));
 
 require_once '../parts/header.php';
 
+// get available schedule
+$queryPrivate = "SELECT DISTINCT(date) AS date FROM `private-schedule` WHERE `taken` != '1' AND dayOfWeek != $day_of_week  GROUP BY date";
+$resultPrivate = $conn->query($queryPrivate);
+$rowsPrivate = $resultPrivate->num_rows;
 
 $obj = new eventClass($conn);
 
 if ($_POST) {
-    if (isset($_POST['createPrivateEvent'])) {
+    if (isset($_POST['createPrivateEventB'])) {
         $date = htmlspecialchars($_POST['date']);
         $time = htmlspecialchars($_POST['time']);
         $comment = htmlspecialchars($_POST['comment']);
         $repeatable = isset($_POST['repeatable']);
-
 
         //createPrivateEvent
         $obj->createPrivateEvent(
             $student, $instructor,
             $date, $time, $comment,
             $repeatable);
+        $obj->makeTaken($date, $time);
+
 
 //        include_once '../ajax/send-email_private.php';
-        echo "<script>location.href = 'instructor.php?user=" . $user . "&id=" . $instructor . "';</script>";
+//        echo "<script>location.href = 'instructor.php?user=" . $user . "&id=" . $instructor . "';</script>";
+        echo "<script>location.href = 'programs.php';</script>";
     }
 }
 
@@ -99,24 +110,39 @@ if ($_POST) {
 
 
     <form class='form' method="post">
-        <p class="label ">Дата</p><input name='date' class="gray date" type="date" value="<?php echo $date; ?>">
-        <span class="error date"></span>
-        <p class="label ">Время</p><input name='time' class="gray time" type="time" value="<?php echo $time; ?>">
-        <span class="error time"></span>
-        <p class="label">Комментарий</p><textarea class="" name='comment' type="text"
-                                                  value="<?php echo $comment; ?>"></textarea>
 
-        <div class="repeatableDiv">
-            <p class="repeatableLabel">Повторные занятия</p>
-            <div class="repeatableCheckbox">
+        <?php
+        if ($rowsPrivate) {
 
-                <input type='checkbox' class='ios8-switch' name="repeatable" id='checkbox-1'>
-                <!-- get to DB by checked property -->
-                <label for='checkbox-1'></label>
-            </div>
-        </div>
+            echo '<p class="label">День недели</p><select name="date" id="dates">';
+            for ($i = 0; $i < $rowsPrivate; ++$i) {
+                $resultPrivate->data_seek($i);
+                $objPrivate = $resultPrivate->fetch_object();
+                echo '<option value="' . $objPrivate->date . '">' . $objPrivate->date . '</option>';
+            }
+            echo <<<HEREFORM
+                </select>
+                <span class="error date"></span>
+                <p class="label">Время</p>
+                <select name="time" id="times"></select>
+                <span class="error time"></span>
+                <p class="label">Комментарий</p>
+                <textarea class="" name='comment' type="text" value=""></textarea>
+                <div class="repeatableDiv">
+                    <p class="repeatableLabel">Повторные занятия</p>
+                    <div class="repeatableCheckbox">
+                        <input type='checkbox' class='ios8-switch' name="repeatable" id='checkbox-1'>
+                        <!-- get to DB by checked property -->
+                        <label for='checkbox-1'></label>
+                    </div>
+                </div>
+                <input class="button" name="createPrivateEventB" type="submit" value="Готово">
+HEREFORM;
+        } else {
+            echo '<div class="noPrivate">Сегодня все занято. Завтра могут появиться свободные места.</div>';
+        }
+        ?>
 
-        <input class="button" name="createPrivateEvent" type="submit" value="Готово">
 
     </form>
     <?php include_once '../parts/footer.php' ?>
@@ -127,30 +153,77 @@ if ($_POST) {
         crossorigin="anonymous"></script>
 <script>
 
-
+    //rewrite according to new
     $('input.button').click(function (e) {
 
-        var dateVal = $('.date').val();
-        var timeVal = $('.time').val();
+        var dateVal = $('#dates').val();
+        var timeVal = $('#times').val();
 
-        if (dateVal == "" && timeVal == "") {
+
+        if (dateVal == null && timeVal == null) {
             e.preventDefault();
-            $('.error.date').text('Пожалуйста выберите дату');
+            $('.error.date').text('Пожалуйста выберите день недели');
             $('.error.time').text('Пожалуйста выберите время');
-        } else if (dateVal == "") {
+            return false;
+        } else if (dateVal == null) {
             e.preventDefault();
             $('.error.time').text('');
-            $('.error.date').text('Пожалуйста выберите дату');
-        } else if (timeVal == "") {
+            $('.error.date').text('Пожалуйста выберите день недели');
+            return false;
+        } else if (timeVal == null) {
             e.preventDefault();
             $('.error.date').text('');
             $('.error.time').text('Пожалуйста выберите время');
+            return false;
         }
 
 
     })
 </script>
+<script>
 
+    //        Pasting data from AJAX
+    function succ(data2) {
+        var length = data2.length;
+
+        $('#times').html('');
+        for (var i = 0; i < length; ++i) {
+            $('#times').append('<option value="' + data2[i].time + '">' + data2[i].time + '</option>');
+        }
+
+
+    }
+    //    request times according to chosen weekday
+    function getList() {
+
+        var chosenDate = $('#dates').val();
+        var article = $.ajax({
+            type: 'POST',
+            url: '../ajax/get-private-schedule.php',
+            dataType: "text",
+            data: {chosenDate: chosenDate},
+            async: true,
+            success: function (data) {
+
+                var json = data;
+                obj = JSON.parse(json);
+                succ(obj);
+
+
+            },
+            error: function () {
+
+                console.log('error');
+
+            }
+
+        });
+    }
+    $(document).ready(getList);
+    $('#dates').change(getList);
+
+
+</script>
 
 </body>
 

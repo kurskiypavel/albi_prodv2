@@ -14,6 +14,9 @@ $result = $conn->query($query);
 //if (!$result) die($conn->connect_error);
 $rows = $result->num_rows;
 
+
+
+
 ?>
 
 
@@ -55,6 +58,13 @@ $rows = $result->num_rows;
             font-size:14px;
             color: #707070;
         }
+        .myMessages{
+            color: #F68170;
+            position: absolute;
+            right: 65px;
+            display: inline-block;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -65,13 +75,38 @@ if ($rows) {
     for ($i = 0; $i < $rows; ++$i) {
         $result->data_seek($i);
         $obj = $result->fetch_object();
-        echo '<a href="conversationAdmin.php?conversation=' . $obj->conversation . '"><p class="name">' . $obj->name . '</p><p class="date">' . $obj->date . '</p><p class="message">' . $obj->message . '</p></a>';
+        echo '<a href="conversationAdmin.php?conversation=' . $obj->conversation . '">
+                <p class="name">' . $obj->name . '</p>
+                <p class="date">' . $obj->date . '</p>';
+
+                // get if any written by user from this conversation unreaded by author
+                $queryNew= "SELECT id from messages where author != '1' and readed = 0 and conversation='$obj->conversation'";
+                $resultNew = $conn->query($queryNew);
+                $rowsNew = $resultNew->num_rows;
+                if ($rowsNew) {
+                    echo '<p class="myMessages">Новое</p>';
+                }
+
+                echo '<p class="message">' . $obj->message . '</p>
+                
+                </a>';
     }
 } else {
     echo '<p class="noMessages">У вас пока нет сообщений.</p>';
 }
 ?>
+<script
+        src="//code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script>
 
+    // recolor Мои сообщение если есть непрочитанные
+    // если колокольчик неактивный но есть кружок в навигации то перекрасить
+    if($('.myMessages').text() === '0'){
+        $('.myMessages').css('display','inline-block');
+    }
+</script>
 </body>
 
 </html>

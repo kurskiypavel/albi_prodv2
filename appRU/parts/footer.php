@@ -15,6 +15,21 @@ if ($user != '1') {
     $rows = $result->num_rows;
     if ($rows) {
         $newNotification = '<div class="notification" style="height: 8px;position: absolute;background: #fea400;width: 8px;border-radius: 50%;right: 25px;top: 4px;"></div>';
+    } else {
+        $query = "SELECT id from messages where author = '1' and conversation = '$user' and readed = 0";
+        $result = $conn->query($query);
+        $rows = $result->num_rows;
+        if ($rows) {
+            $newNotification = '<div class="notification mail" style="height: 8px;position: absolute;background: #fea400;width: 8px;border-radius: 50%;right: 25px;top: 4px;"></div>';
+        }
+    }
+} else {
+    $query = "SELECT id from messages where author != '1' and readed = 0";
+    $result = $conn->query($query);
+    $rows = $result->num_rows;
+
+    if ($rows) {
+        $newNotification = '<div class="notification mail" style="height: 8px;position: absolute;background: #fea400;width: 8px;border-radius: 50%;right: 25px;top: 4px;"></div>';
     }
 }
 
@@ -48,12 +63,7 @@ echo '
             </li>
             <li class="' . ($thisPage == 'user' ? 'active' : '') . '">
             <!--If notification show below-->
-            
-            '.  $newNotification.'
-            
-            
-            
-            
+            ' . $newNotification . '
             <!--If notification show above-->
                 <a href="user.php?user=' . $user . '">
                     <i class="fas fa-user"></i>

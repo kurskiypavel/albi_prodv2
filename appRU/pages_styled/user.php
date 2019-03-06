@@ -23,16 +23,16 @@ $obj = $result->fetch_object();
 
 
 if ($user == '1') {
-    $notificationLink= '<a class="ring" href="notifications_admin.php"><i class="far fa-bell"></i></a>';
+    $notificationLink = '<a class="ring" href="notifications_admin.php"><i class="far fa-bell"></i></a>';
 } else {
     $query = "SELECT id FROM `notifications-booking` WHERE owner='$user' and readed is null";
     $result = $conn->query($query);
     //if (!$result) die($conn->connect_error);
     $rows = $result->num_rows;
     if (!$rows) {
-        $notificationLink= '<a class="ring" href="notifications.php"><i class="far fa-bell"></i></a>';
+        $notificationLink = '<a class="ring" href="notifications.php"><i class="far fa-bell"></i></a>';
     } else {
-        $notificationLink= '<a class="ring" href="notifications.php"><i class="fas active  fa-bell"></i></a>';
+        $notificationLink = '<a class="ring" href="notifications.php"><i class="fas active  fa-bell"></i></a>';
     }
 }
 
@@ -103,7 +103,7 @@ if ($user == '1') {
     <div class="card">
         <div class="subInstructor">
             <div class="headerInstructor"
-                 style="background-image: url(../../assets/images/App/user-images/<?php echo $obj->avatar; ?>);">
+                 style="background-image: url('../../assets/images/App/user-images/<?php echo $obj->avatar; ?>');">
             </div>
             <div class="body">
                 <h3><?php echo $obj->first_name . ' ' . $obj->last_name ?></h3>
@@ -111,8 +111,13 @@ if ($user == '1') {
         </div>
     </div>
     <div class="infoContainer">
-       <div class="stats">
-           <a href='messages.php' style='font-family: museoSans500; color:unset;'>Мои сообщения</a>
+        <div class="stats">
+            <?php if ($user == 1) {
+                echo "<a class='myMessages' href='adminMessages.php' style='font-family: museoSans500; color:unset;'>Мои сообщения</a>";
+            } else {
+                echo "<a class='myMessages' href='messages.php' style='font-family: museoSans500; color:unset;'>Мои сообщения</a>";
+            } ?>
+
         </div>
         <div class="info">
             <h3>Личная информация</h3>
@@ -164,7 +169,7 @@ if ($user == '1') {
                         echo '<a href="program.php?id=' . $objFavoriteProgram->favoriteId . '&user=' . $user . '">
                         <li class="row d-flex flex-d-row">
                             <p class="column-10">' . $objFavoriteProgram->title . '</p>
-                            <div class="column-2" style="text-align: right;"><i id="' . $objFavoriteProgram->favoriteId . '"class="fas fa-times"></i></div>
+                            <div class="column-2" style="text-align: right;"><i id="' . $objFavoriteProgram->favoriteId . '" class="fas fa-times"></i></div>
                         </li>
                     </a>';
                     }
@@ -178,7 +183,8 @@ if ($user == '1') {
             ?>
 
         </div>
-        <div style="margin-top: 30px; height: 100px;" id='signout_button' class="logout"><a href="../ajax/logout.php">Выйти</a></div>
+        <div style="margin-top: 30px; height: 100px;" id='signout_button' class="logout"><a href="../ajax/logout.php">Выйти</a>
+        </div>
 
     </div>
 
@@ -265,80 +271,87 @@ if ($user == '1') {
 </script>
 
 <script>
-// Client ID and API key from the Developer Console
-var CLIENT_ID = '412446253370-6k4h35sg8n0353i9qicd2674vbn2lrrm.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyDNJyonJn7LxALbqihYt8oo9y0nHodPMLs';
-// Array of API discovery doc URLs for APIs used by the quickstart
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-// Authorization scopes required by the API; multiple scopes can be
-// included, separated by spaces.
-var SCOPES = "https://www.googleapis.com/auth/calendar";
+    // Client ID and API key from the Developer Console
+    var CLIENT_ID = '412446253370-6k4h35sg8n0353i9qicd2674vbn2lrrm.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyDNJyonJn7LxALbqihYt8oo9y0nHodPMLs';
+    // Array of API discovery doc URLs for APIs used by the quickstart
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+    // Authorization scopes required by the API; multiple scopes can be
+    // included, separated by spaces.
+    var SCOPES = "https://www.googleapis.com/auth/calendar";
 
 
-var signoutButton = document.getElementById('signout_button');
+    var signoutButton = document.getElementById('signout_button');
 
 
-/**
- *  On load, called to load the auth2 library and API client library.
- */
-function handleClientLoad() {
-    gapi.load('client:auth2', initClient);
-}
-/**
- *  Initializes the API client library and sets up sign-in state
- *  listeners.
- */
-function initClient() {
-    gapi.client.init({
-        apiKey: API_KEY,
-        clientId: CLIENT_ID,
-        discoveryDocs: DISCOVERY_DOCS,
-        scope: SCOPES
-    }).then(function () {
-        // Listen for sign-in state changes.
-        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-        // Handle the initial sign-in state.
-        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-        signoutButton.onclick = handleSignoutClick;
+    /**
+     *  On load, called to load the auth2 library and API client library.
+     */
+    function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+    }
+    /**
+     *  Initializes the API client library and sets up sign-in state
+     *  listeners.
+     */
+    function initClient() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            // Listen for sign-in state changes.
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            // Handle the initial sign-in state.
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            signoutButton.onclick = handleSignoutClick;
 
-        
 
-    }, function (error) {
-        appendPre(JSON.stringify(error, null, 2));
-    });
-}
+        }, function (error) {
+            appendPre(JSON.stringify(error, null, 2));
+        });
+    }
 
-/**
- *  Called when the signed in status changes, to update the UI
- *  appropriately. After a sign-in, the API is called.
- */
-function updateSigninStatus(isSignedIn) {
-  console.log('updateSigninStatus');
-  
-}
+    /**
+     *  Called when the signed in status changes, to update the UI
+     *  appropriately. After a sign-in, the API is called.
+     */
+    function updateSigninStatus(isSignedIn) {
+        console.log('updateSigninStatus');
 
-/**
- *  Sign out the user upon button click.
- */
-function handleSignoutClick(event) {
-    gapi.auth2.getAuthInstance().signOut();
-}
-/**
- * Append a pre element to the body containing the given message
- * as its text node. Used to display the results of the API call.
- *
- * @param {string} message Text to be placed in pre element.
- */
-function appendPre(message) {
-    var pre = document.getElementById('content');
-    var textContent = document.createTextNode(message + '\n');
-    pre.appendChild(textContent);
-}
+    }
+
+    /**
+     *  Sign out the user upon button click.
+     */
+    function handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
+    }
+    /**
+     * Append a pre element to the body containing the given message
+     * as its text node. Used to display the results of the API call.
+     *
+     * @param {string} message Text to be placed in pre element.
+     */
+    function appendPre(message) {
+        var pre = document.getElementById('content');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+    }
 
 </script>
 
-<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
-        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+<script>
+
+    // recolor Мои сообщение если есть непрочитанные
+    // если колокольчик неактивный но есть кружок в навигации то перекрасить
+    if($('.footerBar .notification').hasClass('mail')){
+        $('.myMessages').css('color','#F68170');
+    }
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
 
 </body>

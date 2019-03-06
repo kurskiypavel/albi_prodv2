@@ -9,8 +9,49 @@
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/reset.css">
+    <style>
+        .svgWrap{
+            width: 50px;
+            margin: 0 auto;
+        }
+        .thankYou{
+            top: 15px;
+            opacity: 0;
+            position: absolute;
+            text-align: center;
+            transition: 0.6s;
+        }
+        .thankYou p{
+            font-family: museoSans300;
+            font-size: 20px;
+            color: #262424;
+            margin-top: 10px;
+            line-height: 29px;
+        }
+        .error{
+            opacity: 0;
+            position: absolute;
+            top: 85px;
+            color: red;
+            font-family: museoSans500;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+        .form{
+            z-index: 1;
+            opacity: 1;        
+            text-align: center;
+            transition: 0.6s;
+            top: 0px;
+            position: absolute;
+            
+        }
+        .submitBlock{
+            position: relative;
+        }
+        
+    </style>
 
-    
 </head>
 
 <body class="splashPage">
@@ -24,23 +65,118 @@
             <input type="tel">
             <button>Send link to mobile</button> -->
             <p class="head">Тут начинается практика</p>
-            <p class="copy">Сейчас Albi работает только на мобильных телефонах и мы усердно трудимся, чтобы предоставить удобный интерфейс для каждого.</p>
-            <input id='yourphone2' type="tel" class='gray' name="phone" placeholder="Номер телефона">
-            <button>Отправить на телефон</button>
+            <p class="copy">Сейчас Albi работает только на мобильных телефонах и мы усердно трудимся, чтобы
+                предоставить удобный интерфейс для каждого.</p>
+            <!-- <input id='yourphone2' type="tel" class='gray' name="phone" placeholder="Номер телефона">
+            <button>Отправить на телефон</button> -->
+            <div class="submitBlock">
+                <div class="form">
+                    <input id='yourphone2' type="tel" class='gray' name="phone" placeholder="Номер телефона">
+                    <p class="error">Проверьте номер телефона</p>
+                    <button id="sendSmsB">Отправить на телефон</button>
+                </div>
+
+                <div class="thankYou">
+                    <div class="svgWrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.5 95.5">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: none;
+                                        stroke: #f68170;
+                                        stroke-linecap: round;
+                                        stroke-linejoin: round;
+                                        stroke-width: 10px;
+                                    }
+                                </style>
+                            </defs>
+                            <title>Asset 1</title>
+                            <g id="Layer_2" data-name="Layer 2">
+                                <g id="Layer_1-2" data-name="Layer 1">
+                                    <path class="cls-1" d="M5 50.5 44 90.5 110.5 5" />
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
+                    <p>Совсем скоро вы получите SMS от Albi</p>
+                </div>
+            </div>
         </div>
         <a class="contact" href="mailto:Albina.kurskaya@gmail.com?Subject=Спросить" target="_top">
             Написать в Albi
         </a>
     </div>
 
-    <script
-        src="//code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-<script src='//s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js'></script>
-<script src="assets/js/phoneMask.js"></script>
+    <script src='//s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js'></script>
+    <script src="assets/js/phoneMask.js"></script>
+    <script src="assets/js/jquery.drawsvg.js"></script>
 
-<!-- mailjet token ac8a416c293d4a97bffcca754ad066cc -->
+    <!-- mailjet token ac8a416c293d4a97bffcca754ad066cc -->
+
+    <script>
+        // animate svg on success
+        function thankYou() {
+            
+            $(".form").css('opacity', '0');
+            setTimeout(function () {
+                $(".thankYou").css('opacity', '1');
+                var mySVG = $('svg').drawsvg();
+                mySVG.drawsvg('animate');
+            }, 600);
+
+
+            $(".form input").val('');
+        }
+
+        function validate(){
+            let checkPhone = $('#yourphone2').val();
+            checkPhone = checkPhone.replace(/\D/g,'');
+            if(checkPhone.length < 10){
+                $('.error').css('opacity','1');
+            } else {
+                thankYou();
+            }
+        }
+
+        function sendSms() {
+            var phoneNumber = '+7'+$('#yourphone2').val();
+            phoneNumber = phoneNumber.replace(/\D/g,'');
+            var data = JSON.stringify({
+                "sender": "albiyoga",
+                "recipient": phoneNumber,
+                "content": "Тут начинается практика http://albi.yoga"
+            });
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === 4) {
+                    // console.log(this.responseText);
+                    // show thank you block
+                    thankYou();
+                }
+            });
+
+            xhr.open("POST", "https://api.sendinblue.com/v3/transactionalSMS/sms");
+            xhr.setRequestHeader("api-key",
+                "");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("cache-control", "no-cache");
+            xhr.setRequestHeader("Postman-Token", "b5287ddf-f3f5-4498-a4eb-39f9777e28e7");
+
+            xhr.send(data);
+        }
+
+        // send SMS
+        // $('#sendSmsB').click(sendSms);
+
+
+        $('#sendSmsB').click(validate);
+    </script>
 
 </body>
 

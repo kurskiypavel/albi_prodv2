@@ -110,13 +110,13 @@ require_once '../parts/header.php';
                         echo 'Вы изменили занятие с Альбиной. Занятие состоится <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
                     } elseif ($data[$i]['canceled'] == '1') {
 //                    echo 'Вы отменили занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
-                        echo 'Вы отменили занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
+                        echo 'Вы отменили занятие с Альбиной. <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'].'.';
                     } elseif ($data[$i]['confirmed'] == '1') {
 //                    echo 'Альбина подтвердила занятие <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
                         echo 'Альбина подтвердила занятие <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
                     } elseif ($data[$i]['confirmed'] != '1' && $data[$i]['canceled'] != '1' && $data[$i]['change'] != '1') {
 //                    echo 'Вы записались на занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'] . '<br><span class="notifDate">' . $data[$i]['created_at'] . '</span>';
-                        echo 'Вы записались на занятие с Альбиной на <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'];
+                        echo 'Ваше занятие с Альбиной подтверждено. <span class="eventNextDate">' . $data[$i]['date'] . '</span> в ' . $data[$i]['time'].'.';
                     }
                 }
 
@@ -167,28 +167,7 @@ require_once '../parts/header.php';
     }
 
 
-    function formatEventDate(i, eventNext) {
-        //Format eventDate
 
-        if (eventNext) {
-            //format rules
-            var momentEventNext = moment(eventNext);
-            //output the result on page
-            momentEventNext.locale('ru');
-            var momentEventNextRU = momentEventNext.format("DD MMM");
-            //insert each into
-            listOfClassesEvent[i].innerText = momentEventNextRU;
-        }
-
-
-    }
-
-    //create array of listed dates
-    var listOfClassesEvent = document.getElementsByClassName('eventNextDate');
-    for (var i = 0; i < listOfClassesEvent.length; i++) {
-        //pass each into function
-        formatEventDate(i, listOfClassesEvent[i].innerText);
-    }
 
 
 </script>

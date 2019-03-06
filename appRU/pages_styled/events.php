@@ -158,7 +158,7 @@ $classEvent = new eventClass($conn);
 
         $query = "SELECT *,events.id event,TIME_FORMAT(events.time, '%k:%i') AS time
         FROM events
-        JOIN users ON users.id = events.instructor WHERE events.student='$user' AND events.private ='1'";
+        JOIN users ON users.id = events.instructor WHERE events.student='$user' AND events.private ='1' ORDER BY event DESC";
 
         $result = $conn->query($query);
         if (!$result) die($conn->connect_error);
@@ -169,22 +169,8 @@ $classEvent = new eventClass($conn);
             $obj = $result->fetch_object();
             ?>
             <div class="event">
-                <div class="headerEvent">
-                    <?php
-                    if ($obj->confirmed == 0) {
-                        echo '<img class="grayFace" src="/assets/images/App/myprofile_female_gray@2x.png" alt="girl">';
-                    }else{
-                        echo '<img class="sunFace" src="/assets/images/App/myprofile_female_sun@2x.png" alt="girl">';
-                    }
 
-                    ?>
-                </div>
                 <div class="body">
-
-                    <p class="lessonWith">Учитель <span class="bold">
-                        <?php echo '<a href="instructor.php?user='.$user.'&id=' . $obj->instructor . '&student=' . $obj->student . '&event=' . $obj->event . '">' . $obj->first_name . ' ' . $obj->last_name . '</a>';?>
-                    </span></p>
-
 
                     <div class="nextLesson">
 
@@ -231,35 +217,7 @@ $classEvent = new eventClass($conn);
     <script src='../js/app.js'></script>
     <script src="../../assets/js/moment.min.js"></script>
 
-    <script>
 
-        function formatDate(i,privateNext){
-            //Format eventDate
-
-            if (privateNext) {
-                //format rules
-                var momentPrivateNext = moment(privateNext);
-                //output the result on page
-                momentPrivateNext.locale('ru');
-                var momentPrivateNextRU = momentPrivateNext.format("DD MMM");
-
-
-                //insert each into
-                listOfClasses[i].innerText=momentPrivateNextRU;
-            }
-
-
-        }
-
-        //create array of listed dates
-        var listOfClasses = document.getElementsByClassName('privateNextDate');
-        for (var i = 0; i < listOfClasses.length; i++) {
-            //pass each into function
-            formatDate(i, listOfClasses[i].innerText);
-        }
-
-
-    </script>
 </body>
 
 </html>

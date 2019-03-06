@@ -49,10 +49,8 @@ $rows = $result->num_rows;
 $obj = $result->fetch_all();
 
 
-$schedule= $obj[0][0];
-$title= $obj[0][1];
-
-
+$schedule = $obj[0][0];
+$title = $obj[0][1];
 
 
 ?>
@@ -129,10 +127,12 @@ $title= $obj[0][1];
 
         <!--            <p class="label">Время</p>-->
         <!--            <input class="gray" name='time' type="time">-->
-        <p class="schedule">Занятия проходят по <?php echo $schedule;?></p>
+        <p class="schedule">Занятия проходят по <?php echo $schedule; ?></p>
 
 
-        <p class="label">Комментарий</p><textarea class="" name='comment' type="text"></textarea>
+        <p class="label">Комментарий</p><textarea placeholder="<?php if ($schedule == 'записи') {
+            echo 'Спросите о времени и месте занятий тут';
+        } ?>" class="" name='comment' type="text"></textarea>
 
         <input class="button" name="createGroupEvent" type="submit" value="Готово">
     </form>

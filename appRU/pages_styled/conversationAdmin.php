@@ -122,6 +122,33 @@ $rows = $result->num_rows;
     $('#send').click(send);
 </script>
 
+<script>
+    //Заходит на страницу переписки
+    //Все непрочитанные написанные админом для переписки становятся прочитанными
+
+    function readMessages(){
+        var user_id = '1';
+        var conversation = "<?php echo $conversation;?>";
+        // ajax read messages
+        $.ajax({
+            type: "POST",
+            url: "../ajax/readMessages.php",
+            data: {
+                user_id: user_id,
+                conversation: conversation
+            },
+            success: function (data) {
+
+            },
+            error: function () {
+
+            }
+        });
+    }
+    $(document).ready(readMessages);
+
+</script>
+
 
 </body>
 </html>

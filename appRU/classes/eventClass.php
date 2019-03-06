@@ -23,7 +23,7 @@ class eventClass
         $sql_new_group_event = "INSERT INTO events VALUES" . "(null,'$group_event_id',
                                                         '$program','$student','$instructor',null,null,
                                                         '$comment','0',
-                                                        null,1)";
+                                                        '1',1,null)";
         $this->conn->query($sql_new_group_event);
 
     }
@@ -35,7 +35,7 @@ class eventClass
         $sql_new_event = "INSERT INTO events VALUES" . "(null,null,
                                                         null,'$student','$instructor',
                                                         '$date','$time','$comment','1',
-                                                        null,'$repeatable')";
+                                                        1,'$repeatable',null)";
         $this->conn->query($sql_new_event);
     }
 
@@ -53,7 +53,7 @@ class eventClass
         $sql_update_event = "UPDATE events SET date='$date',
                          time='$time',
                          comment='$comment',
-                         confirmed=null,
+                         confirmed='1',
                          repeatble='$repeatable'
                          WHERE id='$id'";
         $this->conn->query($sql_update_event);
@@ -71,6 +71,21 @@ class eventClass
                         WHERE id='$id'";
         $this->conn->query($sql_update_event);
     }
+
+    public function makeTaken($date, $time)
+    {
+        $sql_take_schedule = "UPDATE `private-schedule` SET taken='1'
+                        WHERE date='$date' AND time='$time'";
+        $this->conn->query($sql_take_schedule);
+    }
+
+    public function deleteTaken($date, $time)
+    {
+        $sql_take_schedule = "UPDATE `private-schedule` SET taken='0'
+                        WHERE date='$date' AND time='$time'";
+        $this->conn->query($sql_take_schedule);
+    }
+
 
 
 }

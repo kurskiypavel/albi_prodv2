@@ -2,10 +2,11 @@
 
 
 // config
-$template_id = 'd-155a815710dd438e9cbe3fbdfa57e2c3';
-$authorization = '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';
+//$template_id = 'd-155a815710dd438e9cbe3fbdfa57e2c3';
+$authorization = '';
 $emailFrom = 'kurskiy.ifc@gmail.com';
 $emailTo = 'Albina.kurskaya@gmail.com';
+//$emailTo = 'paul.kurskii@gmail.com';
 
 
 $curl = curl_init();
@@ -54,11 +55,11 @@ $err = curl_error($curl);
 
 curl_close($curl);
 
-//if ($err) {
-//    echo "cURL Error #:" . $err;
-//} else {
-//    echo $response;
-//}
+if ($err) {
+    echo "cURL Error #:" . $err;
+} else {
+    echo $response;
+}
 
 
 /*

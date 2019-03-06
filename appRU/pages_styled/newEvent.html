@@ -22,8 +22,8 @@
         crossorigin="anonymous"></script>
     <script>
         // Client ID and API key from the Developer Console
-        var CLIENT_ID = '412446253370-6k4h35sg8n0353i9qicd2674vbn2lrrm.apps.googleusercontent.com';
-        var API_KEY = 'AIzaSyDNJyonJn7LxALbqihYt8oo9y0nHodPMLs';
+        var CLIENT_ID = '';
+        var API_KEY = '';
         // Array of API discovery doc URLs for APIs used by the quickstart
         var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
         // Authorization scopes required by the API; multiple scopes can be
@@ -95,7 +95,7 @@
         }
 
         // call as ajax
-        function newEvent() {
+        function newEvent(startDate,startTime,endTime) {
 
             // Refer to the JavaScript quickstart on how to setup the environment:
             // https://developers.google.com/calendar/quickstart/js
@@ -107,10 +107,14 @@
                 'location': 'location',
                 'description': 'Short description for program',
                 'start': {
+                    // dateTime = day of week of program ->find when is next date
+                    // concat date and time from function input startDate startTime
                     'dateTime': '2019-01-08T09:00:00',
                     'timeZone': 'Europe/Moscow'
                 },
                 'end': {
+                    // end date same as start date
+                    // concat date and time from function input endTime
                     'dateTime': '2019-01-08T17:00:00',
                     'timeZone': 'Europe/Moscow'
                 },
@@ -181,6 +185,64 @@
 
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+    <script>
+        /**
+        *   Get the start date for group event BEGINS
+        */
+        // воскресеньям - 0
+        // понедельникам - 1
+        // вторникам - 2
+        // средам - 3
+        // четвергам - 4
+        // пятницам - 5
+        // субботам - 6
+        
+        var programDay;
+        switch (new Date().getDay()) {
+            case 0:
+                programDay = "6";
+                break;
+            case 1:
+                programDay = "0";
+                break;
+            case 2:
+                programDay = "1";
+                break;
+            case 3:
+                programDay = "2";
+                break;
+            case 4:
+                programDay = "3";
+                break;
+            case 5:
+                programDay = "4";
+                break;
+            case 6:
+                programDay = "5";
+        }
+
+        // get program dayOfWeek
+        // if today date dayofweek = programdayofweek
+        // pass today as starting date in google events
+        // if not call getNextDayOfWeek passing today date and program's dayofweek
+        // then pass nextOccurence as starting date in google events
+
+
+        function getNextDayOfWeek(date, dayOfWeek) {
+            console.log(dayOfWeek);
+            
+            // Code to check that date and dayOfWeek are valid left as an exercise ;)
+            var resultDate = new Date(date.getTime());
+            resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay()) % 7);
+            return resultDate;
+        }
+        var today = new Date();
+        var nextOccurence = getNextDayOfWeek(today, programDay);
+        console.log(nextOccurence);
+        /**
+        *   Get the start date for group event ENDS
+        */
     </script>
 </body>
 
