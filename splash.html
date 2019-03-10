@@ -59,23 +59,16 @@
     <img class='logo' src="assets/images/logo.svg" alt="">
     <div class="body">
         <div class="mainBlock">
-            <!-- <p class="head">Where Practice Happens</p>
-            <p class="copy">Now Albi works only on mobile devices and we work hard to bring amazing experience for
-                everyone.</p>
-            <input type="tel">
-            <button>Send link to mobile</button> -->
             <p class="head">Тут начинается практика</p>
             <p class="copy">Сейчас Albi работает только на мобильных телефонах и мы усердно трудимся, чтобы
                 предоставить удобный интерфейс для каждого.</p>
-            <!-- <input id='yourphone2' type="tel" class='gray' name="phone" placeholder="Номер телефона">
-            <button>Отправить на телефон</button> -->
+            
             <div class="submitBlock">
                 <div class="form">
                     <input id='yourphone2' type="tel" class='gray' name="phone" placeholder="Номер телефона">
                     <p class="error">Проверьте номер телефона</p>
                     <button id="sendSmsB">Отправить на телефон</button>
                 </div>
-
                 <div class="thankYou">
                     <div class="svgWrap">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.5 95.5">
@@ -97,7 +90,6 @@
                                 </g>
                             </g>
                         </svg>
-
                     </div>
                     <p>Совсем скоро вы получите SMS от Albi</p>
                 </div>
@@ -119,60 +111,53 @@
     <script>
         // animate svg on success
         function thankYou() {
-            
+
             $(".form").css('opacity', '0');
             setTimeout(function () {
                 $(".thankYou").css('opacity', '1');
                 var mySVG = $('svg').drawsvg();
                 mySVG.drawsvg('animate');
             }, 600);
-
-
             $(".form input").val('');
         }
 
-        function validate(){
+        function validate() {
             let checkPhone = $('#yourphone2').val();
-            checkPhone = checkPhone.replace(/\D/g,'');
-            if(checkPhone.length < 10){
-                $('.error').css('opacity','1');
+            checkPhone = checkPhone.replace(/\D/g, '');
+            if (checkPhone.length < 10) {
+                $('.error').css('opacity', '1');
             } else {
-                thankYou();
+                sendSms();
             }
         }
 
         function sendSms() {
-            var phoneNumber = '+7'+$('#yourphone2').val();
+            var phoneNumber = '7'+$('#yourphone2').val();
             phoneNumber = phoneNumber.replace(/\D/g,'');
-            var data = JSON.stringify({
-                "sender": "albiyoga",
-                "recipient": phoneNumber,
-                "content": "Тут начинается практика http://albi.yoga"
-            });
+
+            // http://serfock.ru/internet-servisy/onlajn-internet-servisy/url-coder
+            var content = '%D0%A2%D1%83%D1%82%20%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%20http%3A%2F%2Falbi.yoga';
+
+            var data = null;
 
             var xhr = new XMLHttpRequest();
             xhr.withCredentials = true;
 
             xhr.addEventListener("readystatechange", function () {
                 if (this.readyState === 4) {
-                    // console.log(this.responseText);
+                    console.log(this.responseText);
                     // show thank you block
                     thankYou();
                 }
             });
 
-            xhr.open("POST", "https://api.sendinblue.com/v3/transactionalSMS/sms");
-            xhr.setRequestHeader("api-key",
-                "");
-            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.open("GET",
+                "https://sms.ru/sms/send?api_id=EF6B735B-75C9-D690-AA5C-5779909494DB&to="+phoneNumber+"&from=Albi%20yoga&msg="+content+"&json=1"
+            );
             xhr.setRequestHeader("cache-control", "no-cache");
-            xhr.setRequestHeader("Postman-Token", "b5287ddf-f3f5-4498-a4eb-39f9777e28e7");
-
+            xhr.setRequestHeader("Postman-Token", "3f0e39da-f824-4ec0-81d6-6053bc48c36d");
             xhr.send(data);
         }
-
-        // send SMS
-        // $('#sendSmsB').click(sendSms);
 
 
         $('#sendSmsB').click(validate);
