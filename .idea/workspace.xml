@@ -40,24 +40,6 @@
         <option name="myItemId" value="playground" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="users" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="playground@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="playground" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -65,34 +47,76 @@
     <favorites_list name="albi_prodv2" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="bookGroupEvent.php" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="bookGroupEvent.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="31" column="54" lean-forward="true" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+            <state relative-caret-position="232">
+              <caret line="381" column="4" lean-forward="false" selection-start-line="381" selection-start-column="4" selection-end-line="381" selection-end-column="45" />
               <folding>
-                <marker date="1551563242319" expanded="true" signature="1064:1119" ph="SELECT sched... programs" />
+                <marker date="1552361479710" expanded="true" signature="1131:1213" ph="SELECT sched... programs" />
+                <marker date="1552361479710" expanded="true" signature="5274:5362" ph="..." />
+                <marker date="1552361479710" expanded="true" signature="5378:5432" ph="/** Google API enet management BEGINS ...*/" />
+                <marker date="1552361479710" expanded="true" signature="5818:5923" ph="//..." />
+                <marker date="1552361479710" expanded="true" signature="6062:6147" ph="/** On load, called to load the auth2 library and API client library. ...*/" />
+                <marker date="1552361479710" expanded="true" signature="6180:6234" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="6239:6338" ph="/** Initializes the API client library and sets up sign-in state ...*/" />
+                <marker date="1552361479710" expanded="true" signature="6365:6974" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="6392:6534" ph="{&quot;apiKey&quot;: API_KEY...}" />
+                <marker date="1552361479710" expanded="true" signature="6553:6881" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="6900:6966" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="6980:7117" ph="/** Called when the signed in status changes, to update the UI ...*/" />
+                <marker date="1552361479710" expanded="true" signature="7162:7212" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="7218:7274" ph="/** Sign out the user upon button click. ...*/" />
+                <marker date="1552361479710" expanded="true" signature="7314:7369" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="7374:7596" ph="/** Append a pre element to the body containing the given message ...*/" />
+                <marker date="1552361479710" expanded="true" signature="7633:7883" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="7643:7802" ph="//..." />
+                <marker date="1552361479710" expanded="true" signature="7977:9877" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="7988:8242" ph="//..." />
+                <marker date="1552361479710" expanded="true" signature="8269:9523" ph="{&quot;summary&quot;: title...}" />
+                <marker date="1552361479710" expanded="true" signature="8447:8799" ph="{&quot;timeZone&quot;: 'Europe/Moscow'...}" />
+                <marker date="1552361479710" expanded="true" signature="8469:8672" ph="//..." />
+                <marker date="1552361479710" expanded="true" signature="8824:9131" ph="{&quot;timeZone&quot;: 'Europe/Moscow'...}" />
+                <marker date="1552361479710" expanded="true" signature="8846:9006" ph="//..." />
+                <marker date="1552361479710" expanded="true" signature="9163:9277" ph="[...]" />
+                <marker date="1552361479710" expanded="true" signature="9308:9509" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="9384:9491" ph="[...]" />
+                <marker date="1552361479710" expanded="true" signature="9385:9490" ph="{&quot;method&quot;: &quot;popup&quot;...}" />
+                <marker date="1552361479710" expanded="true" signature="9586:9664" ph="{&quot;calendarId&quot;: 'primary'...}" />
+                <marker date="1552361479710" expanded="true" signature="9709:9868" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="9885:9937" ph="/** Google API enet management ENDS ...*/" />
+                <marker date="1552361479710" expanded="true" signature="9944:10006" ph="/** Get the start date for group event BEGINS ...*/" />
+                <marker date="1552361479710" expanded="true" signature="10093:10143" ph="//..." />
+                <marker date="1552361479710" expanded="true" signature="10265:10729" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="10285:10334" ph="..." />
+                <marker date="1552361479710" expanded="true" signature="10353:10402" ph="..." />
+                <marker date="1552361479710" expanded="true" signature="10421:10470" ph="..." />
+                <marker date="1552361479710" expanded="true" signature="10489:10538" ph="..." />
+                <marker date="1552361479710" expanded="true" signature="10557:10606" ph="..." />
+                <marker date="1552361479710" expanded="true" signature="10625:10674" ph="..." />
+                <marker date="1552361479710" expanded="true" signature="10693:10723" ph="..." />
+                <marker date="1552361479710" expanded="true" signature="10735:10813" ph="//..." />
+                <marker date="1552361479710" expanded="true" signature="11236:11406" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="11570:12474" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="11663:11966" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="11972:12468" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="11986:12133" ph="//..." />
+                <marker date="1552361479710" expanded="true" signature="12626:12795" ph="{...}" />
+                <marker date="1552361479710" expanded="true" signature="12805:12865" ph="/** Get the start date for group event ENDS ...*/" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eventClass.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/appRU/classes/eventClass.php">
+      <file leaf-file-name="changeGroupEvent.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changeGroupEvent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+            <state relative-caret-position="309">
+              <caret line="248" column="15" lean-forward="true" selection-start-line="248" selection-start-column="15" selection-end-line="248" selection-end-column="15" />
               <folding>
-                <marker date="1551844594385" expanded="true" signature="386:683" ph="INSERT INTO events... " />
-                <marker date="1551844594385" expanded="true" signature="953:1247" ph="INSERT INTO events... " />
-                <marker date="1551844594385" expanded="true" signature="1401:1563" ph="UPDATE event... " />
-                <marker date="1551844594385" expanded="true" signature="1730:1974" ph="UPDATE event... " />
-                <marker date="1551844594385" expanded="true" signature="2098:2131" ph="DELETE FROM " />
-                <marker date="1551844594385" expanded="true" signature="2256:2326" ph="UPDATE event... " />
-                <marker date="1551844594385" expanded="true" signature="2463:2545" ph="UPDATE event... " />
-                <marker date="1551844594385" expanded="true" signature="2463:2562" ph="UPDATE `priv... " />
-                <marker date="1551844594385" expanded="true" signature="2702:2801" ph="UPDATE `priv... " />
+                <marker date="1552361847990" expanded="true" signature="337:372" ph="SELECT * FRO... events" />
+                <marker date="1552361847990" expanded="true" signature="1796:1855" ph="SELECT sched... programs" />
               </folding>
             </state>
           </provider>
@@ -109,18 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>yourphone2</find>
-      <find>pho</find>
-      <find>adminU</find>
-      <find>nothi</find>
-      <find>fetch</find>
-      <find>ajax</find>
-      <find>js</find>
-      <find>articleList</find>
-      <find>data</find>
-      <find>app.js</find>
-      <find>confirmed</find>
-      <find>занятие</find>
       <find>eventNextDate</find>
       <find>privateNextDate</find>
       <find>nextLe</find>
@@ -139,6 +151,18 @@
       <find>myMessages</find>
       <find>$newNotification</find>
       <find>jque</find>
+      <find>var</find>
+      <find>signout_button</find>
+      <find>signoutButton</find>
+      <find>createGroupEvent</find>
+      <find>submit</find>
+      <find>appendPre</find>
+      <find>#eventID</find>
+      <find>handle</find>
+      <find>handleClientLoad</find>
+      <find>updateSigninStatus</find>
+      <find>&quot;</find>
+      <find>\n</find>
     </findStrings>
     <replaceStrings>
       <replace>http://albi.yoga</replace>
@@ -156,6 +180,7 @@
       <replace>phone_login.php</replace>
       <replace>noMail</replace>
       <replace>1</replace>
+      <replace>'</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -164,9 +189,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/config.php" />
-        <option value="$PROJECT_DIR$/appRU/pages_styled/changeGroupEvent.php" />
-        <option value="$PROJECT_DIR$/appRU/js/moment-timezone.min.js" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/programs.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/program.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/instructor.php" />
@@ -199,7 +221,6 @@
         <option value="$PROJECT_DIR$/appRU/pages_styled/notifications.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/notifications_admin.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/events.php" />
-        <option value="$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php" />
         <option value="$PROJECT_DIR$/appRU/ajax/send-change-email_private.php" />
         <option value="$PROJECT_DIR$/appRU/ajax/send-email_private.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/bookPrivateEvent.php" />
@@ -212,7 +233,13 @@
         <option value="$PROJECT_DIR$/appRU/pages_styled/messages.php" />
         <option value="$PROJECT_DIR$/appRU/classes/messageClass.php" />
         <option value="$PROJECT_DIR$/appRU/ajax/readMessages.php" />
+        <option value="$PROJECT_DIR$/appRU/js/calendarEvents.js" />
         <option value="$PROJECT_DIR$/appRU/classes/eventClass.php" />
+        <option value="$PROJECT_DIR$/appRU/parts/gapi.php" />
+        <option value="$PROJECT_DIR$/appRU/pages_styled/newEvent.html" />
+        <option value="$PROJECT_DIR$/appRU/js/newGroupEventG.js" />
+        <option value="$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php" />
+        <option value="$PROJECT_DIR$/appRU/pages_styled/changeGroupEvent.php" />
       </list>
     </option>
   </component>
@@ -269,6 +296,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -349,10 +378,26 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="albi_prodv2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="albi_prodv2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appRU" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -495,12 +540,13 @@
       <workItem from="1551657732236" duration="7416000" />
       <workItem from="1551844448312" duration="318000" />
       <workItem from="1551926466347" duration="321000" />
-      <workItem from="1552260486237" duration="294000" />
+      <workItem from="1552260486237" duration="4856000" />
+      <workItem from="1552355578602" duration="5432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141242000" />
+    <option name="totallyTimeSpent" value="151236000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -520,18 +566,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756868" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -564,21 +610,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/newIndex.html" />
-    <entry file="file://$PROJECT_DIR$/forgot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="173" column="49" lean-forward="true" selection-start-line="173" selection-start-column="49" selection-end-line="173" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/contact-instructor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2461">
-          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cal.html" />
     <entry file="file://$PROJECT_DIR$/appRU/pages_styled/programs.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -640,13 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/newEvent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -790,13 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changeGroupEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="80" column="16" lean-forward="false" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/appRU/ajax/send-change-email_private.php" />
     <entry file="file://$PROJECT_DIR$/appRU/ajax/send-email_private.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -809,6 +826,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
           <caret line="189" column="18" lean-forward="true" selection-start-line="189" selection-start-column="18" selection-end-line="189" selection-end-column="18" />
+          <folding>
+            <marker date="1551639603254" expanded="true" signature="476:594" ph="SELECT DISTI... private-schedule" />
+            <marker date="1551639603254" expanded="true" signature="756:791" ph="SELECT * FRO... events" />
+            <marker date="1551639603254" expanded="true" signature="6620:6632" ph="..." />
+            <marker date="1551639603254" expanded="true" signature="6795:6834" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -816,6 +839,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
           <caret line="141" column="100" lean-forward="false" selection-start-line="141" selection-start-column="41" selection-end-line="141" selection-end-column="100" />
+          <folding>
+            <marker date="1551639371839" expanded="true" signature="548:667" ph="SELECT DISTI... private-schedule" />
+            <marker date="1551639371839" expanded="true" signature="4512:4906" ph="..." />
+            <marker date="1551639371839" expanded="true" signature="4634:4883" ph="..." />
+            <marker date="1551639371839" expanded="true" signature="5410:5449" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -845,6 +874,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="109" column="7" lean-forward="true" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
+          <folding>
+            <marker date="1551665907457" expanded="true" signature="153:509" ph="SELECT messa... messages" />
+            <marker date="1551665907457" expanded="true" signature="286:414" ph="SELECT m1.* messages" />
+            <marker date="1551665907457" expanded="true" signature="2255:2351" ph="SELECT id fr... messages" />
+            <marker date="1551665907457" expanded="true" signature="2766:2931" ph="..." />
+            <marker date="1551665907457" expanded="true" signature="2940:3082" ph="..." />
+            <marker date="1551665907457" expanded="true" signature="2947:3072" ph="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -873,6 +910,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="137" column="42" lean-forward="false" selection-start-line="137" selection-start-column="42" selection-end-line="137" selection-end-column="42" />
+          <folding>
+            <marker date="1551668012379" expanded="true" signature="192:437" ph="SELECT messa... messages" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -880,33 +920,128 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="136" column="14" lean-forward="false" selection-start-line="136" selection-start-column="14" selection-end-line="136" selection-end-column="14" />
+          <folding>
+            <marker date="1551668012371" expanded="true" signature="230:467" ph="SELECT messa... messages" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/appRU/classes/eventClass.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        <state relative-caret-position="223">
+          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
           <folding>
-            <marker date="1551844594385" expanded="true" signature="386:683" ph="INSERT INTO events... " />
-            <marker date="1551844594385" expanded="true" signature="953:1247" ph="INSERT INTO events... " />
-            <marker date="1551844594385" expanded="true" signature="1401:1563" ph="UPDATE event... " />
-            <marker date="1551844594385" expanded="true" signature="1730:1974" ph="UPDATE event... " />
-            <marker date="1551844594385" expanded="true" signature="2098:2131" ph="DELETE FROM " />
-            <marker date="1551844594385" expanded="true" signature="2256:2326" ph="UPDATE event... " />
-            <marker date="1551844594385" expanded="true" signature="2463:2545" ph="UPDATE event... " />
-            <marker date="1551844594385" expanded="true" signature="2463:2562" ph="UPDATE `priv... " />
-            <marker date="1551844594385" expanded="true" signature="2702:2801" ph="UPDATE `priv... " />
+            <marker date="1552264219913" expanded="true" signature="401:715" ph="INSERT INTO events... " />
+            <marker date="1552264219913" expanded="true" signature="985:1284" ph="INSERT INTO events... " />
+            <marker date="1552264219913" expanded="true" signature="1438:1600" ph="UPDATE event... " />
+            <marker date="1552264219913" expanded="true" signature="1767:2011" ph="UPDATE event... " />
+            <marker date="1552264219913" expanded="true" signature="2135:2168" ph="DELETE FROM " />
+            <marker date="1552264219913" expanded="true" signature="2293:2363" ph="UPDATE event... " />
+            <marker date="1552264219913" expanded="true" signature="2500:2582" ph="UPDATE event... " />
+            <marker date="1552264219913" expanded="true" signature="2500:2599" ph="UPDATE `priv... " />
+            <marker date="1552264219913" expanded="true" signature="2739:2838" ph="UPDATE `priv... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/js/calendarEvents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="406" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="454" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/parts/gapi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/newEvent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/js/newGroupEventG.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="31" column="54" lean-forward="true" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+        <state relative-caret-position="232">
+          <caret line="381" column="4" lean-forward="false" selection-start-line="381" selection-start-column="4" selection-end-line="381" selection-end-column="45" />
           <folding>
-            <marker date="1551563242319" expanded="true" signature="1064:1119" ph="SELECT sched... programs" />
+            <marker date="1552361479710" expanded="true" signature="1131:1213" ph="SELECT sched... programs" />
+            <marker date="1552361479710" expanded="true" signature="5274:5362" ph="..." />
+            <marker date="1552361479710" expanded="true" signature="5378:5432" ph="/** Google API enet management BEGINS ...*/" />
+            <marker date="1552361479710" expanded="true" signature="5818:5923" ph="//..." />
+            <marker date="1552361479710" expanded="true" signature="6062:6147" ph="/** On load, called to load the auth2 library and API client library. ...*/" />
+            <marker date="1552361479710" expanded="true" signature="6180:6234" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="6239:6338" ph="/** Initializes the API client library and sets up sign-in state ...*/" />
+            <marker date="1552361479710" expanded="true" signature="6365:6974" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="6392:6534" ph="{&quot;apiKey&quot;: API_KEY...}" />
+            <marker date="1552361479710" expanded="true" signature="6553:6881" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="6900:6966" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="6980:7117" ph="/** Called when the signed in status changes, to update the UI ...*/" />
+            <marker date="1552361479710" expanded="true" signature="7162:7212" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="7218:7274" ph="/** Sign out the user upon button click. ...*/" />
+            <marker date="1552361479710" expanded="true" signature="7314:7369" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="7374:7596" ph="/** Append a pre element to the body containing the given message ...*/" />
+            <marker date="1552361479710" expanded="true" signature="7633:7883" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="7643:7802" ph="//..." />
+            <marker date="1552361479710" expanded="true" signature="7977:9877" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="7988:8242" ph="//..." />
+            <marker date="1552361479710" expanded="true" signature="8269:9523" ph="{&quot;summary&quot;: title...}" />
+            <marker date="1552361479710" expanded="true" signature="8447:8799" ph="{&quot;timeZone&quot;: 'Europe/Moscow'...}" />
+            <marker date="1552361479710" expanded="true" signature="8469:8672" ph="//..." />
+            <marker date="1552361479710" expanded="true" signature="8824:9131" ph="{&quot;timeZone&quot;: 'Europe/Moscow'...}" />
+            <marker date="1552361479710" expanded="true" signature="8846:9006" ph="//..." />
+            <marker date="1552361479710" expanded="true" signature="9163:9277" ph="[...]" />
+            <marker date="1552361479710" expanded="true" signature="9308:9509" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="9384:9491" ph="[...]" />
+            <marker date="1552361479710" expanded="true" signature="9385:9490" ph="{&quot;method&quot;: &quot;popup&quot;...}" />
+            <marker date="1552361479710" expanded="true" signature="9586:9664" ph="{&quot;calendarId&quot;: 'primary'...}" />
+            <marker date="1552361479710" expanded="true" signature="9709:9868" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="9885:9937" ph="/** Google API enet management ENDS ...*/" />
+            <marker date="1552361479710" expanded="true" signature="9944:10006" ph="/** Get the start date for group event BEGINS ...*/" />
+            <marker date="1552361479710" expanded="true" signature="10093:10143" ph="//..." />
+            <marker date="1552361479710" expanded="true" signature="10265:10729" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="10285:10334" ph="..." />
+            <marker date="1552361479710" expanded="true" signature="10353:10402" ph="..." />
+            <marker date="1552361479710" expanded="true" signature="10421:10470" ph="..." />
+            <marker date="1552361479710" expanded="true" signature="10489:10538" ph="..." />
+            <marker date="1552361479710" expanded="true" signature="10557:10606" ph="..." />
+            <marker date="1552361479710" expanded="true" signature="10625:10674" ph="..." />
+            <marker date="1552361479710" expanded="true" signature="10693:10723" ph="..." />
+            <marker date="1552361479710" expanded="true" signature="10735:10813" ph="//..." />
+            <marker date="1552361479710" expanded="true" signature="11236:11406" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="11570:12474" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="11663:11966" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="11972:12468" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="11986:12133" ph="//..." />
+            <marker date="1552361479710" expanded="true" signature="12626:12795" ph="{...}" />
+            <marker date="1552361479710" expanded="true" signature="12805:12865" ph="/** Get the start date for group event ENDS ...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changeGroupEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="248" column="15" lean-forward="true" selection-start-line="248" selection-start-column="15" selection-end-line="248" selection-end-column="15" />
+          <folding>
+            <marker date="1552361847990" expanded="true" signature="337:372" ph="SELECT * FRO... events" />
+            <marker date="1552361847990" expanded="true" signature="1796:1855" ph="SELECT sched... programs" />
           </folding>
         </state>
       </provider>
