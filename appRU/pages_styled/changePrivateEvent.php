@@ -30,7 +30,7 @@ $obj = new eventClass($conn);
 
 $queryEvent = "SELECT * FROM events WHERE id='$id'";
 $resultEvent = $conn->query($queryEvent);
-if (!$resultEvent) die($conn->connect_error);
+
 $rowsEvent = $resultEvent->num_rows;
 $objEvent = $resultEvent->fetch_object();
 
@@ -40,7 +40,7 @@ define("OLD_TIME", $objEvent->time);
 
 
 if ($_POST) {
-    if (isset($_POST['changePrivateEvent'])) {
+    if ($_POST['changePrivateEvent'] != "") {
 
         // template id for sendgrid email - change template
         $template_id = 'd-ca88b9abf4cc42de84e9aebc90b6af20';
@@ -65,7 +65,7 @@ if ($_POST) {
         echo "<script>location.href = 'programs.php';</script>";
 
 
-    } elseif (isset($_POST['deletePrivateEvent'])) {
+    } elseif ($_POST['deletePrivateEvent'] != "") {
 
         // template id for sendgrid email - cancel template
         $template_id = 'd-2c01b97dc903476c925377e9f702e34d';
@@ -158,34 +158,33 @@ if ($_POST) {
             for ($i = 0; $i < $rowsPrivate; ++$i) {
                 $resultPrivate->data_seek($i);
                 $objPrivate = $resultPrivate->fetch_object();
-                if ($objPrivate->date == $objEvent->date) {
-                    // selected
-                    echo '<option selected value="' . $objPrivate->date . '">' . $objPrivate->date . '</option>';
-                } else {
-                    echo '<option value="' . $objPrivate->date . '">' . $objPrivate->date . '</option>';
-                }
-
+                echo '<option value="' . $objPrivate->date . '">' . $objPrivate->date . '</option>';
             }
-            echo '</select><span class="error date"></span><p class="label">Время</p><select name="time" id="times"></select><span class="error time"></span>';
+            echo '<option selected value="' . $objEvent->date . '">' . $objEvent->date . '</option></select><span class="error date"></span><p class="label">Время</p><select name="time" id="times"><option value="' . $objEvent->time . '">' . $objEvent->time . '</option></select><span class="error time"></span>';
 
 
-        ?>
-        <p class="label">Комментарий</p><textarea name='comment' type="text"
-                                                  value=""></textarea>
+            ?>
+            <p class="label">Комментарий</p><textarea name='comment' type="text"
+                                                      value=""></textarea>
 
-        <div class="repeatableDiv">
-            <p class="repeatableLabel">Повторные занятия</p>
-            <div class="repeatableCheckbox">
-                <input type='checkbox' class='ios8-switch' <?php echo $objEvent->repeatble ? 'checked' : '' ?>
-                       name="repeatable" id='checkbox-1'>
-                <!-- get to DB by checked property -->
-                <label for='checkbox-1'></label>
+            <div class="repeatableDiv">
+                <p class="repeatableLabel">Повторные занятия</p>
+                <div class="repeatableCheckbox">
+                    <input type='checkbox' class='ios8-switch' <?php echo $objEvent->repeatble ? 'checked' : '' ?>
+                           name="repeatable" id='checkbox-1'>
+                    <!-- get to DB by checked property -->
+                    <label for='checkbox-1'></label>
+                </div>
             </div>
-        </div>
 
-        <input class="button" name="changePrivateEvent" type="submit" value="Изменить">
-        <input class="cancel" name="deletePrivateEvent" type="submit" value="Отменить занятие">
-        <?php
+            <input id="updateEvent" class="button" type="submit" value="Изменить">
+            <input type="hidden" id="changeEventIsset" name="changePrivateEvent" value="">
+            <input id="deleteEvent" class="cancel" type="submit" value="Отменить занятие">
+            <input type="hidden" id="deleteEventIsset" name="deletePrivateEvent" value="">
+
+            <input type="hidden" id="google_cal_id" name="google_cal_id"
+                   value="<?php echo $objEvent->google_cal_id; ?>">
+            <?php
         } else {
             echo '
             <div class="noPrivate"><span>Сегодня все занято. Завтра могут появиться свободные места.</span><input class="cancel" name="deletePrivateEvent" type="submit" value="Отменить занятие"></div>';
@@ -204,7 +203,6 @@ if ($_POST) {
 
     //rewrite according to new
     $('input.button').click(function (e) {
-
         var dateVal = $('#dates').val();
         var timeVal = $('#times').val();
 
@@ -227,7 +225,7 @@ if ($_POST) {
         }
 
 
-    })
+    });
 </script>
 
 <script>
@@ -279,6 +277,275 @@ if ($_POST) {
     $(document).ready(getList);
     $('#dates').change(getList);
 
+
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+<script>
+    /**
+     *   Google API enet management BEGINS
+     */
+
+        // Client ID and API key from the Developer Console
+    var CLIENT_ID = '412446253370-6k4h35sg8n0353i9qicd2674vbn2lrrm.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyDNJyonJn7LxALbqihYt8oo9y0nHodPMLs';
+    // Array of API discovery doc URLs for APIs used by the quickstart
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+    // Authorization scopes required by the API; multiple scopes can be
+    // included, separated by spaces.
+    var SCOPES = "https://www.googleapis.com/auth/calendar";
+
+
+    //    var signoutButton = document.getElementById('signout_button');
+
+
+    /**
+     *  On load, called to load the auth2 library and API client library.
+     */
+    function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+    }
+    /**
+     *  Initializes the API client library and sets up sign-in state
+     *  listeners.
+     */
+    function initClient() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            // Listen for sign-in state changes.
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            // Handle the initial sign-in state.
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+//            signoutButton.onclick = handleSignoutClick;
+
+
+        }, function (error) {
+            appendPre(JSON.stringify(error, null, 2));
+        });
+    }
+
+    /**
+     *  Called when the signed in status changes, to update the UI
+     *  appropriately. After a sign-in, the API is called.
+     */
+    function updateSigninStatus(isSignedIn) {
+        console.log('updateSigninStatus');
+    }
+
+
+    /**
+     * Append a pre element to the body containing the given message
+     * as its text node. Used to display the results of the API call.
+     *
+     * @param {string} message Text to be placed in pre element.
+     */
+    function appendPre(message, id) {
+        console.log(message + '\n');
+    }
+
+
+    function updateEvent(startDate, startTime, endTime, recurrence) {
+
+        let eventID = $("#google_cal_id").val();
+
+        var event = gapi.client.calendar.events.get({
+            "calendarId": 'primary',
+            "eventId": eventID
+        });
+
+        // Example showing a change in the location - just for testing
+//        event.location = "New Address";
+
+        // to change startdate
+        event.start= {
+                'dateTime': startDate+'T' + startTime
+             };
+        // to change endtdate
+        event.end= {
+                'dateTime': startDate+'T' + endTime
+            };
+
+        // will be passed as recurrence
+        if (recurrence !== '') {
+            // to add recurrence
+             event.recurrence = [
+                recurrence
+             ];
+        } else {
+            // to remove recurrence
+             event.recurrence = {};
+        }
+
+
+
+
+
+        var request = gapi.client.calendar.events.patch({
+            'calendarId': 'primary',
+            'eventId': eventID,
+            'resource': event
+        });
+
+        request.execute(function (event) {
+            console.log('event updated');
+            $('#changeEventIsset').val('yes');
+                $('form').submit();
+        });
+
+
+    }
+
+    function deleteEvent(e) {
+        var eventID = $("#google_cal_id").val();
+        if (eventID !== "") {
+            e.preventDefault();
+
+            var request = gapi.client.calendar.events.delete({
+                calendarId: 'primary',
+                eventId: eventID
+            });
+
+            request.execute(function (event) {
+                console.log('Event deleted with repeate');
+                $('#deleteEventIsset').val('yes');
+                $('form').submit();
+            });
+        }
+
+
+    }
+
+    /**
+     *   Google API enet management ENDS
+     */
+
+    var today = new Date();
+
+    // UTC days of week numeration
+    // Sunday - 0
+    //...
+    // Saturday - 6
+    var utcDayNum = today.getUTCDay();
+
+// Functions block universal use
+
+// Get next occurence date of this day of week related to today - used by private and group
+function getNextDayOfWeek(date, dayOfWeek) {
+    var resultDate = new Date(date.getTime());
+    resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getUTCDay()) % 7);
+    return resultDate;
+}
+
+    // Get the day to pass to Google events
+    function startDateFinderPrivate(utcDayNum, privateDay, startTime, endTime, recurrence) {
+        // if today date dayofweek = privateDayofweek
+        if (utcDayNum == privateDay) {
+            // pass today as starting date in google events
+            let actualMonthNumber = today.getMonth() + 1;
+            let startDate = today.getFullYear() + '-' + actualMonthNumber + '-' + today.getUTCDate();
+            updateEvent(startDate, startTime, endTime, recurrence);
+
+        } else {
+            // if not call getNextDayOfWeek passing today date and program's dayofweek
+            // then pass nextOccurence as starting date in google events
+            let nextOccurence = getNextDayOfWeek(today, privateDay);
+            let actualMonthNumber = nextOccurence.getMonth() + 1;
+            let startDate = nextOccurence.getFullYear() + '-' + actualMonthNumber + '-' + nextOccurence.getUTCDate();
+            updateEvent(startDate, startTime, endTime, recurrence);
+
+        }
+    }
+
+
+    function parametersSeting() {
+        // will be passed as startDate
+        var privateWordDay = $('#dates').val();
+        var privateDay;
+        switch (privateWordDay) {
+            case 'воскресенье':
+                privateDay = "0";
+                break;
+            case 'понедельник':
+                privateDay = "1";
+                break;
+            case 'вторник':
+                privateDay = "2";
+                break;
+            case 'среда':
+                privateDay = "3";
+                break;
+            case 'четверг':
+                privateDay = "4";
+                break;
+            case 'пятница':
+                privateDay = "5";
+                break;
+            case 'суббота':
+                privateDay = "6";
+        }
+
+        // Google calendar BYDAY selection
+        // Sunday - SU
+        //...
+        // Saturday - SA
+        var gCalBYDAYPrivate;
+        switch (privateWordDay) {
+            case 'воскресенье':
+                gCalBYDAYPrivate = "SU";
+                break;
+            case 'понедельник':
+                gCalBYDAYPrivate = "MO";
+                break;
+            case 'вторник':
+                gCalBYDAYPrivate = "TU";
+                break;
+            case 'среда':
+                gCalBYDAYPrivate = "WE";
+                break;
+            case 'четверг':
+                gCalBYDAYPrivate = "TH";
+                break;
+            case 'пятница':
+                gCalBYDAYPrivate = "FR";
+                break;
+            case 'суббота':
+                gCalBYDAYPrivate = "SA";
+        }
+
+        var timesArr = $('#times').val().split(" - ");
+        // will be passed as startTime
+        var privateTimeStart = timesArr[0] + ':00';
+        // will be passed as endTime
+        var privateTimeEnd = timesArr[1] + ':00';
+        // will be passed as recurrence
+        var privateRecurrence;
+        if (document.getElementById('checkbox-1').checked === true) {
+            privateRecurrence = 'RRULE:FREQ=WEEKLY;BYDAY=' + gCalBYDAYPrivate + '';
+        }
+
+        startDateFinderPrivate(utcDayNum, privateDay, privateTimeStart, privateTimeEnd, privateRecurrence);
+    }
+
+
+    // update event
+    $('#updateEvent').click(function (e) {
+        // get google event id
+        let eventID = $("#google_cal_id").val();
+
+        if (eventID !== "") {
+            e.preventDefault();
+            parametersSeting();
+        }
+
+    });
+
+    // delete event by ID with repeate
+    $('#deleteEvent').click(deleteEvent);
 
 </script>
 </body>

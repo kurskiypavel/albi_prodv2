@@ -48,75 +48,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bookGroupEvent.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php">
+      <file leaf-file-name="changePrivateEvent.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changePrivateEvent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="381" column="4" lean-forward="false" selection-start-line="381" selection-start-column="4" selection-end-line="381" selection-end-column="45" />
+            <state relative-caret-position="-359">
+              <caret line="360" column="70" lean-forward="false" selection-start-line="360" selection-start-column="70" selection-end-line="360" selection-end-column="70" />
               <folding>
-                <marker date="1552361479710" expanded="true" signature="1131:1213" ph="SELECT sched... programs" />
-                <marker date="1552361479710" expanded="true" signature="5274:5362" ph="..." />
-                <marker date="1552361479710" expanded="true" signature="5378:5432" ph="/** Google API enet management BEGINS ...*/" />
-                <marker date="1552361479710" expanded="true" signature="5818:5923" ph="//..." />
-                <marker date="1552361479710" expanded="true" signature="6062:6147" ph="/** On load, called to load the auth2 library and API client library. ...*/" />
-                <marker date="1552361479710" expanded="true" signature="6180:6234" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="6239:6338" ph="/** Initializes the API client library and sets up sign-in state ...*/" />
-                <marker date="1552361479710" expanded="true" signature="6365:6974" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="6392:6534" ph="{&quot;apiKey&quot;: API_KEY...}" />
-                <marker date="1552361479710" expanded="true" signature="6553:6881" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="6900:6966" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="6980:7117" ph="/** Called when the signed in status changes, to update the UI ...*/" />
-                <marker date="1552361479710" expanded="true" signature="7162:7212" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="7218:7274" ph="/** Sign out the user upon button click. ...*/" />
-                <marker date="1552361479710" expanded="true" signature="7314:7369" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="7374:7596" ph="/** Append a pre element to the body containing the given message ...*/" />
-                <marker date="1552361479710" expanded="true" signature="7633:7883" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="7643:7802" ph="//..." />
-                <marker date="1552361479710" expanded="true" signature="7977:9877" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="7988:8242" ph="//..." />
-                <marker date="1552361479710" expanded="true" signature="8269:9523" ph="{&quot;summary&quot;: title...}" />
-                <marker date="1552361479710" expanded="true" signature="8447:8799" ph="{&quot;timeZone&quot;: 'Europe/Moscow'...}" />
-                <marker date="1552361479710" expanded="true" signature="8469:8672" ph="//..." />
-                <marker date="1552361479710" expanded="true" signature="8824:9131" ph="{&quot;timeZone&quot;: 'Europe/Moscow'...}" />
-                <marker date="1552361479710" expanded="true" signature="8846:9006" ph="//..." />
-                <marker date="1552361479710" expanded="true" signature="9163:9277" ph="[...]" />
-                <marker date="1552361479710" expanded="true" signature="9308:9509" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="9384:9491" ph="[...]" />
-                <marker date="1552361479710" expanded="true" signature="9385:9490" ph="{&quot;method&quot;: &quot;popup&quot;...}" />
-                <marker date="1552361479710" expanded="true" signature="9586:9664" ph="{&quot;calendarId&quot;: 'primary'...}" />
-                <marker date="1552361479710" expanded="true" signature="9709:9868" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="9885:9937" ph="/** Google API enet management ENDS ...*/" />
-                <marker date="1552361479710" expanded="true" signature="9944:10006" ph="/** Get the start date for group event BEGINS ...*/" />
-                <marker date="1552361479710" expanded="true" signature="10093:10143" ph="//..." />
-                <marker date="1552361479710" expanded="true" signature="10265:10729" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="10285:10334" ph="..." />
-                <marker date="1552361479710" expanded="true" signature="10353:10402" ph="..." />
-                <marker date="1552361479710" expanded="true" signature="10421:10470" ph="..." />
-                <marker date="1552361479710" expanded="true" signature="10489:10538" ph="..." />
-                <marker date="1552361479710" expanded="true" signature="10557:10606" ph="..." />
-                <marker date="1552361479710" expanded="true" signature="10625:10674" ph="..." />
-                <marker date="1552361479710" expanded="true" signature="10693:10723" ph="..." />
-                <marker date="1552361479710" expanded="true" signature="10735:10813" ph="//..." />
-                <marker date="1552361479710" expanded="true" signature="11236:11406" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="11570:12474" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="11663:11966" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="11972:12468" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="11986:12133" ph="//..." />
-                <marker date="1552361479710" expanded="true" signature="12626:12795" ph="{...}" />
-                <marker date="1552361479710" expanded="true" signature="12805:12865" ph="/** Get the start date for group event ENDS ...*/" />
+                <element signature="e#7222#7425#0#HTML" expanded="false" />
+                <element signature="e#7452#7630#0#HTML" expanded="false" />
+                <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#10354#10963#0#HTML" expanded="false" />
+                <element signature="e#15019#15632#0#HTML" expanded="false" />
+                <element signature="e#15777#16439#0#HTML" expanded="false" />
+                <marker date="1552622276305" expanded="true" signature="476:594" ph="SELECT DISTI... private-schedule" />
+                <marker date="1552622276305" expanded="true" signature="756:791" ph="SELECT * FRO... events" />
+                <marker date="1552622276305" expanded="true" signature="5539:5686" ph="..." />
+                <marker date="1552622276305" expanded="true" signature="5653:5686" ph="..." />
+                <marker date="1552622276305" expanded="true" signature="6416:6483" ph="..." />
+                <marker date="1552622276305" expanded="true" signature="6838:7003" ph="..." />
+                <marker date="1552622276305" expanded="true" signature="6839:6850" ph="..." />
+                <marker date="1552622276305" expanded="true" signature="7013:7052" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="changeGroupEvent.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changeGroupEvent.php">
+      <file leaf-file-name="bookPrivateEvent.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookPrivateEvent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="248" column="15" lean-forward="true" selection-start-line="248" selection-start-column="15" selection-end-line="248" selection-end-column="15" />
+            <state relative-caret-position="1442">
+              <caret line="464" column="0" lean-forward="false" selection-start-line="464" selection-start-column="0" selection-end-line="471" selection-end-column="5" />
               <folding>
-                <marker date="1552361847990" expanded="true" signature="337:372" ph="SELECT * FRO... events" />
-                <marker date="1552361847990" expanded="true" signature="1796:1855" ph="SELECT sched... programs" />
+                <marker date="1552535902057" expanded="true" signature="548:667" ph="SELECT DISTI... private-schedule" />
+                <marker date="1552535902057" expanded="true" signature="4577:4971" ph="..." />
+                <marker date="1552535902057" expanded="true" signature="4699:4948" ph="..." />
+                <marker date="1552535902057" expanded="true" signature="5655:5694" ph="..." />
               </folding>
             </state>
           </provider>
@@ -133,18 +99,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>eventNextDate</find>
-      <find>privateNextDate</find>
-      <find>nextLe</find>
-      <find>headerEvent</find>
-      <find>по за</find>
-      <find>аль</find>
-      <find>сщььут</find>
       <find>comme</find>
       <find>comment</find>
       <find>d-155a815710dd438e9cbe3fbdfa57e2c3</find>
       <find>error</find>
-      <find>createPrivateEvent</find>
       <find>$objEvent</find>
       <find>admi</find>
       <find>мои соо</find>
@@ -155,7 +113,6 @@
       <find>signout_button</find>
       <find>signoutButton</find>
       <find>createGroupEvent</find>
-      <find>submit</find>
       <find>appendPre</find>
       <find>#eventID</find>
       <find>handle</find>
@@ -163,6 +120,15 @@
       <find>updateSigninStatus</find>
       <find>&quot;</find>
       <find>\n</find>
+      <find>utcDayNum</find>
+      <find>createPrivateEvent</find>
+      <find>dayof</find>
+      <find>google_cal_id</find>
+      <find>submit</find>
+      <find>updateEvent</find>
+      <find>gCalBYDAYPrivate</find>
+      <find>eventID</find>
+      <find>getNextDayOfWeek</find>
     </findStrings>
     <replaceStrings>
       <replace>http://albi.yoga</replace>
@@ -223,8 +189,6 @@
         <option value="$PROJECT_DIR$/appRU/pages_styled/events.php" />
         <option value="$PROJECT_DIR$/appRU/ajax/send-change-email_private.php" />
         <option value="$PROJECT_DIR$/appRU/ajax/send-email_private.php" />
-        <option value="$PROJECT_DIR$/appRU/pages_styled/bookPrivateEvent.php" />
-        <option value="$PROJECT_DIR$/appRU/pages_styled/changePrivateEvent.php" />
         <option value="$PROJECT_DIR$/appRU/ajax/send.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/user.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/adminMessages.php" />
@@ -234,12 +198,14 @@
         <option value="$PROJECT_DIR$/appRU/classes/messageClass.php" />
         <option value="$PROJECT_DIR$/appRU/ajax/readMessages.php" />
         <option value="$PROJECT_DIR$/appRU/js/calendarEvents.js" />
-        <option value="$PROJECT_DIR$/appRU/classes/eventClass.php" />
         <option value="$PROJECT_DIR$/appRU/parts/gapi.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/newEvent.html" />
         <option value="$PROJECT_DIR$/appRU/js/newGroupEventG.js" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php" />
+        <option value="$PROJECT_DIR$/appRU/classes/eventClass.php" />
+        <option value="$PROJECT_DIR$/appRU/pages_styled/bookPrivateEvent.php" />
         <option value="$PROJECT_DIR$/appRU/pages_styled/changeGroupEvent.php" />
+        <option value="$PROJECT_DIR$/appRU/pages_styled/changePrivateEvent.php" />
       </list>
     </option>
   </component>
@@ -257,8 +223,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="356" />
-    <option name="y" value="124" />
+    <option name="x" value="336" />
+    <option name="y" value="168" />
     <option name="width" value="983" />
     <option name="height" value="610" />
   </component>
@@ -296,7 +262,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -398,6 +363,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -542,11 +508,13 @@
       <workItem from="1551926466347" duration="321000" />
       <workItem from="1552260486237" duration="4856000" />
       <workItem from="1552355578602" duration="5432000" />
+      <workItem from="1552530962499" duration="4248000" />
+      <workItem from="1552614464015" duration="5724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151236000" />
+    <option name="totallyTimeSpent" value="161208000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -558,7 +526,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="356" y="124" width="983" height="610" extended-state="0" />
+    <frame x="336" y="168" width="983" height="610" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14445575" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -822,32 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changePrivateEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="189" column="18" lean-forward="true" selection-start-line="189" selection-start-column="18" selection-end-line="189" selection-end-column="18" />
-          <folding>
-            <marker date="1551639603254" expanded="true" signature="476:594" ph="SELECT DISTI... private-schedule" />
-            <marker date="1551639603254" expanded="true" signature="756:791" ph="SELECT * FRO... events" />
-            <marker date="1551639603254" expanded="true" signature="6620:6632" ph="..." />
-            <marker date="1551639603254" expanded="true" signature="6795:6834" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookPrivateEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="141" column="100" lean-forward="false" selection-start-line="141" selection-start-column="41" selection-end-line="141" selection-end-column="100" />
-          <folding>
-            <marker date="1551639371839" expanded="true" signature="548:667" ph="SELECT DISTI... private-schedule" />
-            <marker date="1551639371839" expanded="true" signature="4512:4906" ph="..." />
-            <marker date="1551639371839" expanded="true" signature="4634:4883" ph="..." />
-            <marker date="1551639371839" expanded="true" signature="5410:5449" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/appRU/parts/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
@@ -926,40 +868,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/classes/eventClass.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
-          <folding>
-            <marker date="1552264219913" expanded="true" signature="401:715" ph="INSERT INTO events... " />
-            <marker date="1552264219913" expanded="true" signature="985:1284" ph="INSERT INTO events... " />
-            <marker date="1552264219913" expanded="true" signature="1438:1600" ph="UPDATE event... " />
-            <marker date="1552264219913" expanded="true" signature="1767:2011" ph="UPDATE event... " />
-            <marker date="1552264219913" expanded="true" signature="2135:2168" ph="DELETE FROM " />
-            <marker date="1552264219913" expanded="true" signature="2293:2363" ph="UPDATE event... " />
-            <marker date="1552264219913" expanded="true" signature="2500:2582" ph="UPDATE event... " />
-            <marker date="1552264219913" expanded="true" signature="2500:2599" ph="UPDATE `priv... " />
-            <marker date="1552264219913" expanded="true" signature="2739:2838" ph="UPDATE `priv... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/js/calendarEvents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="406" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="454" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/parts/gapi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/parts/gapi.php" />
     <entry file="file://$PROJECT_DIR$/appRU/pages_styled/newEvent.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -968,80 +877,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/js/newGroupEventG.js">
+    <entry file="file://$PROJECT_DIR$/appRU/js/newGroupEventG.js" />
+    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="13">
+          <caret line="310" column="4" lean-forward="false" selection-start-line="310" selection-start-column="4" selection-end-line="310" selection-end-column="47" />
+          <folding>
+            <marker date="1552361479710" expanded="true" signature="1131:1213" ph="SELECT sched... programs" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookGroupEvent.php">
+    <entry file="file://$PROJECT_DIR$/appRU/classes/eventClass.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="381" column="4" lean-forward="false" selection-start-line="381" selection-start-column="4" selection-end-line="381" selection-end-column="45" />
+        <state relative-caret-position="340">
+          <caret line="57" column="46" lean-forward="true" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
           <folding>
-            <marker date="1552361479710" expanded="true" signature="1131:1213" ph="SELECT sched... programs" />
-            <marker date="1552361479710" expanded="true" signature="5274:5362" ph="..." />
-            <marker date="1552361479710" expanded="true" signature="5378:5432" ph="/** Google API enet management BEGINS ...*/" />
-            <marker date="1552361479710" expanded="true" signature="5818:5923" ph="//..." />
-            <marker date="1552361479710" expanded="true" signature="6062:6147" ph="/** On load, called to load the auth2 library and API client library. ...*/" />
-            <marker date="1552361479710" expanded="true" signature="6180:6234" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="6239:6338" ph="/** Initializes the API client library and sets up sign-in state ...*/" />
-            <marker date="1552361479710" expanded="true" signature="6365:6974" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="6392:6534" ph="{&quot;apiKey&quot;: API_KEY...}" />
-            <marker date="1552361479710" expanded="true" signature="6553:6881" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="6900:6966" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="6980:7117" ph="/** Called when the signed in status changes, to update the UI ...*/" />
-            <marker date="1552361479710" expanded="true" signature="7162:7212" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="7218:7274" ph="/** Sign out the user upon button click. ...*/" />
-            <marker date="1552361479710" expanded="true" signature="7314:7369" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="7374:7596" ph="/** Append a pre element to the body containing the given message ...*/" />
-            <marker date="1552361479710" expanded="true" signature="7633:7883" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="7643:7802" ph="//..." />
-            <marker date="1552361479710" expanded="true" signature="7977:9877" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="7988:8242" ph="//..." />
-            <marker date="1552361479710" expanded="true" signature="8269:9523" ph="{&quot;summary&quot;: title...}" />
-            <marker date="1552361479710" expanded="true" signature="8447:8799" ph="{&quot;timeZone&quot;: 'Europe/Moscow'...}" />
-            <marker date="1552361479710" expanded="true" signature="8469:8672" ph="//..." />
-            <marker date="1552361479710" expanded="true" signature="8824:9131" ph="{&quot;timeZone&quot;: 'Europe/Moscow'...}" />
-            <marker date="1552361479710" expanded="true" signature="8846:9006" ph="//..." />
-            <marker date="1552361479710" expanded="true" signature="9163:9277" ph="[...]" />
-            <marker date="1552361479710" expanded="true" signature="9308:9509" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="9384:9491" ph="[...]" />
-            <marker date="1552361479710" expanded="true" signature="9385:9490" ph="{&quot;method&quot;: &quot;popup&quot;...}" />
-            <marker date="1552361479710" expanded="true" signature="9586:9664" ph="{&quot;calendarId&quot;: 'primary'...}" />
-            <marker date="1552361479710" expanded="true" signature="9709:9868" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="9885:9937" ph="/** Google API enet management ENDS ...*/" />
-            <marker date="1552361479710" expanded="true" signature="9944:10006" ph="/** Get the start date for group event BEGINS ...*/" />
-            <marker date="1552361479710" expanded="true" signature="10093:10143" ph="//..." />
-            <marker date="1552361479710" expanded="true" signature="10265:10729" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="10285:10334" ph="..." />
-            <marker date="1552361479710" expanded="true" signature="10353:10402" ph="..." />
-            <marker date="1552361479710" expanded="true" signature="10421:10470" ph="..." />
-            <marker date="1552361479710" expanded="true" signature="10489:10538" ph="..." />
-            <marker date="1552361479710" expanded="true" signature="10557:10606" ph="..." />
-            <marker date="1552361479710" expanded="true" signature="10625:10674" ph="..." />
-            <marker date="1552361479710" expanded="true" signature="10693:10723" ph="..." />
-            <marker date="1552361479710" expanded="true" signature="10735:10813" ph="//..." />
-            <marker date="1552361479710" expanded="true" signature="11236:11406" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="11570:12474" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="11663:11966" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="11972:12468" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="11986:12133" ph="//..." />
-            <marker date="1552361479710" expanded="true" signature="12626:12795" ph="{...}" />
-            <marker date="1552361479710" expanded="true" signature="12805:12865" ph="/** Get the start date for group event ENDS ...*/" />
+            <marker date="1552535885655" expanded="true" signature="401:654" ph="INSERT INTO events... " />
+            <marker date="1552535885655" expanded="true" signature="939:1248" ph="INSERT INTO events... " />
+            <marker date="1552535885655" expanded="true" signature="1402:1564" ph="UPDATE event... " />
+            <marker date="1552535885655" expanded="true" signature="1731:1975" ph="UPDATE event... " />
+            <marker date="1552535885655" expanded="true" signature="2099:2132" ph="DELETE FROM " />
+            <marker date="1552535885655" expanded="true" signature="2257:2327" ph="UPDATE event... " />
+            <marker date="1552535885655" expanded="true" signature="2464:2546" ph="UPDATE event... " />
+            <marker date="1552535885655" expanded="true" signature="2464:2563" ph="UPDATE `priv... " />
+            <marker date="1552535885655" expanded="true" signature="2703:2802" ph="UPDATE `priv... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changeGroupEvent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="248" column="15" lean-forward="true" selection-start-line="248" selection-start-column="15" selection-end-line="248" selection-end-column="15" />
+        <state relative-caret-position="213">
+          <caret line="147" column="30" lean-forward="false" selection-start-line="147" selection-start-column="19" selection-end-line="147" selection-end-column="30" />
           <folding>
             <marker date="1552361847990" expanded="true" signature="337:372" ph="SELECT * FRO... events" />
             <marker date="1552361847990" expanded="true" signature="1796:1855" ph="SELECT sched... programs" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/js/calendarEvents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1141">
+          <caret line="205" column="54" lean-forward="true" selection-start-line="205" selection-start-column="54" selection-end-line="205" selection-end-column="54" />
+          <folding>
+            <element signature="n#!!block;n#updateEvent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/bookPrivateEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1442">
+          <caret line="464" column="0" lean-forward="false" selection-start-line="464" selection-start-column="0" selection-end-line="471" selection-end-column="5" />
+          <folding>
+            <marker date="1552535902057" expanded="true" signature="548:667" ph="SELECT DISTI... private-schedule" />
+            <marker date="1552535902057" expanded="true" signature="4577:4971" ph="..." />
+            <marker date="1552535902057" expanded="true" signature="4699:4948" ph="..." />
+            <marker date="1552535902057" expanded="true" signature="5655:5694" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appRU/pages_styled/changePrivateEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-359">
+          <caret line="360" column="70" lean-forward="false" selection-start-line="360" selection-start-column="70" selection-end-line="360" selection-end-column="70" />
+          <folding>
+            <element signature="e#7222#7425#0#HTML" expanded="false" />
+            <element signature="e#7452#7630#0#HTML" expanded="false" />
+            <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#10354#10963#0#HTML" expanded="false" />
+            <element signature="e#15019#15632#0#HTML" expanded="false" />
+            <element signature="e#15777#16439#0#HTML" expanded="false" />
+            <marker date="1552622276305" expanded="true" signature="476:594" ph="SELECT DISTI... private-schedule" />
+            <marker date="1552622276305" expanded="true" signature="756:791" ph="SELECT * FRO... events" />
+            <marker date="1552622276305" expanded="true" signature="5539:5686" ph="..." />
+            <marker date="1552622276305" expanded="true" signature="5653:5686" ph="..." />
+            <marker date="1552622276305" expanded="true" signature="6416:6483" ph="..." />
+            <marker date="1552622276305" expanded="true" signature="6838:7003" ph="..." />
+            <marker date="1552622276305" expanded="true" signature="6839:6850" ph="..." />
+            <marker date="1552622276305" expanded="true" signature="7013:7052" ph="..." />
           </folding>
         </state>
       </provider>

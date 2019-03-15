@@ -22,20 +22,19 @@ class eventClass
     {
         $sql_new_group_event = "INSERT INTO events VALUES" . "(null,'$group_event_id',
                                                         '$program','$student','$instructor',null,null,
-                                                        '$comment','0',
-                                                        '1',1,null,'$google_cal_id')";
+                                                        '$comment',0,1,1,null,'$google_cal_id')";
         $this->conn->query($sql_new_group_event);
 
     }
 
     public function createPrivateEvent($student, $instructor,
                                        $date, $time, $comment,
-                                       $repeatable)
+                                       $repeatable,$google_cal_id)
     {
         $sql_new_event = "INSERT INTO events VALUES" . "(null,null,
                                                         null,'$student','$instructor',
-                                                        '$date','$time','$comment','1',
-                                                        1,'$repeatable',null,null)";
+                                                        '$date','$time','$comment',1,
+                                                        1,'$repeatable',null,'$google_cal_id')";
         $this->conn->query($sql_new_event);
     }
 
