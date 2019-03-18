@@ -87,7 +87,7 @@ $obj = $result->fetch_object();
     <div class="body">
         <div class="card">
             <div class="subInstructor">
-                <div class="headerInstructor" style="background-image: url(../../assets/images/App/how_to_become_a_yoga_instructor.png);">
+                <div class="headerInstructor" style="background-image: url(../../assets/images/App/user-images/how_to_become_a_yoga_instructor.png);">
                 </div>
                 <div class="body">
                     <h3>Альбина Курская</h3>
