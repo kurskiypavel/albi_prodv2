@@ -58,6 +58,8 @@ if ($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Albi | Взять частный урок</title>
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/loader.css">
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styleApp.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">
@@ -103,6 +105,22 @@ if ($_POST) {
 </head>
 
 <body style="background: unset;">
+<div  class="loader">
+    <svg viewBox="0 0 100 150">
+        <g>
+            <path d="M 50,100 A 1,1 0 0 1 50,0"/>
+        </g>
+        <g>
+            <path d="M 50,75 A 1,1 0 0 0 50,-25"/>
+        </g>
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FF56A1;stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:#FF9350;stop-opacity:1"/>
+            </linearGradient>
+        </defs>
+    </svg>
+</div>
 <div class="bookPrivateEventPage">
     <div class="header">
         <a href='instructor.php?user=<?php echo $user; ?>&id=1'><i class="fas fa-arrow-left"></i></a>
@@ -150,6 +168,7 @@ HEREFORM;
     </form>
     <?php include_once '../parts/footer.php' ?>
 </div>
+
 <script
         src="//code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -283,7 +302,9 @@ HEREFORM;
      *  appropriately. After a sign-in, the API is called.
      */
     function updateSigninStatus(isSignedIn) {
+        $('.loader').css('opacity','0');
         console.log('updateSigninStatus');
+        $('.loader').css({'visibility':'hidden','z-index':'0'});
     }
 
 
@@ -500,6 +521,7 @@ HEREFORM;
     // create private event
     $('#createPrivateEvent').click(function (e) {
         e.preventDefault();
+        $('.loader').css({'visibility':'visible','z-index':'2','opacity':'1','background':'#fffc'});
         parametersSeting();
     });
 

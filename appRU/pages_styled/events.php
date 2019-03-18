@@ -28,6 +28,7 @@ $classEvent = new eventClass($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Albi | Занятия</title>
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styleApp.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">
@@ -88,7 +89,7 @@ $classEvent = new eventClass($conn);
         JOIN programs ON programs.id = events.program WHERE events.student='$user' AND events.private ='0'";
 
         $result = $conn->query($query);
-        if (!$result) die($conn->connect_error);
+        
         $rows = $result->num_rows;
 
 
@@ -161,7 +162,7 @@ $classEvent = new eventClass($conn);
         JOIN users ON users.id = events.instructor WHERE events.student='$user' AND events.private ='1' ORDER BY event DESC";
 
         $result = $conn->query($query);
-        if (!$result) die($conn->connect_error);
+        
         $rows = $result->num_rows;
 
         for ($i = 0; $i < $rows; ++$i) {

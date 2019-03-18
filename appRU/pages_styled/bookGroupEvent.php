@@ -66,8 +66,11 @@ $endTime = $obj[0][4];
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Albi | Записаться в группу</title>
+        <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../../assets/css/loader.css">
         <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../../assets/css/styleApp.css">
+
         <link rel="stylesheet" href="../../assets/css/reset.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
               integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -111,6 +114,22 @@ $endTime = $obj[0][4];
     </head>
 
 <body style="background: unset;">
+<div  class="loader">
+    <svg viewBox="0 0 100 150">
+        <g>
+            <path d="M 50,100 A 1,1 0 0 1 50,0"/>
+        </g>
+        <g>
+            <path d="M 50,75 A 1,1 0 0 0 50,-25"/>
+        </g>
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FF56A1;stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:#FF9350;stop-opacity:1"/>
+            </linearGradient>
+        </defs>
+    </svg>
+</div>
 <div class="bookGroupEventPage">
     <div class="header">
         <?php
@@ -144,6 +163,7 @@ $endTime = $obj[0][4];
     </form>
     <?php include_once '../parts/footer.php' ?>
 </div>
+
 <!--<div style="margin-top: 30px; height: 100px;" id='signout_button' class="logout"><a href="../ajax/logout.php">Выйти</a></div>-->
 <script
         src="//code.jquery.com/jquery-3.3.1.min.js"
@@ -204,7 +224,9 @@ $endTime = $obj[0][4];
      *  appropriately. After a sign-in, the API is called.
      */
     function updateSigninStatus(isSignedIn) {
+        $('.loader').css('opacity','0');
         console.log('updateSigninStatus');
+        $('.loader').css({'visibility':'hidden','z-index':'0'});
     }
 
     /**
@@ -383,6 +405,7 @@ $endTime = $obj[0][4];
     $('#createEvent').click(function (e) {
         if(schedule !== 'записи'){
             e.preventDefault();
+            $('.loader').css({'visibility':'visible','z-index':'2','opacity':'1','background':'#fffc'});
             startDateFinder(utcDayNum, programDay, startTime, endTime, recurrence);
         }
 

@@ -8,7 +8,7 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 var SCOPES = "https://www.googleapis.com/auth/calendar";
 var authorizeButton = document.getElementById('authorize_button');
 // hide
-var signoutButton = document.getElementById('signout_button');
+// var signoutButton = document.getElementById('signout_button');
 
 
 /**
@@ -34,19 +34,14 @@ function initClient() {
         updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
         authorizeButton.onclick = handleAuthClick;
         // hide
-        signoutButton.onclick = handleSignoutClick;
+        // signoutButton.onclick = handleSignoutClick;
 
 
-        //            newEvent();
+
         var insta = gapi.auth2.getAuthInstance();
         if (insta.isSignedIn.get()) {
             var profile = insta.currentUser.get().getBasicProfile();
-            // console.log('ID: ' + profile.getId());
-            // console.log('Full Name: ' + profile.getName());
-            // console.log('Given Name: ' + profile.getGivenName());
-            // console.log('Family Name: ' + profile.getFamilyName());
-            // console.log('Image URL: ' + profile.getImageUrl());
-            // console.log('Email: ' + profile.getEmail());
+
             console.log('initClient');
             
             
@@ -113,9 +108,6 @@ function checkUser(googleID,getGivenName,getFamilyName,getEmail) {
 function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
 
-        // authorizeButton.style.display = 'none';
-        // signoutButton.style.display = 'block';
-        //            listUpcomingEvents();
         var insta = gapi.auth2.getAuthInstance();
         if (insta.isSignedIn.get()) {
             var profile = insta.currentUser.get().getBasicProfile();
@@ -130,15 +122,11 @@ function updateSigninStatus(isSignedIn) {
             
             checkUser(googleID,getGivenName,getFamilyName,getEmail);
 
-
-            // only for new users
-            // location.href = 'appRU/pages_styled/looksGood.php?email='+profile.getEmail();
-            // only for logged in users
-
         }
     } else {
-        authorizeButton.style.display = 'block';
-        signoutButton.style.display = 'none';
+        // authorizeButton.style.display = 'block';
+        // signoutButton.style.display = 'none';
+        // $('.loader').css({'opacity':'0','display':'none'});
     }
 }
 /**
@@ -150,9 +138,9 @@ function handleAuthClick(event) {
 /**
  *  Sign out the user upon button click.
  */
-function handleSignoutClick(event) {
-    gapi.auth2.getAuthInstance().signOut();
-}
+// function handleSignoutClick(event) {
+//     gapi.auth2.getAuthInstance().signOut();
+// }
 /**
  * Append a pre element to the body containing the given message
  * as its text node. Used to display the results of the API call.
@@ -163,54 +151,4 @@ function appendPre(message) {
     var pre = document.getElementById('content');
     var textContent = document.createTextNode(message + '\n');
     pre.appendChild(textContent);
-}
-
-
-
-// call as ajax
-function newEvent() {
-
-    // Refer to the JavaScript quickstart on how to setup the environment:
-    // https://developers.google.com/calendar/quickstart/js
-    // Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
-    // stored credentials.
-
-    var event = {
-        'summary': 'title',
-        'location': 'location',
-        'description': 'description',
-        'start': {
-            'dateTime': '2019-01-02T09:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
-        },
-        'end': {
-            'dateTime': '2019-01-02T17:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
-        },
-        'recurrence': [
-            'RRULE:FREQ=DAILY;COUNT=2'
-        ],
-        'reminders': {
-            'useDefault': false,
-            'overrides': [{
-                    'method': 'email',
-                    'minutes': 24 * 60
-                },
-                {
-                    'method': 'popup',
-                    'minutes': 10
-                }
-            ]
-        }
-    };
-
-    var request = gapi.client.calendar.events.insert({
-        'calendarId': 'primary',
-        'resource': event
-    });
-
-    request.execute(function (event) {
-        appendPre('Event created: ' + event.htmlLink);
-    });
-
 }

@@ -97,6 +97,7 @@ if ($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Albi | Изменение записи</title>
+    <link rel="stylesheet" href="../../assets/css/loader.css">
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styleApp.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">
@@ -141,7 +142,23 @@ if ($_POST) {
 
 </head>
 
-<body style="background: unset;">
+<body style="background: unset; overflow: hidden;">
+<div  class="loader">
+    <svg viewBox="0 0 100 150">
+        <g>
+            <path d="M 50,100 A 1,1 0 0 1 50,0"/>
+        </g>
+        <g>
+            <path d="M 50,75 A 1,1 0 0 0 50,-25"/>
+        </g>
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FF56A1;stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:#FF9350;stop-opacity:1"/>
+            </linearGradient>
+        </defs>
+    </svg>
+</div>
 <div class="changePrivateEventPage">
     <div class="header">
         <a href='events.php?user=<?php echo $user; ?>'><i class="fas fa-arrow-left"></i></a>
@@ -158,9 +175,12 @@ if ($_POST) {
             for ($i = 0; $i < $rowsPrivate; ++$i) {
                 $resultPrivate->data_seek($i);
                 $objPrivate = $resultPrivate->fetch_object();
-                echo '<option value="' . $objPrivate->date . '">' . $objPrivate->date . '</option>';
+
+                    echo '<option value="' . $objPrivate->date . '">' . $objPrivate->date . '</option>';
+
+
             }
-            echo '<option selected value="' . $objEvent->date . '">' . $objEvent->date . '</option></select><span class="error date"></span><p class="label">Время</p><select name="time" id="times"><option value="' . $objEvent->time . '">' . $objEvent->time . '</option></select><span class="error time"></span>';
+            echo '</select><span class="error date"></span><p class="label">Время</p><select name="time" id="times"></select><span class="error time"></span>';
 
 
             ?>
@@ -187,13 +207,19 @@ if ($_POST) {
             <?php
         } else {
             echo '
-            <div class="noPrivate"><span>Сегодня все занято. Завтра могут появиться свободные места.</span><input class="cancel" name="deletePrivateEvent" type="submit" value="Отменить занятие"></div>';
+            <div class="noPrivate">
+                <span>Сегодня все занято. Завтра могут появиться свободные места.</span>
+                <input id="deleteEvent" class="cancel" type="submit" value="Отменить занятие">
+                <input type="hidden" id="deleteEventIsset" name="deletePrivateEvent" value="">
+                <input type="hidden" id="google_cal_id" name="google_cal_id" value="'. $objEvent->google_cal_id .'">
+             </div>';
 
         }
         ?>
     </form>
     <?php include_once '../parts/footer.php' ?>
 </div>
+
 <script
         src="//code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -334,7 +360,10 @@ if ($_POST) {
      *  appropriately. After a sign-in, the API is called.
      */
     function updateSigninStatus(isSignedIn) {
+        $('.loader').css('opacity','0');
+        $('body').css('overflow','auto');
         console.log('updateSigninStatus');
+        $('.loader').css({'visibility':'hidden','z-index':'0'});
     }
 
 
@@ -394,7 +423,7 @@ if ($_POST) {
         request.execute(function (event) {
             console.log('event updated');
             $('#changeEventIsset').val('yes');
-                $('form').submit();
+            $('form').submit();
         });
 
 
@@ -404,6 +433,8 @@ if ($_POST) {
         var eventID = $("#google_cal_id").val();
         if (eventID !== "") {
             e.preventDefault();
+            $('body').css('overflow','hidden');
+            $('.loader').css({'visibility':'visible','z-index':'2','opacity':'1','background':'#fffc'});
 
             var request = gapi.client.calendar.events.delete({
                 calendarId: 'primary',
@@ -415,6 +446,9 @@ if ($_POST) {
                 $('#deleteEventIsset').val('yes');
                 $('form').submit();
             });
+        } else {
+            $('#deleteEventIsset').val('yes');
+            $('form').submit();
         }
 
 
@@ -539,7 +573,12 @@ function getNextDayOfWeek(date, dayOfWeek) {
 
         if (eventID !== "") {
             e.preventDefault();
+            $('body').css('overflow','hidden');
+            $('.loader').css({'visibility':'visible','z-index':'2','opacity':'1','background':'#fffc'});
             parametersSeting();
+        } else{
+            $('#changeEventIsset').val('yes');
+            $('form').submit();
         }
 
     });

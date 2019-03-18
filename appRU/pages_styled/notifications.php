@@ -22,6 +22,7 @@ require_once '../parts/header.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Albi | Уведомления</title>
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styleApp.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">
@@ -67,6 +68,7 @@ require_once '../parts/header.php';
 
 <body class="notificationsPage">
 <div class="header">
+    <p class="readNotifications" style="text-align: left;position: absolute;top: 29px;left: 32px;font-size: 13px;font-family: Helvetica;color: grey;font-weight: 300;">Прочитать</p>
     <h3>Уведомления</h3>
 </div>
 <!-- USER NOTIFICATOINS -->
@@ -201,6 +203,30 @@ require_once '../parts/header.php';
 
     $(".notification").click(notificationItem);
 
+
+    //Заходит на страницу переписки
+    //Все непрочитанные написанные админом для переписки становятся прочитанными
+
+    function readNotifications(){
+        $('.notification.active').removeClass('active');
+        let user_id = '<?php echo $user;?>';
+        // ajax read messages
+        $.ajax({
+            type: "POST",
+            url: "../ajax/readNotifications.php",
+            data: {
+                user_id: user_id
+
+            },
+            success: function (data) {
+
+            },
+            error: function () {
+
+            }
+        });
+    }
+    $(".readNotifications").click(readNotifications);
 
 </script>
 

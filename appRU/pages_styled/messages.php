@@ -10,7 +10,6 @@ $user = $_SESSION['user_id'];
 $conn->query("SET lc_time_names = 'ru_RU'");
 $query = "SELECT messages.`author`,messages.`message`,DATE_FORMAT(messages.`created_at`, '%e %b') AS date, users.`first_name` name FROM messages JOIN users ON messages.author = users.id WHERE conversation='$user' ORDER BY messages.`created_at` ASC";
 $result = $conn->query($query);
-//if (!$result) die($conn->connect_error);
 $rows = $result->num_rows;
 
 ?>
@@ -21,7 +20,8 @@ $rows = $result->num_rows;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Albi | Сообщения</title>
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
     <script
             src="//code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

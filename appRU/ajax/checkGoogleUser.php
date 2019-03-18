@@ -14,8 +14,6 @@ $googleID = $_GET['googleID'];
 
 $query = "SELECT id FROM users WHERE googleID='$googleID'";
 $result = $conn->query($query);
-//if (!$result) die($conn->connect_error);
-//$rows = $result->num_rows;
 $obj = $result->fetch_object();
 
 if($obj->id){

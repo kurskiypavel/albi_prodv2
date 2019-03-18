@@ -11,7 +11,6 @@ FROM messages m1 LEFT JOIN messages m2
  ON (m1.conversation = m2.conversation AND m1.id < m2.id)
 WHERE m2.id IS NULL)  messages JOIN users ON messages.conversation = users.id  ORDER BY messages.`created_at` DESC";
 $result = $conn->query($query);
-//if (!$result) die($conn->connect_error);
 $rows = $result->num_rows;
 
 
@@ -27,7 +26,8 @@ $rows = $result->num_rows;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Albi | Admin messages</title>
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../assets/css/reset.css">
     <style>
         a {

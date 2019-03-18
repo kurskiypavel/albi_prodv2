@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Albi | Войти</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styleApp.css">
     <link rel="stylesheet" href="/assets/css/reset.css">
@@ -25,8 +24,9 @@
     </div>
 
     <!--Add buttons to initiate auth sequence and sign out-->
-    <a class='loginWith' id="authorize_button" style="display: none;"><img src="assets/images/google_icon.png" alt=""> <p>Продолжить с Google</p></a>
-    <button id="signout_button" style="display: none;">Sign Out</button>
+    <a class='loginWith' id="authorize_button" style="display:block;"><img src="assets/images/google_icon.png" alt="">
+        <p>Продолжить с Google</p></a>
+<!--    <button id="signout_button" style="display: none;">Sign Out</button>-->
     <button class='loginWith' onclick="location.href = 'phone_login.php'" class=''>По номеру телефона</button>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
@@ -35,6 +35,8 @@
     <button onclick="location.href = 'register.php'" class='buttonRegister'>Зарегистрироваться</button> -->
 
 </div>
+
+
 
 <script
         src="//code.jquery.com/jquery-3.3.1.min.js"
@@ -46,7 +48,6 @@
 <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
-
 
 </body>
 </html>

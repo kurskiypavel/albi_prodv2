@@ -17,7 +17,6 @@ $classProgram = new programClass($conn);
 //select userd data
 $query = "SELECT * FROM users WHERE id='$user' OR googleID='$user'";
 $result = $conn->query($query);
-//if (!$result) die($conn->connect_error);
 $rows = $result->num_rows;
 $obj = $result->fetch_object();
 
@@ -27,7 +26,6 @@ if ($user == '1') {
 } else {
     $query = "SELECT id FROM `notifications-booking` WHERE owner='$user' and readed is null";
     $result = $conn->query($query);
-    //if (!$result) die($conn->connect_error);
     $rows = $result->num_rows;
     if (!$rows) {
         $notificationLink = '<a class="ring" href="notifications.php"><i class="far fa-bell"></i></a>';
@@ -48,6 +46,7 @@ if ($user == '1') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Albi | Мой профиль</title>
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/flexiblegrid@v1.2.2/dist/css/flexible-grid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styleApp.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">

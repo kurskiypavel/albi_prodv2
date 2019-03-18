@@ -30,5 +30,13 @@ class notificationClass
         $this->conn->query($sql_read_notification);
     }
 
+    public function readAll($user)
+    {
+        $sql_read_notification = "UPDATE `notifications-booking` SET readed='1'
+                          
+                         WHERE owner='$user'";
+        $this->conn->query($sql_read_notification);
+    }
+
 
 }
