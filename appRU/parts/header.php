@@ -1,11 +1,11 @@
 <?php
 
 echo '
-    <script>
+    <!--<script>
         if (window.innerWidth > 767) {
             location.href="/splash.html";
         }
-    </script>
+    </script>-->
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
